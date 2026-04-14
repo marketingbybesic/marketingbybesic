@@ -1,0 +1,52 @@
+---
+import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
+
+// GSAP for animations
+---
+
+<LayoutAuthority title="Welcome to the Architecture | Marketing by Bešić">
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background Glow -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand/10 rounded-full blur-3xl"></div>
+
+    <div class="container-custom relative z-10 text-center max-w-2xl">
+      <!-- Animated Checkmark -->
+      <div id="checkmark" class="w-24 h-24 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-8 opacity-0 translate-y-5">
+        <svg class="w-12 h-12 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 id="headline" class="heading-xl mb-6 opacity-0 translate-y-5">
+        Welcome to the Architecture.
+      </h1>
+
+      <p id="body" class="body-lg mb-10 opacity-0 translate-y-5">
+        Your requested resource is being dispatched to your inbox right now. While you wait, explore our track record of engineering net-new revenue for elite clinics.
+      </p>
+
+      <div id="cta" class="opacity-0 translate-y-5">
+        <a href="/en/proof" class="btn-primary text-lg px-10 py-5">
+          View Verifiable Case Studies
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GSAP Animation -->
+  <script>
+    import { gsap } from 'gsap';
+
+    // Stagger fade-in animation
+    const elements = ['#checkmark', '#headline', '#body', '#cta'];
+    elements.forEach((el, i) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.3 + (i * 0.2),
+        ease: 'power2.out'
+      });
+    });
+  </script>
+</LayoutAuthority>

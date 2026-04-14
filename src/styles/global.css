@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-body antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand text-text-primary;
+  }
+
+  a {
+    @apply text-text-primary no-underline transition-colors duration-200;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-brand text-text-primary font-semibold text-lg rounded-lg transition-all duration-300 hover:bg-brand-hover hover:shadow-lg hover:shadow-brand-glow transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-brand text-brand font-semibold text-lg rounded-lg transition-all duration-300 hover:bg-brand hover:text-text-primary;
+  }
+
+  .heading-xl {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight;
+  }
+
+  .heading-lg {
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .heading-md {
+    @apply font-heading text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug;
+  }
+
+  .body-lg {
+    @apply text-base md:text-lg text-text-secondary leading-relaxed;
+  }
+
+  .body-md {
+    @apply text-sm md:text-base text-text-secondary leading-relaxed;
+  }
+
+  .bg-pattern {
+    background-image: url('/favicon.svg');
+    background-size: 40px 40px;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    opacity: 1;
+  }
+
+  .bg-pattern::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.95);
+    z-index: -1;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,182 @@
+---
+import LayoutAuthority from '../../layouts/LayoutAuthority.astro';
+import { getTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'hr' } },
+  ];
+}
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+---
+
+<LayoutAuthority title="Marketing by Besic | Neurolinguistic Revenue Architecture" lang={lang}>
+  <!-- Section 1: Hero -->
+  <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-brand/5 via-transparent to-transparent"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+    <div class="container-custom relative z-10 text-center py-20">
+      <p class="text-brand text-sm md:text-base font-semibold tracking-widest uppercase mb-6">
+        {t.home.eyebrow}
+      </p>
+      <h1 class="heading-xl max-w-4xl mx-auto mb-8">
+        {t.home.heroTitle}
+      </h1>
+      <p class="body-lg max-w-2xl mx-auto mb-12">
+        {t.home.heroDesc}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={`/${lang}/architecture`} class="btn-secondary">
+          {t.home.heroCtaSecondary}
+        </a>
+        <a href={`/${lang}/contact`} class="btn-primary">
+          {t.home.heroCtaPrimary}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: The Problem -->
+  <section id="the-problem" class="py-20 md:py-32" style="background-color: #111111;">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">
+          {t.home.executionGapTitle}
+        </h2>
+        <p class="body-lg max-w-2xl mx-auto">
+          {t.home.executionGapDesc}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">01</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-2">{t.home.vanityMetricsTitle}</h3>
+          <p class="body-md">{t.home.vanityMetricsDesc}</p>
+        </div>
+        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">02</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-2">{t.home.fragmentedSystemsTitle}</h3>
+          <p class="body-md">{t.home.fragmentedSystemsDesc}</p>
+        </div>
+        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">03</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-2">{t.home.genericCreativeTitle}</h3>
+          <p class="body-md">{t.home.genericCreativeDesc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The NLP Advantage -->
+  <section id="the-nlp-advantage" class="py-20 md:py-32">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="heading-lg mb-6">{t.home.nlpTitle}</h2>
+          <p class="body-lg mb-6">{t.home.nlpDesc1}</p>
+          <p class="body-md">{t.home.nlpDesc2}</p>
+        </div>
+        <div class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden aspect-square">
+          <img
+            src="/images/nlp-framework-visual.jpg"
+            alt={t.home.nlpVisualLabel}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4+5: The Pillars + CTA (seamless bg-bg-secondary) -->
+  <section id="the-pillars" class="pt-20 md:pt-32 bg-bg-secondary">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.home.pillarsTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.home.pillarsDesc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-brand text-2xl font-bold">I</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold mb-3">{t.home.pillar1Title}</h3>
+          <p class="body-md">{t.home.pillar1Desc}</p>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-brand text-2xl font-bold">II</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold mb-3">{t.home.pillar2Title}</h3>
+          <p class="body-md">{t.home.pillar2Desc}</p>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-brand text-2xl font-bold">III</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold mb-3">{t.home.pillar3Title}</h3>
+          <p class="body-md">{t.home.pillar3Desc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA — seamlessly continues bg-bg-secondary -->
+  <section id="final-cta" class="pb-20 md:pb-32 bg-bg-secondary">
+    <div class="container-custom text-center pt-20 md:pt-32">
+      <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.home.ctaTitle}</h2>
+      <p class="body-lg max-w-2xl mx-auto mb-10">{t.home.ctaDesc}</p>
+      <a href={`/${lang}/contact`} class="btn-primary text-lg px-10 py-5">
+        {t.home.ctaButton}
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 6: The Compounding Effect -->
+  <section id="the-compounding-effect" class="py-20 md:py-32">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.home.compoundingTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.home.compoundingDesc}</p>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 md:p-12">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">1</span>
+              </div>
+              <p class="text-sm text-text-secondary">{t.home.trackRevenue}</p>
+            </div>
+            <div class="text-brand text-2xl hidden md:block">→</div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">2</span>
+              </div>
+              <p class="text-sm text-text-secondary">{t.home.trainAlgorithm}</p>
+            </div>
+            <div class="text-brand text-2xl hidden md:block">→</div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">3</span>
+              </div>
+              <p class="text-sm text-text-secondary">{t.home.lowerCPA}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</LayoutAuthority>

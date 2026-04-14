@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "eyebrow": "EXCLUSIVELY FOR LUXURY MEDSPAS IN EUROPE",
+    "title": "Engineering Revenue for Europe's Elite Aesthetic Clinics",
+    "description": "We replace fragmented marketing with Neurolinguistic Revenue Architecture (NRA). High-net-worth patient acquisition, hard-coded to your EMR, driven purely by performance.",
+    "ctaPrimary": {
+      "label": "Get in Touch",
+      "url": "/contact"
+    },
+    "ctaSecondary": {
+      "label": "See How It Works",
+      "url": "/architecture"
+    }
+  },
+  "socialProof": {
+    "label": "Trusted by elite aesthetic clinics across Europe",
+    "stats": [
+      { "value": "€50M+", "label": "Net-New Revenue Generated" },
+      { "value": "200+", "label": "Clients Served" },
+      { "value": "12", "label": "Countries" },
+      { "value": "97%", "label": "Client Retention" }
+    ]
+  },
+  "ctaSection": {
+    "title": "Ready to Architect Your Revenue?",
+    "description": "Apply for a free 15-minute diagnostic audit. Zero retainers. Pure performance.",
+    "ctaLabel": "Get in Touch",
+    "ctaUrl": "/contact"
+  }
+}

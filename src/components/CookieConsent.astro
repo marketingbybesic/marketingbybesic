@@ -1,0 +1,146 @@
+---
+// Cookie Consent Banner Component with 30-Day Tracking
+---
+
+<div id="cookie-consent" class="fixed bottom-0 left-0 w-full z-[99999] bg-[#0A0A0A] border-t border-[#8224e3] p-4 hidden">
+  <div class="container-custom flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-text-secondary text-sm text-center md:text-left">
+      We use cookies and conversion tracking to architect a better experience. By continuing, you agree to our <a href="/privacy-policy" class="text-brand hover:underline">Privacy Policy</a>.
+    </p>
+    <div class="flex items-center gap-4">
+      <button id="cookie-decline" class="px-6 py-2 border border-white/20 text-text-secondary hover:text-text-primary transition-colors text-sm rounded">
+        Decline
+      </button>
+      <button id="cookie-accept" class="px-6 py-2 bg-[#8224e3] text-white text-sm rounded hover:bg-[#6e1dc4] transition-colors">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const { gsap } = await import('gsap');
+
+  const consentBanner = document.getElementById('cookie-consent') as HTMLElement;
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+
+  const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+  const CONSENT_KEY = 'cookie_consent';
+  let hasAutoAccepted = false;
+
+  // Check 30-day expiration
+  function checkConsent() {
+    const stored = localStorage.getItem(CONSENT_KEY);
+    if (stored) {
+      const timestamp = parseInt(stored, 10);
+      const now = Date.now();
+      if (now - timestamp > THIRTY_DAYS) {
+        // Expired, clear it and show banner
+        localStorage.removeItem(CONSENT_KEY);
+        return false;
+      }
+      // Still valid, do not show banner
+      return true;
+    }
+    // No consent found, show banner
+    return false;
+  }
+
+  // Accept function (shared by button and scroll auto-accept)
+  function acceptConsent() {
+    localStorage.setItem(CONSENT_KEY, Date.now().toString());
+    
+    // Dynamically initialize GTM dataLayer push
+    if (typeof (window as any).dataLayer !== 'undefined') {
+      (window as any).dataLayer.push({
+        event: 'consent_given',
+        gtm_start: new Date().getTime()
+      });
+    }
+    
+    // Initialize Google Tag Manager
+    (function(w: any, d: Document, s: string, l: string, i: string) {
+      w[l] = w[l] || [];
+      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+      var f = d.getElementsByTagName(s)[0] as HTMLElement,
+          j = d.createElement(s) as HTMLScriptElement,
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode!.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5GL56SKX');
+
+    // Initialize Meta Pixel
+    (function(f: Window, b: Document, e: string, v: string, n: any, t: any, s: any) {
+      if ((f as any).fbq) return;
+      n = (f as any).fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!(f as any)._fbq) (f as any)._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', undefined, undefined, undefined);
+    
+    (window as any).fbq('init', '1978765049417651');
+    (window as any).fbq('track', 'PageView');
+
+    // Smooth fade out animation
+    if (consentBanner) {
+      gsap.to(consentBanner, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        onComplete: () => {
+          consentBanner.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // Initialize
+  if (!checkConsent()) {
+    consentBanner?.classList.remove('hidden');
+  }
+
+  // Accept button
+  acceptBtn?.addEventListener('click', () => {
+    acceptConsent();
+  });
+
+  // Decline button
+  declineBtn?.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, Date.now().toString());
+    if (consentBanner) {
+      gsap.to(consentBanner, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        onComplete: () => {
+          consentBanner.style.display = 'none';
+        }
+      });
+    }
+  });
+
+  // Auto-accept on scroll (past 600px)
+  function onScroll() {
+    if (hasAutoAccepted) return;
+    if (window.scrollY > 600) {
+      hasAutoAccepted = true;
+      acceptConsent();
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+
+  if (!checkConsent()) {
+    window.addEventListener('scroll', onScroll);
+  }
+</script>

@@ -1,0 +1,42 @@
+import { e as createComponent, r as renderTemplate, k as renderScript, l as renderComponent, n as renderSlot, o as renderHead, g as addAttribute, h as createAstro } from './astro/server_CIWKdfaW.mjs';
+import 'piccolore';
+/* empty css                         */
+import { $ as $$NewsletterModal, a as $$CookieConsent } from './NewsletterModal_C82BXCNp.mjs';
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Astro = createAstro();
+const $$LayoutFunnel = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$LayoutFunnel;
+  const { title, description = "Apply for a Diagnostic Audit - Neurolinguistic Revenue Architecture" } = Astro2.props;
+  return renderTemplate(_a || (_a = __template(['<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description"', '><meta name="robots" content="noindex, nofollow"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Open Graph --><meta property="og:image" content="/og-image.svg"><meta property="og:image:type" content="image/svg+xml"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><title>', `</title><!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- GTM Head (conditional on GDPR) --><script>
+      (function() {
+        var consent = localStorage.getItem('gdpr_consent');
+        if (consent === 'accepted') {
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-5GL56SKX');
+        }
+      })();
+    <\/script><!-- Meta Pixel Head (conditional on GDPR) --><script>
+      (function() {
+        var consent = localStorage.getItem('gdpr_consent');
+        if (consent === 'accepted') {
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,'script','https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1978765049417651');
+          fbq('track', 'PageView');
+        }
+      })();
+    <\/script>`, '</head> <body class="bg-bg-primary text-text-primary font-body antialiased bg-pattern"> <!-- GTM Body (noscript) --> <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GL56SKX" height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript> <!-- Funnel Content (NO Header, NO Footer) --> <main> ', " </main> <!-- Cookie Consent Banner --> ", " <!-- Newsletter Modal --> ", " <!-- Global GSAP ScrollTrigger for Image Scroll Reveal --> ", " </body> </html>"])), addAttribute(description, "content"), title, renderHead(), renderSlot($$result, $$slots["default"]), renderComponent($$result, "CookieConsent", $$CookieConsent, {}), renderComponent($$result, "NewsletterModal", $$NewsletterModal, {}), renderScript($$result, "/Users/zmaj/Documents/13. Jdoo/Website - MarketingbyBesic/src/layouts/LayoutFunnel.astro?astro&type=script&index=0&lang.ts"));
+}, "/Users/zmaj/Documents/13. Jdoo/Website - MarketingbyBesic/src/layouts/LayoutFunnel.astro", void 0);
+
+export { $$LayoutFunnel as $ };

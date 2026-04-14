@@ -1,0 +1,59 @@
+---
+// Image Placeholder Component
+// Styled placeholder div indicating where background images should be added
+interface Props {
+  imageName: string;
+  className?: string;
+  height?: string;
+}
+
+const { imageName, className = '', height = '400px' } = Astro.props;
+---
+
+<div class={`image-placeholder ${className}`} style={`height: ${height};`} data-image-name={imageName}>
+  <div class="placeholder-content">
+    <svg class="placeholder-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+    <p class="placeholder-text">
+      [PLACEHOLDER: Add background image named '{imageName}' to public/images/]
+    </p>
+  </div>
+</div>
+
+<style>
+  .image-placeholder {
+    position: relative;
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 2px dashed #333;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .placeholder-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .placeholder-icon {
+    width: 48px;
+    height: 48px;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  .placeholder-text {
+    color: #777;
+    font-size: 0.75rem;
+    text-align: center;
+    font-family: monospace;
+    line-height: 1.5;
+    max-width: 90%;
+  }
+</style>

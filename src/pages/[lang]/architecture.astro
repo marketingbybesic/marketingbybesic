@@ -1,0 +1,177 @@
+---
+import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
+import { getTranslations } from '@/i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'hr' } },
+  ];
+}
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+---
+
+<LayoutAuthority title="Architecture | Marketing by Besic" lang={lang}>
+  <!-- Section 1: Architecture Hero -->
+  <section id="architecture-hero" class="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+    <div class="container-custom relative z-10 text-center max-w-4xl">
+      <h1 class="heading-xl mb-6">{t.architecture.heroTitle}</h1>
+      <p class="body-lg max-w-2xl mx-auto">{t.architecture.heroDesc}</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Why Others Fail -->
+  <section id="why-others-fail" class="py-20 md:py-32 bg-bg-secondary">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.architecture.whyFailTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.architecture.whyFailDesc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">!</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-3">{t.architecture.fail1Title}</h3>
+          <p class="body-md">{t.architecture.fail1Desc}</p>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">!</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-3">{t.architecture.fail2Title}</h3>
+          <p class="body-md">{t.architecture.fail2Desc}</p>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">!</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-3">{t.architecture.fail3Title}</h3>
+          <p class="body-md">{t.architecture.fail3Desc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: The Three Pillars -->
+  <section id="the-three-pillars" class="py-20 md:py-32">
+    <div class="container-custom max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.architecture.frameworkTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.architecture.frameworkDesc}</p>
+      </div>
+
+      <!-- Pillar I -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 md:mb-32">
+        <div>
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6">
+            <span class="text-brand text-2xl font-bold">I</span>
+          </div>
+          <h3 class="heading-md mb-4">{t.architecture.pillar1Title}</h3>
+          <p class="body-md mb-4">{t.architecture.pillar1Desc1}</p>
+          <p class="body-md">{t.architecture.pillar1Desc2}</p>
+        </div>
+        <div class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden aspect-square">
+          <img
+            src="/images/architecture-pillar-1-nlp.jpg"
+            alt={t.architecture.pillar1Visual}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Pillar II -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 md:mb-32">
+        <div class="order-2 md:order-1 bg-bg-secondary border border-white/5 rounded-xl overflow-hidden aspect-square">
+          <img
+            src="/images/architecture-pillar-2-conversion.jpg"
+            alt={t.architecture.pillar2Visual}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6">
+            <span class="text-brand text-2xl font-bold">II</span>
+          </div>
+          <h3 class="heading-md mb-4">{t.architecture.pillar2Title}</h3>
+          <p class="body-md mb-4">{t.architecture.pillar2Desc1}</p>
+          <p class="body-md">{t.architecture.pillar2Desc2}</p>
+        </div>
+      </div>
+
+      <!-- Pillar III -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6">
+            <span class="text-brand text-2xl font-bold">III</span>
+          </div>
+          <h3 class="heading-md mb-4">{t.architecture.pillar3Title}</h3>
+          <p class="body-md mb-4">{t.architecture.pillar3Desc1}</p>
+          <p class="body-md">{t.architecture.pillar3Desc2}</p>
+        </div>
+        <div class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden aspect-square">
+          <img
+            src="/images/architecture-pillar-3-tracking.jpg"
+            alt={t.architecture.pillar3Visual}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: The Feedback Loop -->
+  <section id="the-feedback-loop" class="py-20 md:py-32 bg-bg-secondary">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6">{t.architecture.feedbackTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.architecture.feedbackDesc}</p>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 md:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">1</span>
+              </div>
+              <h4 class="font-heading text-lg font-bold mb-2">{t.architecture.loop1Title}</h4>
+              <p class="body-md">{t.architecture.loop1Desc}</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">2</span>
+              </div>
+              <h4 class="font-heading text-lg font-bold mb-2">{t.architecture.loop2Title}</h4>
+              <p class="body-md">{t.architecture.loop2Desc}</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-brand text-xl font-bold">3</span>
+              </div>
+              <h4 class="font-heading text-lg font-bold mb-2">{t.architecture.loop3Title}</h4>
+              <p class="body-md">{t.architecture.loop3Desc}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Architecture CTA -->
+  <section id="architecture-cta" class="py-20 md:py-32">
+    <div class="container-custom text-center max-w-3xl">
+      <h2 class="heading-lg mb-6">{t.architecture.ctaTitle}</h2>
+      <p class="body-lg mb-10">{t.architecture.ctaDesc}</p>
+      <a href={`/${lang}/contact`} class="btn-primary text-lg px-10 py-5">{t.architecture.ctaButton}</a>
+    </div>
+  </section>
+</LayoutAuthority>

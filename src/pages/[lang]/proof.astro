@@ -1,0 +1,84 @@
+---
+import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
+import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
+import { getTranslations } from '@/i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'hr' } },
+  ];
+}
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+---
+
+<LayoutAuthority title="Proof | Marketing by Besic" lang={lang}>
+  <!-- Section 1: Company Pedigree -->
+  <section id="company-pedigree" class="py-20 md:py-32">
+    <div class="container-custom max-w-4xl">
+      <div class="text-center mb-16">
+        <h1 class="heading-xl mb-6">{t.proof.heroTitle}</h1>
+        <p class="body-lg max-w-2xl mx-auto">{t.proof.heroDesc}</p>
+      </div>
+      <div class="prose prose-lg prose-invert max-w-none">
+        <p class="body-lg mb-8">{t.proof.heroBody1}</p>
+        <p class="body-md mb-8">{t.proof.heroBody2}</p>
+        <p class="body-md mb-8">{t.proof.heroBody3}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Portfolio Grid -->
+  <section id="portfolio-grid" class="py-20 md:py-32 bg-bg-secondary">
+    <div class="container-custom max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="heading-lg mb-6">{t.proof.caseStudiesTitle}</h2>
+        <p class="body-lg max-w-2xl mx-auto">{t.proof.caseStudiesDesc}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
+          <ImagePlaceholder imageName="case-study-1.jpg" height="200px" />
+          <div class="p-6">
+            <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
+            <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
+            <p class="body-md">{t.proof.placeholderDesc}</p>
+          </div>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
+          <ImagePlaceholder imageName="case-study-2.jpg" height="200px" />
+          <div class="p-6">
+            <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
+            <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
+            <p class="body-md">{t.proof.placeholderDesc}</p>
+          </div>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
+          <ImagePlaceholder imageName="case-study-3.jpg" height="200px" />
+          <div class="p-6">
+            <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
+            <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
+            <p class="body-md">{t.proof.placeholderDesc}</p>
+          </div>
+        </div>
+        <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
+          <ImagePlaceholder imageName="case-study-4.jpg" height="200px" />
+          <div class="p-6">
+            <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
+            <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
+            <p class="body-md">{t.proof.placeholderDesc}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center">
+        <a href={`/${lang}/contact`} class="btn-primary">{t.proof.ctaButton}</a>
+      </div>
+    </div>
+  </section>
+</LayoutAuthority>
