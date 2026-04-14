@@ -1,6 +1,5 @@
 ---
 import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
-import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
 import { getTranslations } from '@/i18n/utils';
 
 export function getStaticPaths() {
@@ -43,7 +42,7 @@ const t = getTranslations(lang);
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
-          <ImagePlaceholder imageName="case-study-1.jpg" height="200px" />
+          <img src="/case-study-1.webp" alt="Case Study 1" class="w-full object-cover" style="height:200px;" loading="lazy" />
           <div class="p-6">
             <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
             <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
@@ -51,7 +50,7 @@ const t = getTranslations(lang);
           </div>
         </div>
         <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
-          <ImagePlaceholder imageName="case-study-2.jpg" height="200px" />
+          <img src="/case-study-2.webp" alt="Case Study 2" class="w-full object-cover" style="height:200px;" loading="lazy" />
           <div class="p-6">
             <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
             <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
@@ -59,7 +58,7 @@ const t = getTranslations(lang);
           </div>
         </div>
         <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
-          <ImagePlaceholder imageName="case-study-3.jpg" height="200px" />
+          <img src="/case-study-3.webp" alt="Case Study 3" class="w-full object-cover" style="height:200px;" loading="lazy" />
           <div class="p-6">
             <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
             <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>
@@ -67,7 +66,7 @@ const t = getTranslations(lang);
           </div>
         </div>
         <div class="bg-bg-primary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors">
-          <ImagePlaceholder imageName="case-study-4.jpg" height="200px" />
+          <img src="/case-study-4.webp" alt="Case Study 4" class="w-full object-cover" style="height:200px;" loading="lazy" />
           <div class="p-6">
             <div class="text-brand text-3xl font-heading font-bold mb-2">€XXXK</div>
             <h3 class="font-heading text-lg font-semibold mb-2">{t.proof.revenueLabel}</h3>

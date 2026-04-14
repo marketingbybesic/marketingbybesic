@@ -94,20 +94,25 @@ const base = lang === 'en' ? '' : `/${lang}`;
             <a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.contact}</a>
           </nav>
 
-          <!-- Language Switcher (always visible) -->
-          <LanguageSwitcher />
+          <!-- Language Switcher (desktop: full label, mobile: globe only next to hamburger) -->
+          <div class="hidden md:block">
+            <LanguageSwitcher />
+          </div>
 
           <!-- CTA -->
           <a href={`${base}/contact`} class="hidden md:inline-flex btn-primary text-sm px-6 py-3">
             {t.nav.getInTouch}
           </a>
 
-          <!-- Mobile Menu Button -->
-          <button id="mobile-menu-btn" class="md:hidden p-2 text-text-primary" aria-label="Toggle menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <!-- Mobile: Globe + Hamburger -->
+          <div class="flex items-center gap-1 md:hidden">
+            <LanguageSwitcher mobileOnly={true} />
+            <button id="mobile-menu-btn" class="p-2 text-text-primary" aria-label="Toggle menu">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <!-- Mobile Menu -->
@@ -163,9 +168,9 @@ const base = lang === 'en' ? '' : `/${lang}`;
           <div>
             <h4 class="font-semibold text-text-primary mb-4">{t.footer.legal}</h4>
             <ul class="space-y-2">
-              <li><a href="/privacy-policy" class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.privacyPolicy}</a></li>
-              <li><a href="/terms-of-service" class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.termsOfService}</a></li>
-              <li><a href="/impressum" class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.impressum}</a></li>
+              <li><a href={`${base}/privacy-policy`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.privacyPolicy}</a></li>
+              <li><a href={`${base}/terms-of-service`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.termsOfService}</a></li>
+              <li><a href={`${base}/impressum`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.impressum}</a></li>
             </ul>
           </div>
         </div>

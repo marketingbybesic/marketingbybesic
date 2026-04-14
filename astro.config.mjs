@@ -10,14 +10,6 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false,
   })],
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'de', 'fr', 'es', 'it', 'hr'],
-    routing: {
-      prefixDefaultLocale: false,
-      redirectToDefaultLocale: false,
-    },
-  },
   vite: {
     server: {
       host: true,

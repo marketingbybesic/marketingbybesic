@@ -1,6 +1,5 @@
 ---
 import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
-import ImagePlaceholder from '@/components/ImagePlaceholder.astro';
 import { getTranslations } from '@/i18n/utils';
 
 export function getStaticPaths() {
@@ -28,8 +27,13 @@ const t = getTranslations(lang);
           <p class="body-md mb-6">{t.about.heroDesc2}</p>
           <p class="body-md">{t.about.heroDesc3}</p>
         </div>
-        <div>
-          <ImagePlaceholder imageName="about-team-photo.jpg" height="500px" />
+        <div class="rounded-xl overflow-hidden" style="height: 500px;">
+          <img
+            src="/about-team-photo.webp"
+            alt={t.about.teamPhotoAlt}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
