@@ -1,0 +1,110 @@
+---
+import LayoutAuthority from '../../layouts/LayoutAuthority.astro';
+import { getCollection, render } from 'astro:content';
+
+const { slug } = Astro.params;
+
+const allPosts = await getCollection('blog');
+const post = allPosts.find((p) => p.id === slug);
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+
+const { Content } = await render(post);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<LayoutAuthority
+  title={`${post.data.title} | Marketing by Besic`}
+  description={post.data.metaDescription}
+>
+  <article class="py-20 md:py-32">
+    <div class="container-custom max-w-3xl">
+
+      <!-- Back link -->
+      <a href="/blog" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm mb-10">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Blog
+      </a>
+
+      <!-- Category + Date -->
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-brand text-xs font-semibold tracking-widest uppercase">
+          {post.data.category}
+        </span>
+        <span class="text-text-secondary text-xs">·</span>
+        <time class="text-text-secondary text-xs" datetime={post.data.publishDate.toISOString()}>
+          {formatDate(post.data.publishDate)}
+        </time>
+      </div>
+
+      <!-- Title -->
+      <h1 class="heading-lg mb-6">
+        {post.data.title}
+      </h1>
+
+      <!-- Author -->
+      <p class="text-text-secondary text-sm mb-10">
+        By <span class="text-text-primary font-semibold">{post.data.author}</span>
+      </p>
+
+      <!-- Featured Image -->
+      {post.data.featuredImage && (
+        <div class="rounded-xl overflow-hidden mb-12 aspect-video">
+          <img
+            src={post.data.featuredImage}
+            alt={post.data.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      <!-- Case Study specific fields -->
+      {post.data.category === 'Case Study' && post.data.netNewRevenue && (
+        <div class="bg-brand/10 border border-brand/20 rounded-xl p-6 mb-10">
+          <p class="text-brand text-xs font-semibold tracking-widest uppercase mb-1">Result</p>
+          <p class="font-heading text-3xl font-bold">{post.data.netNewRevenue}</p>
+          {post.data.clinicType && (
+            <p class="text-text-secondary text-sm mt-1">{post.data.clinicType}</p>
+          )}
+        </div>
+      )}
+
+      <!-- MDX Body -->
+      <div class="prose prose-invert prose-lg max-w-none
+        prose-headings:font-heading prose-headings:font-bold
+        prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-text-secondary prose-p:leading-relaxed prose-p:mb-6
+        prose-strong:text-text-primary
+        prose-a:text-brand prose-a:no-underline hover:prose-a:underline
+        prose-ul:text-text-secondary prose-ol:text-text-secondary
+        prose-li:mb-2
+        prose-blockquote:border-brand prose-blockquote:text-text-secondary
+        prose-hr:border-white/10">
+        <Content />
+      </div>
+
+      <!-- Back link bottom -->
+      <div class="mt-16 pt-8 border-t border-white/10">
+        <a href="/blog" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to all articles
+        </a>
+      </div>
+
+    </div>
+  </article>
+</LayoutAuthority>

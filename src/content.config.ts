@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-// Define the pages collection to suppress the auto-generation deprecation warning
+// Pages collection (JSON — used by TinaCMS for home page fields)
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/pages' }),
   schema: z.object({
@@ -34,4 +34,26 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+// Blog & Case Studies collection (MDX — managed via TinaCMS)
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    publishDate: z.coerce.date(),
+    author: z.string(),
+    category: z.enum([
+      'NLP & Psychology',
+      'Tracking & Data',
+      'Creative Strategy',
+      'Industry Trends',
+      'Case Study',
+    ]),
+    metaDescription: z.string(),
+    featuredImage: z.string().optional(),
+    clinicType: z.string().optional(),
+    netNewRevenue: z.string().optional(),
+    videoEmbedUrl: z.string().optional(),
+  }),
+});
+
+export const collections = { pages, blog };

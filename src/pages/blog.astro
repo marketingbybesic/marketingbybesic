@@ -1,40 +1,15 @@
 ---
-import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
-import Subscribe from '@/components/Subscribe.astro';
+import LayoutAuthority from '../layouts/LayoutAuthority.astro';
+import Subscribe from '../components/Subscribe.astro';
+import { getCollection } from 'astro:content';
 
-// Blog posts data — replace with TinaCMS dynamic content once posts are published
-const posts = [
-  {
-    slug: 'death-of-the-marketing-retainer',
-    title: 'The Death of the Marketing Retainer',
-    description: 'Why performance-based models are the future of MedSpa client acquisition.',
-    category: 'Industry Trends',
-    date: '2025-01-15',
-    thumbnail: '/blog-post-1-thumbnail.webp',
-    thumbnailAlt: 'The Death of the Marketing Retainer',
-  },
-  {
-    slug: 'emr-integration-missing-link',
-    title: 'EMR Integration: The Missing Link',
-    description: 'How connecting your EMR to your marketing stack reveals hidden revenue streams.',
-    category: 'Tracking & Data',
-    date: '2025-02-03',
-    thumbnail: '/blog-post-2-thumbnail.webp',
-    thumbnailAlt: 'EMR Integration: The Missing Link',
-  },
-  {
-    slug: 'nlp-in-aesthetic-marketing',
-    title: 'NLP in Aesthetic Marketing',
-    description: 'Using neurolinguistic patterns to craft ads that resonate with affluent patients.',
-    category: 'NLP & Psychology',
-    date: '2025-03-10',
-    thumbnail: '/blog-post-3-thumbnail.webp',
-    thumbnailAlt: 'NLP in Aesthetic Marketing',
-  },
-];
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
 
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-GB', {
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -59,70 +34,42 @@ function formatDate(dateStr: string): string {
       <!-- Blog Posts Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {posts.map((post) => (
-          <article class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-all duration-300 group flex flex-col">
-            <!-- Thumbnail -->
-            <div class="aspect-video overflow-hidden bg-bg-primary relative">
-              <img
-                src={post.thumbnail}
-                alt={post.thumbnailAlt}
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-                onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'text-text-secondary text-sm\'>Image coming soon</span></div>'"
-              />
-              <!-- Category Badge -->
-              <span class="absolute top-3 left-3 bg-brand/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
-                {post.category}
+          <article class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors group">
+            {post.data.featuredImage && (
+              <a href={`/blog/${post.id}`} class="block aspect-video overflow-hidden">
+                <img
+                  src={post.data.featuredImage}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="p-6">
+              <span class="text-brand text-xs font-semibold tracking-widest uppercase">
+                {post.data.category}
               </span>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-1">
-              <time class="text-text-secondary text-xs uppercase tracking-wider mb-2 block">
-                {formatDate(post.date)}
-              </time>
-              <h2 class="font-heading text-lg font-semibold mb-3 group-hover:text-brand transition-colors leading-snug">
-                {post.title}
+              <h2 class="font-heading text-lg font-bold mt-2 mb-3 leading-snug">
+                <a href={`/blog/${post.id}`} class="hover:text-brand transition-colors">
+                  {post.data.title}
+                </a>
               </h2>
-              <p class="body-md flex-1 mb-4">
-                {post.description}
+              <p class="body-md text-sm mb-4 line-clamp-3">
+                {post.data.metaDescription}
               </p>
-              <span class="text-brand text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                Read Article
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+              <div class="flex items-center justify-between text-xs text-text-secondary">
+                <span>{post.data.author}</span>
+                <time datetime={post.data.publishDate.toISOString()}>
+                  {formatDate(post.data.publishDate)}
+                </time>
+              </div>
             </div>
           </article>
         ))}
       </div>
 
-      <!-- All Posts Note -->
-      <div class="text-center mb-20">
-        <p class="text-text-secondary text-sm mb-4">
-          More articles are being published regularly. All posts are managed via the CMS.
-        </p>
-        <a
-          href="/admin"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-brand/40 text-brand rounded-lg hover:bg-brand/10 transition-colors text-sm font-medium"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-          </svg>
-          Read All Blog Posts
-        </a>
-      </div>
-
-      <!-- Newsletter Signup -->
-      <div class="text-center bg-bg-secondary border border-white/5 rounded-xl p-8 md:p-12">
-        <h2 class="heading-md mb-4">Stay Ahead of the Curve</h2>
-        <p class="body-md mb-8">
-          Get weekly insights on patient acquisition and revenue architecture delivered to your inbox.
-        </p>
-        <Subscribe />
-      </div>
+      <!-- Newsletter Subscribe -->
+      <Subscribe />
 
     </div>
   </section>
