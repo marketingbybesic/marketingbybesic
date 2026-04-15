@@ -1,7 +1,8 @@
 {
+  "title": "Home",
   "hero": {
     "eyebrow": "PERFORMANCE REVENUE GROWTH PROVEN BY RESULTS",
-    "title": "Engineering Revenue for Europe's Elite Aesthetic Clinics",
+    "heroTitle": "Engineering Revenue for Europe's Elite Aesthetic Clinics",
     "description": "We replace fragmented marketing with Neurolinguistic Revenue Architecture (NRA). High-net-worth patient acquisition, hard-coded to your EMR, driven purely by performance.",
     "ctaPrimary": {
       "label": "Get in Touch",

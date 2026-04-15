@@ -39,12 +39,19 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+          },
+          {
             type: "object",
             name: "hero",
             label: "Hero Section",
             fields: [
               { type: "string", name: "eyebrow", label: "Eyebrow Text" },
-              { type: "string", name: "title", label: "Hero Title", isTitle: true, required: true },
+              { type: "string", name: "heroTitle", label: "Hero Title" },
               { type: "string", name: "description", label: "Hero Description", ui: { component: "textarea" } },
               {
                 type: "object",
