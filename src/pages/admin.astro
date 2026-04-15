@@ -1,4 +1,5 @@
 ---
 // Redirect /admin to /admin/index.html for TinaCMS
-return Astro.redirect('/admin/index.html');
+// The actual admin SPA is served from public/admin/index.html
+return Astro.redirect('/admin/index.html', 302);
 ---
