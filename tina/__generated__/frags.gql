@@ -1,0 +1,88 @@
+fragment PagesParts on Pages {
+  __typename
+  title
+  hero {
+    __typename
+    eyebrow
+    heroTitle
+    description
+    ctaPrimary {
+      __typename
+      label
+      url
+    }
+    ctaSecondary {
+      __typename
+      label
+      url
+    }
+  }
+  socialProof {
+    __typename
+    label
+    stats {
+      __typename
+      value
+      label
+    }
+  }
+  problem {
+    __typename
+    heading
+    subheading
+    cards {
+      __typename
+      number
+      title
+      description
+    }
+  }
+  nlp {
+    __typename
+    heading
+    body1
+    body2
+  }
+  pillars {
+    __typename
+    heading
+    subheading
+    items {
+      __typename
+      numeral
+      title
+      description
+    }
+  }
+  compounding {
+    __typename
+    heading
+    subheading
+    steps {
+      __typename
+      number
+      label
+    }
+  }
+  ctaSection {
+    __typename
+    title
+    description
+    ctaLabel
+    ctaUrl
+  }
+}
+
+fragment PostParts on Post {
+  __typename
+  title
+  publishDate
+  author
+  category
+  metaDescription
+  featuredImage
+  clinicType
+  netNewRevenue
+  videoEmbedUrl
+  body
+}
