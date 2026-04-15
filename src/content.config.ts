@@ -5,9 +5,10 @@ import { glob } from 'astro/loaders';
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/pages' }),
   schema: z.object({
+    title: z.string().optional(),
     hero: z.object({
       eyebrow: z.string().optional(),
-      title: z.string().optional(),
+      heroTitle: z.string().optional(),
       description: z.string().optional(),
       ctaPrimary: z.object({
         label: z.string(),
@@ -22,6 +23,37 @@ const pages = defineCollection({
       label: z.string().optional(),
       stats: z.array(z.object({
         value: z.string(),
+        label: z.string(),
+      })).optional(),
+    }).optional(),
+    problem: z.object({
+      heading: z.string().optional(),
+      subheading: z.string().optional(),
+      cards: z.array(z.object({
+        number: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })).optional(),
+    }).optional(),
+    nlp: z.object({
+      heading: z.string().optional(),
+      body1: z.string().optional(),
+      body2: z.string().optional(),
+    }).optional(),
+    pillars: z.object({
+      heading: z.string().optional(),
+      subheading: z.string().optional(),
+      items: z.array(z.object({
+        numeral: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })).optional(),
+    }).optional(),
+    compounding: z.object({
+      heading: z.string().optional(),
+      subheading: z.string().optional(),
+      steps: z.array(z.object({
+        number: z.string(),
         label: z.string(),
       })).optional(),
     }).optional(),

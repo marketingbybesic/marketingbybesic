@@ -45,6 +45,7 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
+          // ── Hero Section ──────────────────────────────────────────────
           {
             type: "object",
             name: "hero",
@@ -73,6 +74,7 @@ export default defineConfig({
               },
             ],
           },
+          // ── Social Proof / Trust Bar ──────────────────────────────────
           {
             type: "object",
             name: "socialProof",
@@ -95,6 +97,92 @@ export default defineConfig({
               },
             ],
           },
+          // ── Problem Section ───────────────────────────────────────────
+          {
+            type: "object",
+            name: "problem",
+            label: "Problem Section",
+            fields: [
+              { type: "string", name: "heading", label: "Section Heading" },
+              { type: "string", name: "subheading", label: "Section Subheading", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "cards",
+                label: "Problem Cards",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.title }),
+                  defaultItem: { number: "04", title: "New Problem", description: "Description here." },
+                },
+                fields: [
+                  { type: "string", name: "number", label: "Number (e.g. 01)" },
+                  { type: "string", name: "title", label: "Card Title" },
+                  { type: "string", name: "description", label: "Card Description", ui: { component: "textarea" } },
+                ],
+              },
+            ],
+          },
+          // ── NLP Section ───────────────────────────────────────────────
+          {
+            type: "object",
+            name: "nlp",
+            label: "NLP Advantage Section",
+            fields: [
+              { type: "string", name: "heading", label: "Section Heading" },
+              { type: "string", name: "body1", label: "Body Paragraph 1", ui: { component: "textarea" } },
+              { type: "string", name: "body2", label: "Body Paragraph 2", ui: { component: "textarea" } },
+            ],
+          },
+          // ── Pillars Section ───────────────────────────────────────────
+          {
+            type: "object",
+            name: "pillars",
+            label: "Pillars Section",
+            fields: [
+              { type: "string", name: "heading", label: "Section Heading" },
+              { type: "string", name: "subheading", label: "Section Subheading", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "items",
+                label: "Pillars",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.title }),
+                  defaultItem: { numeral: "IV", title: "New Pillar", description: "Description here." },
+                },
+                fields: [
+                  { type: "string", name: "numeral", label: "Roman Numeral (e.g. I, II, III)" },
+                  { type: "string", name: "title", label: "Pillar Title" },
+                  { type: "string", name: "description", label: "Pillar Description", ui: { component: "textarea" } },
+                ],
+              },
+            ],
+          },
+          // ── Compounding Effect Section ────────────────────────────────
+          {
+            type: "object",
+            name: "compounding",
+            label: "Compounding Effect Section",
+            fields: [
+              { type: "string", name: "heading", label: "Section Heading" },
+              { type: "string", name: "subheading", label: "Section Subheading", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "steps",
+                label: "Steps",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({ label: item?.label }),
+                  defaultItem: { number: "4", label: "New Step" },
+                },
+                fields: [
+                  { type: "string", name: "number", label: "Step Number" },
+                  { type: "string", name: "label", label: "Step Label" },
+                ],
+              },
+            ],
+          },
+          // ── CTA Section ───────────────────────────────────────────────
           {
             type: "object",
             name: "ctaSection",
@@ -138,7 +226,6 @@ export default defineConfig({
             required: true,
           },
           {
-            // Category now includes Case Study as an option
             type: "string",
             name: "category",
             label: "Category",
@@ -163,7 +250,6 @@ export default defineConfig({
             name: "featuredImage",
             label: "Featured Image",
           },
-          // Case Study specific fields (optional — only used when category = "Case Study")
           {
             type: "string",
             name: "clinicType",

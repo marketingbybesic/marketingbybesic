@@ -2,7 +2,7 @@
 import LayoutAuthority from '../layouts/LayoutAuthority.astro';
 import homeData from '../content/pages/home.json';
 
-const { hero, ctaSection } = homeData;
+const { hero, socialProof, problem, nlp, pillars, compounding, ctaSection } = homeData;
 ---
 
 <LayoutAuthority title="Marketing by Bešić | Neurolinguistic Revenue Architecture">
@@ -16,88 +16,65 @@ const { hero, ctaSection } = homeData;
       <p class="text-brand text-sm md:text-base font-semibold tracking-widest uppercase mb-6" data-tina-field="hero.eyebrow">
         {hero.eyebrow}
       </p>
-      <h1 class="heading-xl max-w-4xl mx-auto mb-8" data-tina-field="hero.title">
-        The Architecture of Scalable Profit.
+      <h1 class="heading-xl max-w-4xl mx-auto mb-8" data-tina-field="hero.heroTitle">
+        {hero.heroTitle}
       </h1>
       <p class="body-lg max-w-2xl mx-auto mb-12" data-tina-field="hero.description">
-        Stop buying generic "clicks" and "leads." We combine advanced Neurolinguistic Programming with full-stack conversion tracking to engineer systems that turn cold traffic into verified, high-ticket revenue.
+        {hero.description}
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/en/architecture" class="btn-secondary">
-          See How It Works
+        <a href={hero.ctaSecondary?.url ?? '/en/architecture'} class="btn-secondary" data-tina-field="hero.ctaSecondary.label">
+          {hero.ctaSecondary?.label ?? 'See How It Works'}
         </a>
-        <a href="/en/contact" class="btn-primary" data-tina-field="hero.ctaPrimary.label">
-          {hero.ctaPrimary.label}
+        <a href={hero.ctaPrimary?.url ?? '/en/contact'} class="btn-primary" data-tina-field="hero.ctaPrimary.label">
+          {hero.ctaPrimary?.label ?? 'Get in Touch'}
         </a>
       </div>
     </div>
   </section>
 
   <!-- Section 2: The Problem -->
-  <section id="the-problem" class="py-20 md:py-32" style="background-color: #111111;">
+  <section id="the-problem" class="py-20 md:py-32" style="background-color: #111111;" data-tina-field="problem">
     <div class="container-custom">
       <div class="text-center mb-16">
-        <h2 class="heading-lg max-w-3xl mx-auto mb-6">
-          The Execution Gap.
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6" data-tina-field="problem.heading">
+          {problem.heading}
         </h2>
-        <p class="body-lg max-w-2xl mx-auto">
-          Marketing agencies sell you vanity metrics while your bottom line stays flat. You don't need another generic ad campaign; you need an integrated conversion ecosystem that actually connects to your cash register.
+        <p class="body-lg max-w-2xl mx-auto" data-tina-field="problem.subheading">
+          {problem.subheading}
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Problem Point 1 -->
-        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
-          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-brand text-xl font-bold">01</span>
+        {problem.cards?.map((card) => (
+          <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
+            <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+              <span class="text-brand text-xl font-bold">{card.number}</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold mb-2">
+              {card.title}
+            </h3>
+            <p class="body-md">
+              {card.description}
+            </p>
           </div>
-          <h3 class="font-heading text-lg font-bold mb-2">
-            Vanity Metrics
-          </h3>
-          <p class="body-md">
-            Agencies report on clicks and impressions while your revenue stays stagnant. We track only what matters: verified sales.
-          </p>
-        </div>
-        <!-- Problem Point 2 -->
-        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
-          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-brand text-xl font-bold">02</span>
-          </div>
-          <h3 class="font-heading text-lg font-bold mb-2">
-            Fragmented Systems
-          </h3>
-          <p class="body-md">
-            Ads, landing pages, and CRMs operate in silos. Without integration, you lose visibility into what actually drives profit.
-          </p>
-        </div>
-        <!-- Problem Point 3 -->
-        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8">
-          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
-            <span class="text-brand text-xl font-bold">03</span>
-          </div>
-          <h3 class="font-heading text-lg font-bold mb-2">
-            Generic Creative
-          </h3>
-          <p class="body-md">
-            Standard advertising speaks to demographics, not psychology. Your high-ticket offers deserve messaging that commands authority.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Section 4: The NLP Advantage -->
-  <section id="the-nlp-advantage" class="py-20 md:py-32">
+  <section id="the-nlp-advantage" class="py-20 md:py-32" data-tina-field="nlp">
     <div class="container-custom">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="heading-lg mb-6">
-            The Neurolinguistic Advantage.
+          <h2 class="heading-lg mb-6" data-tina-field="nlp.heading">
+            {nlp.heading}
           </h2>
-          <p class="body-lg mb-6">
-            Modern consumers are blind to traditional advertising. Our proprietary framework uses advanced behavioral psychology and NLP language patterns to bypass skepticism, build immediate subconscious trust, and position your brand as the undisputed authority.
+          <p class="body-lg mb-6" data-tina-field="nlp.body1">
+            {nlp.body1}
           </p>
-          <p class="body-md">
-            We don't just create ads—we engineer persuasive multimedia experiences that speak directly to the decision-making patterns of high-value buyers.
+          <p class="body-md" data-tina-field="nlp.body2">
+            {nlp.body2}
           </p>
         </div>
         <div class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden aspect-square">
@@ -113,53 +90,30 @@ const { hero, ctaSection } = homeData;
   </section>
 
   <!-- Section 5: The Pillars + CTA (seamless bg-bg-secondary block) -->
-  <section id="the-pillars" class="pt-20 md:pt-32 bg-bg-secondary">
+  <section id="the-pillars" class="pt-20 md:pt-32 bg-bg-secondary" data-tina-field="pillars">
     <div class="container-custom">
       <div class="text-center mb-16">
-        <h2 class="heading-lg max-w-3xl mx-auto mb-6">
-          How We Engineer Profit.
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6" data-tina-field="pillars.heading">
+          {pillars.heading}
         </h2>
-        <p class="body-lg max-w-2xl mx-auto">
-          Three integrated pillars work in unison to transform your marketing from a cost center into a revenue engine.
+        <p class="body-lg max-w-2xl mx-auto" data-tina-field="pillars.subheading">
+          {pillars.subheading}
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Pillar 1 -->
-        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
-          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-brand text-2xl font-bold">I</span>
+        {pillars.items?.map((pillar) => (
+          <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
+            <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-brand text-2xl font-bold">{pillar.numeral}</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold mb-3">
+              {pillar.title}
+            </h3>
+            <p class="body-md">
+              {pillar.description}
+            </p>
           </div>
-          <h3 class="font-heading text-xl font-bold mb-3">
-            Authentic NLP Multimedia
-          </h3>
-          <p class="body-md">
-            Trust. Persuasive, psychology-driven creative that positions your brand as the premium choice.
-          </p>
-        </div>
-        <!-- Pillar 2 -->
-        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
-          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-brand text-2xl font-bold">II</span>
-          </div>
-          <h3 class="font-heading text-xl font-bold mb-3">
-            Frictionless Hubs
-          </h3>
-          <p class="body-md">
-            Intent. High-speed conversion infrastructure that eliminates drop-off and captures buyer commitment.
-          </p>
-        </div>
-        <!-- Pillar 3 -->
-        <div class="bg-bg-primary border border-white/5 rounded-xl p-8 text-center">
-          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-brand text-2xl font-bold">III</span>
-          </div>
-          <h3 class="font-heading text-xl font-bold mb-3">
-            Closed-Loop Tracking
-          </h3>
-          <p class="body-md">
-            ROI. Server-side API tracking that links every digital interaction directly to verified revenue.
-          </p>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -168,58 +122,47 @@ const { hero, ctaSection } = homeData;
   <section id="final-cta" class="pb-20 md:pb-32 bg-bg-secondary" data-tina-field="ctaSection">
     <div class="container-custom text-center pt-20 md:pt-32">
       <h2 class="heading-lg max-w-3xl mx-auto mb-6" data-tina-field="ctaSection.title">
-        Ready to Architect Your Growth?
+        {ctaSection.title}
       </h2>
       <p class="body-lg max-w-2xl mx-auto mb-10" data-tina-field="ctaSection.description">
-        Contact our team today to begin your diagnostic audit.
+        {ctaSection.description}
       </p>
-      <a href="/en/contact" class="btn-primary text-lg px-10 py-5" data-tina-field="ctaSection.ctaLabel">
+      <a href={ctaSection.ctaUrl ?? '/en/contact'} class="btn-primary text-lg px-10 py-5" data-tina-field="ctaSection.ctaLabel">
         {ctaSection.ctaLabel}
       </a>
     </div>
   </section>
 
   <!-- Section 6: The Compounding Effect -->
-  <section id="the-compounding-effect" class="py-20 md:py-32">
+  <section id="the-compounding-effect" class="py-20 md:py-32" data-tina-field="compounding">
     <div class="container-custom">
       <div class="text-center mb-16">
-        <h2 class="heading-lg max-w-3xl mx-auto mb-6">
-          Higher Profit. Lower Ad Spend.
+        <h2 class="heading-lg max-w-3xl mx-auto mb-6" data-tina-field="compounding.heading">
+          {compounding.heading}
         </h2>
-        <p class="body-lg max-w-2xl mx-auto">
-          By feeding precise revenue data back into advertising algorithms, our systems get smarter every single day. We don't just optimize for leads; we train the AI to find buyers, driving your acquisition costs down over time.
+        <p class="body-lg max-w-2xl mx-auto" data-tina-field="compounding.subheading">
+          {compounding.subheading}
         </p>
       </div>
       <div class="max-w-3xl mx-auto">
         <!-- Feedback Loop Visual -->
         <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 md:p-12">
           <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="text-center">
-              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-brand text-xl font-bold">1</span>
-              </div>
-              <p class="text-sm text-text-secondary">
-                Track Revenue
-              </p>
-            </div>
-            <div class="text-brand text-2xl hidden md:block">→</div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-brand text-xl font-bold">2</span>
-              </div>
-              <p class="text-sm text-text-secondary">
-                Train Algorithm
-              </p>
-            </div>
-            <div class="text-brand text-2xl hidden md:block">→</div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span class="text-brand text-xl font-bold">3</span>
-              </div>
-              <p class="text-sm text-text-secondary">
-                Lower CPA
-              </p>
-            </div>
+            {compounding.steps?.map((step, i) => (
+              <>
+                <div class="text-center">
+                  <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-brand text-xl font-bold">{step.number}</span>
+                  </div>
+                  <p class="text-sm text-text-secondary">
+                    {step.label}
+                  </p>
+                </div>
+                {i < (compounding.steps?.length ?? 0) - 1 && (
+                  <div class="text-brand text-2xl hidden md:block">→</div>
+                )}
+              </>
+            ))}
           </div>
         </div>
       </div>

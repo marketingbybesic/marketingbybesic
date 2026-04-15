@@ -2,15 +2,15 @@
   "title": "Home",
   "hero": {
     "eyebrow": "PERFORMANCE REVENUE GROWTH PROVEN BY RESULTS",
-    "heroTitle": "Engineering Revenue for Europe's Elite Aesthetic Clinics",
-    "description": "We replace fragmented marketing with Neurolinguistic Revenue Architecture (NRA). High-net-worth patient acquisition, hard-coded to your EMR, driven purely by performance.",
+    "heroTitle": "The Architecture of Scalable Profit.",
+    "description": "Stop buying generic \"clicks\" and \"leads.\" We combine advanced Neurolinguistic Programming with full-stack conversion tracking to engineer systems that turn cold traffic into verified, high-ticket revenue.",
     "ctaPrimary": {
       "label": "Get in Touch",
-      "url": "/contact"
+      "url": "/en/contact"
     },
     "ctaSecondary": {
       "label": "See How It Works",
-      "url": "/architecture"
+      "url": "/en/architecture"
     }
   },
   "socialProof": {
@@ -22,10 +22,66 @@
       { "value": "97%", "label": "Client Retention" }
     ]
   },
+  "problem": {
+    "heading": "The Execution Gap.",
+    "subheading": "Marketing agencies sell you vanity metrics while your bottom line stays flat. You don't need another generic ad campaign; you need an integrated conversion ecosystem that actually connects to your cash register.",
+    "cards": [
+      {
+        "number": "01",
+        "title": "Vanity Metrics",
+        "description": "Agencies report on clicks and impressions while your revenue stays stagnant. We track only what matters: verified sales."
+      },
+      {
+        "number": "02",
+        "title": "Fragmented Systems",
+        "description": "Ads, landing pages, and CRMs operate in silos. Without integration, you lose visibility into what actually drives profit."
+      },
+      {
+        "number": "03",
+        "title": "Generic Creative",
+        "description": "Standard advertising speaks to demographics, not psychology. Your high-ticket offers deserve messaging that commands authority."
+      }
+    ]
+  },
+  "nlp": {
+    "heading": "The Neurolinguistic Advantage.",
+    "body1": "Modern consumers are blind to traditional advertising. Our proprietary framework uses advanced behavioral psychology and NLP language patterns to bypass skepticism, build immediate subconscious trust, and position your brand as the undisputed authority.",
+    "body2": "We don't just create ads—we engineer persuasive multimedia experiences that speak directly to the decision-making patterns of high-value buyers."
+  },
+  "pillars": {
+    "heading": "How We Engineer Profit.",
+    "subheading": "Three integrated pillars work in unison to transform your marketing from a cost center into a revenue engine.",
+    "items": [
+      {
+        "numeral": "I",
+        "title": "Authentic NLP Multimedia",
+        "description": "Trust. Persuasive, psychology-driven creative that positions your brand as the premium choice."
+      },
+      {
+        "numeral": "II",
+        "title": "Frictionless Hubs",
+        "description": "Intent. High-speed conversion infrastructure that eliminates drop-off and captures buyer commitment."
+      },
+      {
+        "numeral": "III",
+        "title": "Closed-Loop Tracking",
+        "description": "ROI. Server-side API tracking that links every digital interaction directly to verified revenue."
+      }
+    ]
+  },
+  "compounding": {
+    "heading": "Higher Profit. Lower Ad Spend.",
+    "subheading": "By feeding precise revenue data back into advertising algorithms, our systems get smarter every single day. We don't just optimize for leads; we train the AI to find buyers, driving your acquisition costs down over time.",
+    "steps": [
+      { "number": "1", "label": "Track Revenue" },
+      { "number": "2", "label": "Train Algorithm" },
+      { "number": "3", "label": "Lower CPA" }
+    ]
+  },
   "ctaSection": {
-    "title": "Ready to Architect Your Revenue?",
-    "description": "Apply for a free 15-minute diagnostic audit. Zero retainers. Pure performance.",
+    "title": "Ready to Architect Your Growth?",
+    "description": "Contact our team today to begin your diagnostic audit.",
     "ctaLabel": "Get in Touch",
-    "ctaUrl": "/contact"
+    "ctaUrl": "/en/contact"
   }
 }
