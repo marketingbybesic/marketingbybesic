@@ -136,15 +136,11 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
 </style>
 
 <script is:inline>
-  document.addEventListener('astro:page-load', function() {
-    var toggle = document.getElementById('language-toggle');
-    var dropdown = document.getElementById('language-dropdown');
-
-    if (toggle && dropdown) {
-      // Remove any existing listeners to prevent duplicates
-      var newToggle = toggle.cloneNode(true);
-      toggle.parentNode?.replaceChild(newToggle, toggle);
-      toggle = newToggle;
+  (function() {
+    function initLangSwitcher() {
+      var toggle = document.getElementById('language-toggle');
+      var dropdown = document.getElementById('language-dropdown');
+      if (!toggle || !dropdown) return;
 
       toggle.addEventListener('click', function(e) {
         e.preventDefault();
@@ -154,7 +150,6 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
         toggle.setAttribute('aria-expanded', (!isOpen).toString());
       });
 
-      // Close dropdown when clicking outside
       document.addEventListener('click', function(e) {
         if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
           dropdown.classList.remove('show');
@@ -162,7 +157,6 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
         }
       });
 
-      // Close on Escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           dropdown.classList.remove('show');
@@ -170,5 +164,11 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
         }
       });
     }
-  });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLangSwitcher);
+    } else {
+      initLangSwitcher();
+    }
+  })();
 </script>
