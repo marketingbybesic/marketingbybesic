@@ -65,14 +65,12 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
 }
 ---
 
-<div class="language-switcher relative" data-mobile-only={mobileOnly ? 'true' : 'false'}>
+<div class="lang-switcher-wrap" data-mobile-only={mobileOnly ? 'true' : 'false'}>
   <!-- Globe Icon Button -->
   <button
-    id="language-toggle"
-    class="flex items-center gap-2 p-2 text-text-secondary hover:text-text-primary transition-colors"
+    class="lang-switcher-btn flex items-center gap-2 p-2 text-text-secondary hover:text-text-primary transition-colors"
     aria-label="Select language"
     aria-expanded="false"
-    aria-controls="language-dropdown"
   >
     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <circle cx="12" cy="12" r="10" />
@@ -89,11 +87,9 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
 
   <!-- Dropdown Menu -->
   <div
-    id="language-dropdown"
-    class="absolute right-0 top-full mt-2 w-48 bg-[#1a1a1a] border border-white/10 rounded-lg shadow-xl opacity-0 invisible translate-y-2 transition-all duration-200 z-[9999]"
+    class="lang-switcher-dropdown"
     role="menu"
     aria-orientation="vertical"
-    aria-labelledby="language-toggle"
   >
     <div class="py-2">
       {languages.map((lang) => {
@@ -124,51 +120,93 @@ function getLocalizedUrl(locale: string, page: string, canLocalize: boolean): st
 </div>
 
 <style>
-  .language-switcher {
+  .lang-switcher-wrap {
     position: relative;
   }
-  
-  #language-dropdown.show {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
+
+  .lang-switcher-dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    width: 12rem;
+    background-color: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 9999;
+  }
+
+  .lang-switcher-wrap.open .lang-switcher-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 </style>
 
-<script is:inline>
-  (function() {
-    function initLangSwitcher() {
-      var toggle = document.getElementById('language-toggle');
-      var dropdown = document.getElementById('language-dropdown');
-      if (!toggle || !dropdown) return;
+<script>
+  function initLangSwitchers() {
+    const wrappers = document.querySelectorAll<HTMLElement>('.lang-switcher-wrap');
 
-      toggle.addEventListener('click', function(e) {
+    wrappers.forEach((wrap) => {
+      const btn = wrap.querySelector<HTMLButtonElement>('.lang-switcher-btn');
+      const dropdown = wrap.querySelector<HTMLElement>('.lang-switcher-dropdown');
+      if (!btn || !dropdown) return;
+
+      // Remove any previously attached listeners by cloning
+      const newBtn = btn.cloneNode(true) as HTMLButtonElement;
+      btn.parentNode!.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        var isOpen = dropdown.classList.contains('show');
-        dropdown.classList.toggle('show');
-        toggle.setAttribute('aria-expanded', (!isOpen).toString());
-      });
+        const isOpen = wrap.classList.contains('open');
 
-      document.addEventListener('click', function(e) {
-        if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
-          dropdown.classList.remove('show');
-          toggle.setAttribute('aria-expanded', 'false');
+        // Close all other open switchers first
+        document.querySelectorAll<HTMLElement>('.lang-switcher-wrap.open').forEach((other) => {
+          if (other !== wrap) {
+            other.classList.remove('open');
+            other.querySelector<HTMLButtonElement>('.lang-switcher-btn')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        wrap.classList.toggle('open', !isOpen);
+        newBtn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll<HTMLElement>('.lang-switcher-wrap.open').forEach((wrap) => {
+        if (!wrap.contains(e.target as Node)) {
+          wrap.classList.remove('open');
+          wrap.querySelector<HTMLButtonElement>('.lang-switcher-btn')?.setAttribute('aria-expanded', 'false');
         }
       });
+    });
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          dropdown.classList.remove('show');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll<HTMLElement>('.lang-switcher-wrap.open').forEach((wrap) => {
+          wrap.classList.remove('open');
+          wrap.querySelector<HTMLButtonElement>('.lang-switcher-btn')?.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initLangSwitcher);
-    } else {
-      initLangSwitcher();
-    }
-  })();
+  // Run on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLangSwitchers);
+  } else {
+    initLangSwitchers();
+  }
+
+  // Re-run after Astro view transitions (if used)
+  document.addEventListener('astro:page-load', initLangSwitchers);
 </script>
