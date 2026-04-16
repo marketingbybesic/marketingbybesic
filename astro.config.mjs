@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  output: 'server',
+  output: 'static',
   adapter: node({
     mode: 'standalone',
   }),
@@ -14,6 +14,10 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
   vite: {
     server: {
       host: true,

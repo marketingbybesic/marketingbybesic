@@ -1,8 +1,9 @@
 ---
 import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
 import { getTranslations } from '@/i18n/utils';
+import nodemailer from 'nodemailer';
 
-export const prerender = true;
+export const prerender = false;
 
 export function getStaticPaths() {
   return [
@@ -14,8 +15,57 @@ export function getStaticPaths() {
     { params: { lang: 'hr' } },
   ];
 }
+
 const { lang } = Astro.params;
 const t = getTranslations(lang);
+
+let successMessage = "";
+let errorMessage = "";
+
+if (Astro.request.method === "POST") {
+  console.log("[CONTACT FORM] POST request received.");
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name")?.toString() || "Unknown";
+    const email = data.get("email")?.toString() || "No Email";
+    const subject = data.get("subject")?.toString() || "General Inquiry";
+    const message = data.get("message")?.toString() || "";
+
+    console.log(`[CONTACT FORM] Processing payload from: ${email}`);
+
+    // Verify ENV variables are loaded (DO NOT log the password!)
+    if (!import.meta.env.SMTP_EMAIL || !import.meta.env.RECEIVER_EMAIL) {
+      console.error("[CONTACT FORM] ERROR: Missing SMTP Environment Variables!");
+      throw new Error("Server configuration error.");
+    }
+
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: import.meta.env.SMTP_EMAIL,
+        pass: import.meta.env.SMTP_PASSWORD,
+      },
+    });
+
+    console.log("[CONTACT FORM] Attempting to send email via SMTP...");
+
+    const info = await transporter.sendMail({
+      from: `"Marketing by Besic" <${import.meta.env.SMTP_EMAIL}>`,
+      replyTo: email,
+      to: import.meta.env.RECEIVER_EMAIL,
+      subject: `New Lead: ${subject} - from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+    });
+
+    console.log("[CONTACT FORM] Email sent successfully. Message ID:", info.messageId);
+    successMessage = "Message sent successfully! We will get back to you shortly.";
+  } catch (error) {
+    console.error("[CONTACT FORM] CRITICAL SMTP ERROR:", error);
+    errorMessage = "There was an error sending your message. Please try again later or email us directly.";
+  }
+}
 ---
 
 <LayoutAuthority title="Contact | Marketing by Besic" lang={lang}>
@@ -34,7 +84,19 @@ const t = getTranslations(lang);
         </p>
       </div>
 
-      <form class="bg-bg-secondary border border-white/5 rounded-xl p-8 space-y-6">
+      {successMessage && (
+        <div class="mb-6 p-4 rounded-lg bg-green-900/20 border border-green-500/30 text-green-400">
+          {successMessage}
+        </div>
+      )}
+
+      {errorMessage && (
+        <div class="mb-6 p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400">
+          {errorMessage}
+        </div>
+      )}
+
+      <form method="POST" class="bg-bg-secondary border border-white/5 rounded-xl p-8 space-y-6">
         <div>
           <label for="name" class="block text-sm font-medium text-text-secondary mb-2">{t.contact.nameLabel}</label>
           <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-bg-primary border border-white/10 rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:border-brand transition-colors" placeholder={t.contact.namePlaceholder} />

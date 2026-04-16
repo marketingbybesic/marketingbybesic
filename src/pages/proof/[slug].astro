@@ -2,6 +2,8 @@
 import LayoutAuthority from '../../layouts/LayoutAuthority.astro';
 import { getCollection, render } from 'astro:content';
 
+export const prerender = false;
+
 const { slug } = Astro.params;
 
 const allArticles = await getCollection('articles');
