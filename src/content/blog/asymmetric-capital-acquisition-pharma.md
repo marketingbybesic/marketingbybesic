@@ -1,6 +1,6 @@
 ---
 title: "The €660K Capital Injection: Asymmetric ROI in Pharmaceutical Corporate Bonds"
-publishDate: 2026-04-16
+publishDate: 2025-08-16
 author: Marketing by Bešić
 category: proof
 tag: Capital Acquisition

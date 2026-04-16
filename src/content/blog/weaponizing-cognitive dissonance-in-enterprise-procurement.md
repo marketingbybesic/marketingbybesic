@@ -1,6 +1,6 @@
 ---
 title: Weaponizing Cognitive Dissonance in Enterprise Procurement
-publishDate: 2026-04-16
+publishDate: 2026-03-20
 author: Marketing by Bešić
 category: blog
 tag: Conversion

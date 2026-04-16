@@ -1,6 +1,6 @@
 ---
 title: "The Authority of the Palate: High-Ticket Degustation PR for Luxury Dining"
-publishDate: 2026-04-16
+publishDate: 2025-04-26
 author: Marketing by Bešić
 category: proof
 tag: Elite PR

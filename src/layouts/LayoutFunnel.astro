@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
-import NewsletterModal from '../components/NewsletterModal.astro';
 
 interface Props {
   title: string;
@@ -30,7 +29,10 @@ const { title, description = 'Apply for a Diagnostic Audit - Neurolinguistic Rev
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- GTM Head (conditional on GDPR) -->
     <script is:inline>
@@ -76,39 +78,109 @@ const { title, description = 'Apply for a Diagnostic Audit - Neurolinguistic Rev
     <!-- Cookie Consent Banner -->
     <CookieConsent />
 
-    <!-- Newsletter Modal -->
-    <NewsletterModal />
+    <!-- Newsletter Modal (deferred - HTML inlined, JS deferred) -->
+    <div id="newsletter-modal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 hidden">
+      <div class="bg-[#111111] border border-[#8224e3]/30 rounded-xl p-6 max-w-sm shadow-2xl shadow-brand/20 relative mx-4">
+        <button id="newsletter-close" class="absolute top-2 right-2 text-text-secondary hover:text-text-primary transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <h3 class="font-heading text-lg font-bold mb-2">Stay Ahead of the Curve</h3>
+        <p class="text-text-secondary text-sm mb-4">Get exclusive insights on Neurolinguistic Revenue Architecture delivered to your inbox.</p>
+        <form id="newsletter-form" class="flex flex-col gap-3">
+          <input type="email" name="email" placeholder="Enter your email" required class="w-full px-4 py-3 bg-bg-primary border border-white/10 rounded-lg text-text-primary placeholder:text-text-secondary focus:outline-none focus:border-brand transition-colors" />
+          <button type="submit" class="btn-primary text-sm px-6 py-3">Subscribe</button>
+        </form>
+        <p id="newsletter-message" class="mt-3 text-sm hidden"></p>
+      </div>
+    </div>
 
-    <!-- Global GSAP ScrollTrigger for Image Scroll Reveal -->
+    <!-- Global GSAP ScrollTrigger for Image Scroll Reveal (deferred) -->
     <script>
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          import('gsap').then(async ({ gsap }) => {
+            const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+            gsap.registerPlugin(ScrollTrigger);
 
-      // Add lazy loading to all images
-      document.querySelectorAll('img').forEach(img => {
-        if (!img.hasAttribute('loading')) {
-          img.setAttribute('loading', 'lazy');
-        }
+            document.querySelectorAll('img').forEach(img => {
+              if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
+              }
+            });
+
+            gsap.utils.toArray('img').forEach((img: any, index: number) => {
+              gsap.fromTo(img,
+                { opacity: 0, y: 30 },
+                {
+                  opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+                  scrollTrigger: { trigger: img, start: 'top 85%', toggleActions: 'play none none none' },
+                  delay: index % 3 * 0.1
+                }
+              );
+            });
+          });
+        }, 1000);
       });
+    </script>
 
-      // Scroll reveal animation for images
-      gsap.utils.toArray('img').forEach((img: any, index: number) => {
-        gsap.fromTo(img,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: img,
-              start: 'top 85%',
-              toggleActions: 'play none none none'
-            },
-            delay: index % 3 * 0.1
-          }
-        );
+    <!-- Newsletter Modal Script (deferred) -->
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          import('gsap').then(async ({ gsap }) => {
+            const modal = document.getElementById('newsletter-modal');
+            const modalContent = modal?.querySelector('div');
+            const closeBtn = document.getElementById('newsletter-close');
+            const form = document.getElementById('newsletter-form');
+            const message = document.getElementById('newsletter-message');
+            const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+            const CLOSED_KEY = 'newsletter_closed';
+            let hasTriggered = false;
+
+            function checkExpiration() {
+              const stored = localStorage.getItem(CLOSED_KEY);
+              if (stored) {
+                const timestamp = parseInt(stored, 10);
+                if (Date.now() - timestamp > THIRTY_DAYS) { localStorage.removeItem(CLOSED_KEY); return false; }
+                return true;
+              }
+              return false;
+            }
+
+            function showModal() {
+              if (hasTriggered) return;
+              hasTriggered = true;
+              modal?.classList.remove('hidden');
+              if (modalContent) { gsap.fromTo(modalContent, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }); }
+              window.removeEventListener('scroll', onScroll);
+            }
+
+            function hideModal() {
+              if (modalContent) { gsap.to(modalContent, { opacity: 0, y: 50, duration: 0.5, ease: 'power2.in', onComplete: () => { modal?.classList.add('hidden'); } }); }
+            }
+
+            function onScroll() { if (window.scrollY > 600) { showModal(); } }
+
+            if (!checkExpiration()) { window.addEventListener('scroll', onScroll); }
+            closeBtn?.addEventListener('click', () => { localStorage.setItem(CLOSED_KEY, Date.now().toString()); hideModal(); });
+            modal?.addEventListener('click', (e) => { if (e.target === modal) { localStorage.setItem(CLOSED_KEY, Date.now().toString()); hideModal(); } });
+
+            form?.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const formData = new FormData(form as HTMLFormElement);
+              const email = formData.get('email') as string;
+              const msgEl = message as HTMLElement;
+              try {
+                const res = await fetch('/api/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+                const data = await res.json();
+                if (res.ok) { window.location.href = '/newsletter-thank-you'; }
+                else { msgEl.textContent = data.error || 'Something went wrong.'; msgEl.className = 'mt-3 text-sm text-brand'; msgEl.classList.remove('hidden'); }
+              } catch { msgEl.textContent = 'Network error. Please try again.'; msgEl.className = 'mt-3 text-sm text-brand'; msgEl.classList.remove('hidden'); }
+            });
+          });
+        }, 2000);
       });
     </script>
   </body>

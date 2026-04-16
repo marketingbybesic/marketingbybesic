@@ -1,6 +1,6 @@
 ---
 title: The Lethal Fallacy of Lead Volume in B2B Acquisition
-publishDate: 2026-04-16
+publishDate: 2026-02-13
 author: Marketing by Bešić
 category: blog
 tag: Demand Generation

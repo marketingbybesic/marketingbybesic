@@ -1,6 +1,6 @@
 ---
 title: How We Engineered a 412% ROI for a Mid-Market Tech Consultancy
-publishDate: 2026-04-16
+publishDate: 2025-09-15
 author: Marketing by Bešić
 category: proof
 tag: Case Study

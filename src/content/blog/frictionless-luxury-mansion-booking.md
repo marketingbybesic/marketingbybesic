@@ -1,6 +1,6 @@
 ---
 title: "The Frictionless High-Ticket Close: Elevating UX for a Luxury Mansion Platform"
-publishDate: 2026-04-16
+publishDate: 2025-04-07
 author: Marketing by Bešić
 category: proof
 tag: High-Ticket UX

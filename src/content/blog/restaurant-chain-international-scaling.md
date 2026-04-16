@@ -1,6 +1,6 @@
 ---
 title: "The Borderless Kitchen: Scaling the Koykan Restaurant Chain Across Europe"
-publishDate: 2026-04-16
+publishDate: 2025-07-01
 author: Marketing by Bešić
 category: proof
 tag: Market Scaling
