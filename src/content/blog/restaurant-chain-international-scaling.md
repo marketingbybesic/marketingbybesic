@@ -42,3 +42,4 @@ The results achieved by marketingbybesic.com for Koykan stand as a masterclass i
 * **Cross-Border Scaling:** Successfully penetrated and established highly profitable beachhead locations in the Czech, Slovak, and German markets, turning Koykan into a formidable, multi-national chain.
 
 We do not just design restaurant flyers. We architect borderless hospitality empires.
+---
