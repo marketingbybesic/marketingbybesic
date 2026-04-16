@@ -1,6 +1,17 @@
 ---
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/500.css';
+import '@fontsource/playfair-display/600.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/800.css';
+import '@fontsource/playfair-display/900.css';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
 
 interface Props {
   title: string;
@@ -26,13 +37,7 @@ const { title, description = 'Apply for a Diagnostic Audit - Neurolinguistic Rev
     
     <title>{title}</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    </noscript>
+    <!-- Self-hosted fonts via @fontsource -->
 
     <!-- GTM Head (conditional on GDPR) -->
     <script is:inline>
