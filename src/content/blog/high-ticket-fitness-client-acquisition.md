@@ -1,3 +1,4 @@
+--
 title: "Engineering the Elite Fitness Funnel: From Commodity to High-Ticket Necessity"
 publishDate: 2026-04-16
 author: Marketing by Bešić

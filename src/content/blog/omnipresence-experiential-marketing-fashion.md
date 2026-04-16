@@ -1,3 +1,4 @@
+---
 title: "Omnipresence and Brand Equity: Experiential Architecture for LVMH & Tommy Hilfiger"
 publishDate: 2026-04-16
 author: Marketing by Bešić

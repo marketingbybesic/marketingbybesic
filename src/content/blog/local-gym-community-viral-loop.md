@@ -1,3 +1,4 @@
+---
 title: "The Local Dominance Protocol: Engineering a Viral Acquisition Loop for a Commercial Gym"
 publishDate: 2026-04-16
 author: Marketing by Bešić
