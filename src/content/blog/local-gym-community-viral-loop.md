@@ -6,6 +6,7 @@ category: proof
 tag: Local Dominance
 metaDescription: How Marketing by Bešić architected a community-driven viral loop, utilizing strategic free trainings and referral mechanics to aggressively scale a local gym's membership base.
 image: /gym-growth.webp
+---
 
 ## The CAC Crisis in Local Fitness
 
@@ -42,4 +43,3 @@ By shifting the focus from cold traffic to warm, socially-validated leads, the f
 * **Retention Spike:** Because new members joined alongside their existing social circle, 90-day churn dropped by a massive 28%.
 
 This is the power of strategic marketingbybesic.com frameworks. We don't just fill gyms; we engineer local monopolies.
----

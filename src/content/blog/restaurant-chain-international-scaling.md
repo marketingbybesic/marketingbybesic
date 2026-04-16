@@ -6,6 +6,7 @@ category: proof
 tag: Market Scaling
 metaDescription: How Marketing by Bešić architected the international expansion of the Koykan chain across Germany, Czechia, and Slovakia, while securing a 4.6+ star reputation matrix.
 image: /restaurant-expansion.webp
+---
 
 ## The Friction of International Scaling
 
@@ -42,4 +43,3 @@ The results achieved by marketingbybesic.com for Koykan stand as a masterclass i
 * **Cross-Border Scaling:** Successfully penetrated and established highly profitable beachhead locations in the Czech, Slovak, and German markets, turning Koykan into a formidable, multi-national chain.
 
 We do not just design restaurant flyers. We architect borderless hospitality empires.
----
