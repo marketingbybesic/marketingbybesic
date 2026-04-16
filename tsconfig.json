@@ -2,11 +2,12 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "baseUrl": ".",
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["node"]
+    "types": ["node"],
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.astro", "src/**/*.tsx", ".astro/types.d.ts", "tina/**/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.astro", "src/**/*.tsx", ".astro/types.d.ts"]
 }

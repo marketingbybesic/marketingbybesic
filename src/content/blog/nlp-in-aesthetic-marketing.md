@@ -1,10 +1,11 @@
 ---
 title: NLP in Aesthetic Marketing
-publishDate: 2025-03-10T00:00:00.000Z
+publishDate: 2025-03-10
 author: Dino Bešić
-category: NLP & Psychology
+category: blog
+tag: NLP & Psychology
 metaDescription: Using neurolinguistic programming patterns to craft advertising that resonates with affluent patients and commands premium positioning for aesthetic clinics.
-featuredImage: /blog-post-3-thumbnail.webp
+image: /blog-post-3-thumbnail.webp
 ---
 
 ## Why Standard Advertising Fails Premium Clinics

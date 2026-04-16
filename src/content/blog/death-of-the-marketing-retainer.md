@@ -1,10 +1,11 @@
 ---
 title: The Death of the Marketing Retainer
-publishDate: 2025-01-15T00:00:00.000Z
+publishDate: 2025-01-15
 author: Dino Bešić
-category: Industry Trends
+category: blog
+tag: Industry Trends
 metaDescription: Why performance-based models are replacing retainer-based marketing agencies for MedSpa and aesthetic clinic client acquisition.
-featuredImage: /blog-post-1-thumbnail.webp
+image: /blog-post-1-thumbnail.webp
 ---
 
 ## The Old Model Is Broken

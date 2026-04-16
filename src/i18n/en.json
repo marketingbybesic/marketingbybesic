@@ -220,6 +220,9 @@
   "blog": {
     "heroTitle": "Insights & Analysis",
     "heroDesc": "Deep dives into patient acquisition, revenue architecture, and the psychology of high-net-worth decision-making.",
+    "backToBlog": "Back to Blog",
+    "backToAllArticles": "Back to all articles",
+    "byAuthor": "By",
     "newsletterTitle": "Stay Ahead of the Curve",
     "newsletterDesc": "Get weekly insights on patient acquisition and revenue architecture delivered to your inbox.",
     "comingSoon": "Coming Soon",
@@ -229,5 +232,12 @@
     "post2Desc": "How connecting your EMR to your marketing stack reveals hidden revenue streams.",
     "post3Title": "NLP in Aesthetic Marketing",
     "post3Desc": "Using neurolinguistic patterns to craft ads that resonate with affluent patients."
+  },
+  "proof": {
+    "heroTitle": "Verifiable Growth. Zero Guesswork.",
+    "heroDesc": "Real results from real partnerships. Every metric below represents verified net-new revenue.",
+    "backToProof": "Back to Proof",
+    "backToAllArticles": "Back to all articles",
+    "byAuthor": "By"
   }
 }

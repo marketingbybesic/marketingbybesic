@@ -5,10 +5,10 @@ import { getCollection, render } from 'astro:content';
 const { slug } = Astro.params;
 
 const allArticles = await getCollection('articles');
-const post = allArticles.find((p) => p.id === slug && p.data.category === 'blog');
+const post = allArticles.find((p) => p.id === slug && p.data.category === 'proof');
 
 if (!post) {
-  return Astro.redirect('/blog');
+  return Astro.redirect('/proof');
 }
 
 const { Content } = await render(post);
@@ -30,14 +30,14 @@ function formatDate(date: Date): string {
     <div class="container-custom max-w-3xl">
 
       <!-- Back link -->
-      <a href="/blog" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm mb-10">
+      <a href="/proof" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm mb-10">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
-        Back to Blog
+        Back to Proof
       </a>
 
-      <!-- Category + Date -->
+      <!-- Tag + Date -->
       <div class="flex items-center gap-4 mb-6">
         <span class="text-brand text-xs font-semibold tracking-widest uppercase">
           {post.data.tag}
@@ -58,7 +58,7 @@ function formatDate(date: Date): string {
         By <span class="text-text-primary font-semibold">{post.data.author}</span>
       </p>
 
-      <!-- Featured Image -->
+      <!-- Image -->
       {post.data.image && (
         <div class="rounded-xl overflow-hidden mb-12 aspect-video">
           <img
@@ -86,7 +86,7 @@ function formatDate(date: Date): string {
 
       <!-- Back link bottom -->
       <div class="mt-16 pt-8 border-t border-white/10">
-        <a href="/blog" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm">
+        <a href="/proof" class="inline-flex items-center gap-2 text-text-secondary hover:text-brand transition-colors text-sm">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>

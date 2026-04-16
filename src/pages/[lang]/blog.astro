@@ -1,7 +1,21 @@
 ---
-import LayoutAuthority from '../layouts/LayoutAuthority.astro';
-import Subscribe from '../components/Subscribe.astro';
+import LayoutAuthority from '../../layouts/LayoutAuthority.astro';
+import Subscribe from '../../components/Subscribe.astro';
 import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'de' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'hr' } },
+  ];
+}
+
+const { lang } = Astro.params;
 
 const allArticles = await getCollection('articles');
 const posts = allArticles
@@ -36,7 +50,7 @@ function formatDate(date: Date): string {
         {posts.map((post) => (
           <article class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors group">
             {post.data.image && (
-              <a href={`/blog/${post.id}`} class="block aspect-video overflow-hidden">
+              <a href={`/${lang}/blog/${post.id}`} class="block aspect-video overflow-hidden">
                 <img
                   src={post.data.image}
                   alt={post.data.title}
@@ -50,7 +64,7 @@ function formatDate(date: Date): string {
                 {post.data.tag}
               </span>
               <h2 class="font-heading text-lg font-bold mt-2 mb-3 leading-snug">
-                <a href={`/blog/${post.id}`} class="hover:text-brand transition-colors">
+                <a href={`/${lang}/blog/${post.id}`} class="hover:text-brand transition-colors">
                   {post.data.title}
                 </a>
               </h2>

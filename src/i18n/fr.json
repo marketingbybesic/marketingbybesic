@@ -143,6 +143,9 @@
   "blog": {
     "heroTitle": "Perspectives et Analyses",
     "heroDesc": "Plongees profondes dans l'acquisition de patients, l'architecture des revenus et la psychologie de la prise de decision des personnes a haute valeur nette.",
+    "backToBlog": "Retour au Blog",
+    "backToAllArticles": "Retour à tous les articles",
+    "byAuthor": "Par",
     "newsletterTitle": "Restez en Avance sur la Courbe",
     "newsletterDesc": "Recevez des perspectives hebdomadaires sur l'acquisition de patients et l'architecture des revenus directement dans votre boite de reception.",
     "comingSoon": "Bientot Disponible",
@@ -152,6 +155,13 @@
     "post2Desc": "Comment connecter votre EMR a votre stack marketing revele des flux de revenus caches.",
     "post3Title": "PNL dans le Marketing Esthetique",
     "post3Desc": "Utiliser des modeles neurolinguistiques pour creer des publicites qui resonnent avec les patients aises."
+  },
+  "proof": {
+    "heroTitle": "Croissance Vérifiable. Zéro Conjecture.",
+    "heroDesc": "De vrais résultats issus de vrais partenariats. Chaque métrique ci-dessous représente des revenus nets vérifiés.",
+    "backToProof": "Retour à la Preuve",
+    "backToAllArticles": "Retour à tous les articles",
+    "byAuthor": "Par"
   },
   "impressum": {
     "title": "Mentions Légales",

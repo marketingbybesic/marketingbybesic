@@ -66,26 +66,18 @@ const pages = defineCollection({
   }),
 });
 
-// Blog & Case Studies collection (MDX — managed via TinaCMS)
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.mdx', base: './src/content/blog' }),
+// Articles collection (MD — shared between Blog and Proof)
+const articles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
-    publishDate: z.coerce.date(),
-    author: z.string(),
-    category: z.enum([
-      'NLP & Psychology',
-      'Tracking & Data',
-      'Creative Strategy',
-      'Industry Trends',
-      'Case Study',
-    ]),
+    publishDate: z.string().or(z.date()).transform((val) => new Date(val)),
+    author: z.string().default('Dino Bešić'),
+    category: z.enum(['blog', 'proof']), // Determines if it goes to /blog or /proof
+    tag: z.string(), // The text displayed inside the UI category bubble
     metaDescription: z.string(),
-    featuredImage: z.string().optional(),
-    clinicType: z.string().optional(),
-    netNewRevenue: z.string().optional(),
-    videoEmbedUrl: z.string().optional(),
+    image: z.string(),
   }),
 });
 
-export const collections = { pages, blog };
+export const collections = { pages, articles };

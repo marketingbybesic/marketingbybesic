@@ -1,10 +1,11 @@
 ---
 title: "EMR Integration: The Missing Link"
-publishDate: 2025-02-03T00:00:00.000Z
+publishDate: 2025-02-03
 author: Dino Bešić
-category: Tracking & Data
+category: blog
+tag: Tracking & Data
 metaDescription: How connecting your EMR to your marketing stack reveals hidden revenue streams and allows you to train ad algorithms on real patient value.
-featuredImage: /blog-post-2-thumbnail.webp
+image: /blog-post-2-thumbnail.webp
 ---
 
 ## The Data Silo Problem

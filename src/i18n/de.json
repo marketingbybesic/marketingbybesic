@@ -143,6 +143,9 @@
   "blog": {
     "heroTitle": "Einblicke und Analysen",
     "heroDesc": "Tiefe Einblicke in Patientenakquisition, Umsatzarchitektur und die Psychologie von Entscheidungen mit hohem Nettovermögen.",
+    "backToBlog": "Zurück zum Blog",
+    "backToAllArticles": "Zurück zu allen Artikeln",
+    "byAuthor": "Von",
     "newsletterTitle": "Bleiben Sie der Kurve voraus",
     "newsletterDesc": "Erhalten Sie wöchentliche Einblicke in Patientenakquisition und Umsatzarchitektur direkt in Ihren Posteingang.",
     "comingSoon": "Demnächst",
@@ -152,6 +155,13 @@
     "post2Desc": "Wie die Verbindung Ihres EMR mit Ihrem Marketing-Stack versteckte Umsatzströme aufdeckt.",
     "post3Title": "NLP im ästhetischen Marketing",
     "post3Desc": "Neurolinguistische Muster nutzen, um Anzeigen zu erstellen, die bei wohlhabenden Patienten Anklang finden."
+  },
+  "proof": {
+    "heroTitle": "Verifizierbares Wachstum. Null Rätselraten.",
+    "heroDesc": "Echte Ergebnisse aus echten Partnerschaften. Jede Kennzahl unten repräsentiert verifizierten Netto-Neoumsatz.",
+    "backToProof": "Zurück zum Nachweis",
+    "backToAllArticles": "Zurück zu allen Artikeln",
+    "byAuthor": "Von"
   },
   "impressum": {
     "title": "Impressum",

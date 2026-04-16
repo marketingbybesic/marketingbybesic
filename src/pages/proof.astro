@@ -1,3 +1,72 @@
 ---
-return Astro.redirect('/en/proof', 301);
+import LayoutAuthority from '../layouts/LayoutAuthority.astro';
+import { getCollection } from 'astro:content';
+
+const allArticles = await getCollection('articles');
+const proofPosts = allArticles
+  .filter((a) => a.data.category === 'proof')
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
 ---
+
+<LayoutAuthority title="Proof | Marketing by Besic">
+  <section class="min-h-screen py-20 md:py-32">
+    <div class="container-custom max-w-5xl">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h1 class="heading-xl mb-6">
+          Verifiable Growth. Zero Guesswork.
+        </h1>
+        <p class="body-lg max-w-3xl mx-auto">
+          Real results from real partnerships. Every metric below represents verified net-new revenue.
+        </p>
+      </div>
+
+      <!-- Proof Posts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {proofPosts.map((post) => (
+          <article class="bg-bg-secondary border border-white/5 rounded-xl overflow-hidden hover:border-brand/30 transition-colors group">
+            {post.data.image && (
+              <a href={`/proof/${post.id}`} class="block aspect-video overflow-hidden">
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="p-6">
+              <span class="text-brand text-xs font-semibold tracking-widest uppercase">
+                {post.data.tag}
+              </span>
+              <h2 class="font-heading text-lg font-bold mt-2 mb-3 leading-snug">
+                <a href={`/proof/${post.id}`} class="hover:text-brand transition-colors">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="body-md text-sm mb-4 line-clamp-3">
+                {post.data.metaDescription}
+              </p>
+              <div class="flex items-center justify-between text-xs text-text-secondary">
+                <span>{post.data.author}</span>
+                <time datetime={post.data.publishDate.toISOString()}>
+                  {formatDate(post.data.publishDate)}
+                </time>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</LayoutAuthority>

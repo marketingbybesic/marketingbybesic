@@ -143,6 +143,9 @@
   "blog": {
     "heroTitle": "Approfondimenti e Analisi",
     "heroDesc": "Analisi approfondite sull'acquisizione di pazienti, l'architettura delle entrate e la psicologia del processo decisionale ad alto patrimonio netto.",
+    "backToBlog": "Torna al Blog",
+    "backToAllArticles": "Torna a tutti gli articoli",
+    "byAuthor": "Di",
     "newsletterTitle": "Rimani all'Avanguardia",
     "newsletterDesc": "Ricevi approfondimenti settimanali sull'acquisizione di pazienti e l'architettura delle entrate direttamente nella tua casella di posta.",
     "comingSoon": "Prossimamente",
@@ -152,6 +155,13 @@
     "post2Desc": "Come collegare il tuo EMR al tuo stack di marketing rivela flussi di entrate nascosti.",
     "post3Title": "PNL nel Marketing Estetico",
     "post3Desc": "Usare schemi neurolinguistici per creare annunci che risuonino con i pazienti benestanti."
+  },
+  "proof": {
+    "heroTitle": "Crescita Verificabile. Zero Congetture.",
+    "heroDesc": "Risultati reali da partnership reali. Ogni metrica sotto rappresenta entrate nette nuove verificate.",
+    "backToProof": "Torna alla Prova",
+    "backToAllArticles": "Torna a tutti gli articoli",
+    "byAuthor": "Di"
   },
   "impressum": {
     "title": "Note Legali",

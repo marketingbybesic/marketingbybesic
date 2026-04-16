@@ -143,6 +143,9 @@
   "blog": {
     "heroTitle": "Perspectivas y Análisis",
     "heroDesc": "Análisis profundos sobre adquisición de pacientes, arquitectura de ingresos y la psicología de la toma de decisiones de alto patrimonio neto.",
+    "backToBlog": "Volver al Blog",
+    "backToAllArticles": "Volver a todos los artículos",
+    "byAuthor": "Por",
     "newsletterTitle": "Manténgase a la Vanguardia",
     "newsletterDesc": "Reciba perspectivas semanales sobre adquisición de pacientes y arquitectura de ingresos directamente en su bandeja de entrada.",
     "comingSoon": "Próximamente",
@@ -152,6 +155,13 @@
     "post2Desc": "Cómo conectar su EMR a su stack de marketing revela flujos de ingresos ocultos.",
     "post3Title": "PNL en el Marketing Estético",
     "post3Desc": "Usar patrones neurolingüísticos para crear anuncios que resuenen con pacientes adinerados."
+  },
+  "proof": {
+    "heroTitle": "Crecimiento Verificable. Cero Conjeturas.",
+    "heroDesc": "Resultados reales de asociaciones reales. Cada métrica abajo representa ingresos netos nuevos verificados.",
+    "backToProof": "Volver a la Prueba",
+    "backToAllArticles": "Volver a todos los artículos",
+    "byAuthor": "Por"
   },
   "impressum": {
     "title": "Aviso Legal",
