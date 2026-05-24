@@ -19,7 +19,7 @@ export default {
         },
       },
       fontFamily: {
-        heading: ['Playfair Display', 'serif'],
+        heading: ['Cormorant Garamond', 'serif'],
         body: ['Geist', 'Inter', 'sans-serif'],
       },
     },

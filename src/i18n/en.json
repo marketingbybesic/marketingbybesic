@@ -14,7 +14,13 @@
     "termsOfService": "Terms of Service",
     "impressum": "Impressum",
     "liveFrom": "Live from Zagreb, Croatia",
-    "allRightsReserved": "All rights reserved."
+    "allRightsReserved": "All rights reserved.",
+    "tagline": "Neurolinguistic Revenue Architecture for Europe's premium businesses."
+  },
+  "cookie": {
+    "message": "We use cookies and conversion tracking to architect a better experience. By continuing, you agree to our",
+    "accept": "Accept",
+    "decline": "Decline"
   },
   "languages": {
     "en": "English",
@@ -57,14 +63,28 @@
     "compoundingDesc": "By feeding precise revenue data back into advertising algorithms, our systems get smarter every single day. We don't just optimize for leads; we train the AI to find buyers, driving your acquisition costs down over time.",
     "trackRevenue": "Track Revenue",
     "trainAlgorithm": "Train Algorithm",
-    "lowerCPA": "Lower CPA"
+    "lowerCPA": "Lower CPA",
+    "metricsProjects": "50+ Projects",
+    "metricsCapital": "EUR 660K Capital Raised",
+    "metricsROI": "412% Avg ROI",
+    "metricsLanguages": "6 Languages"
   },
   "about": {
-    "heroTitle": "Engineered by Revenue Architects.",
-    "heroDesc1": "Marketing by Bešić is an elite collective of growth engineers, developers, and behavioral psychologists. Founded by a former CMO, our team was built to bridge the execution gap between high-level executive strategy and actual bottom-line growth.",
-    "heroDesc2": "We don't advise from the sidelines—we embed into your business and build the infrastructure alongside you.",
-    "heroDesc3": "Our expertise spans Neurolinguistic Programming, full-stack development, and performance marketing, creating a unique capability to engineer systems that produce measurable, verifiable revenue growth.",
-    "teamPhotoAlt": "Marketing by Besic team",
+    "heroTitle": "Founded by a Revenue Architect.",
+    "heroDesc1": "Marketing by Bešić was founded by Dino Bešić—a PhD candidate in Marketing, university professor, and former CMO who has led multi-million euro campaigns for LVMH, Tag Heuer, and Iberostar. With over 50 completed projects and 9 documented case studies, we bridge the gap between executive strategy and measurable revenue growth.",
+    "heroDesc2": "We don't sell services. We architect revenue systems.",
+    "heroDesc3": "Our team combines Neurolinguistic Programming, full-stack development, and performance marketing to create integrated systems that produce verifiable results. We embed into your business and build the infrastructure alongside you.",
+    "teamPhotoAlt": "Dino Besic, founder of Marketing by Besic",
+    "founderTitle": "Dino Bešić",
+    "founderRole": "Founder & Revenue Architect",
+    "founderCredentials": "PhD Candidate in Marketing | University Professor | Former CMO at LVMH, Tag Heuer, Iberostar",
+    "founderBio": "With experience spanning 50+ projects across luxury, hospitality, pharma, finance, and technology, Dino brings a forensic approach to revenue growth. Fluent in English, Croatian, Italian, and German.",
+    "statsProjects": "50+",
+    "statsProjectsLabel": "Projects Delivered",
+    "statsCaseStudies": "9",
+    "statsCaseStudiesLabel": "Documented Case Studies",
+    "statsLanguages": "4",
+    "statsLanguagesLabel": "Languages Spoken",
     "philosophyTitle": "Data Validates. Psychology Converts.",
     "philosophyDesc": "We believe that numbers on a spreadsheet mean nothing if the creative doesn't move human behavior. Our philosophy merges hard-coded technical integrations with the deep, persuasive principles of Neurolinguistic Programming.",
     "philosophy1Title": "Behavioral Psychology Foundation",
@@ -112,7 +132,7 @@
   },
   "proof": {
     "heroTitle": "Verifiable Growth. Zero Guesswork.",
-    "heroDesc": "Our infrastructure is trusted by industry leaders, premium brands, and high-ticket service providers.",
+    "heroDesc": "Real results from real partnerships. Every metric below represents verified net-new revenue.",
     "heroBody1": "Led by executive-level experience driving multi-million euro campaigns, our team replaces guesswork with hard data. We operate on performance, which means our architecture must produce real bottom-line results.",
     "heroBody2": "From luxury medical aesthetics to premium service providers, our portfolio spans industries united by one common denominator: a demand for measurable, scalable growth.",
     "heroBody3": "Every case study below represents a real business, real revenue, and real transformation achieved through the NRA framework.",
@@ -120,7 +140,12 @@
     "caseStudiesDesc": "Real results from real partnerships. Every metric below represents verified net-new revenue.",
     "revenueLabel": "Net-New Revenue in XX Days",
     "placeholderDesc": "Placeholder description.",
-    "ctaButton": "Get in Touch"
+    "backToProof": "Back to Proof",
+    "backToAllArticles": "Back to all articles",
+    "byAuthor": "By",
+    "ctaTitle": "Want Similar Results?",
+    "ctaDesc": "Apply for a free Revenue Diagnosis to discover what's possible for your business.",
+    "ctaButton": "Apply Now"
   },
   "contact": {
     "heroTitle": "General Inquiries & Press",
@@ -219,25 +244,18 @@
   },
   "blog": {
     "heroTitle": "Insights & Analysis",
-    "heroDesc": "Deep dives into patient acquisition, revenue architecture, and the psychology of high-net-worth decision-making.",
+    "heroDesc": "Deep dives into revenue architecture, client acquisition, and the psychology of high-net-worth decision-making.",
     "backToBlog": "Back to Blog",
     "backToAllArticles": "Back to all articles",
     "byAuthor": "By",
     "newsletterTitle": "Stay Ahead of the Curve",
-    "newsletterDesc": "Get weekly insights on patient acquisition and revenue architecture delivered to your inbox.",
+    "newsletterDesc": "Get weekly insights on client acquisition and revenue architecture delivered to your inbox.",
     "comingSoon": "Coming Soon",
     "post1Title": "The Death of the Marketing Retainer",
-    "post1Desc": "Why performance-based models are the future of MedSpa client acquisition.",
+    "post1Desc": "Why performance-based models are the future of high-ticket client acquisition.",
     "post2Title": "EMR Integration: The Missing Link",
     "post2Desc": "How connecting your EMR to your marketing stack reveals hidden revenue streams.",
     "post3Title": "NLP in Aesthetic Marketing",
-    "post3Desc": "Using neurolinguistic patterns to craft ads that resonate with affluent patients."
-  },
-  "proof": {
-    "heroTitle": "Verifiable Growth. Zero Guesswork.",
-    "heroDesc": "Real results from real partnerships. Every metric below represents verified net-new revenue.",
-    "backToProof": "Back to Proof",
-    "backToAllArticles": "Back to all articles",
-    "byAuthor": "By"
+    "post3Desc": "Using neurolinguistic patterns to craft ads that resonate with affluent clients."
   }
 }

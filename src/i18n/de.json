@@ -14,7 +14,13 @@
     "termsOfService": "Nutzungsbedingungen",
     "impressum": "Impressum",
     "liveFrom": "Live aus Zagreb, Kroatien",
-    "allRightsReserved": "Alle Rechte vorbehalten."
+    "allRightsReserved": "Alle Rechte vorbehalten.",
+    "tagline": "Neurolinguistische Umsatzarchitektur für Europas Premium-Unternehmen."
+  },
+  "cookie": {
+    "message": "Wir verwenden Cookies und Conversion-Tracking, um ein besseres Erlebnis zu gestalten. Durch die Nutzung stimmen Sie unserer",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen"
   },
   "languages": {
     "en": "English",
@@ -57,14 +63,28 @@
     "compoundingDesc": "Indem wir präzise Umsatzdaten in Werbealgorithmen zurückspeisen, werden unsere Systeme täglich intelligenter. Wir optimieren nicht nur für Leads; wir trainieren die KI, Käufer zu finden, und senken so Ihre Akquisitionskosten im Laufe der Zeit.",
     "trackRevenue": "Umsatz verfolgen",
     "trainAlgorithm": "Algorithmus trainieren",
-    "lowerCPA": "CPA senken"
+    "lowerCPA": "CPA senken",
+    "metricsProjects": "50+ Projekte",
+    "metricsCapital": "660.000 EUR Kapital beschafft",
+    "metricsROI": "412% Durchschn. ROI",
+    "metricsLanguages": "6 Sprachen"
   },
   "about": {
-    "heroTitle": "Entwickelt von Umsatz-Architekten.",
-    "heroDesc1": "Marketing by Besic ist ein elitäres Kollektiv aus Wachstumsingenieuren, Entwicklern und Verhaltenspsychologen. Gegründet von einem ehemaligen CMO, wurde unser Team aufgebaut, um die Ausführungslücke zwischen hochrangiger Unternehmensstrategie und tatsächlichem Gewinnwachstum zu überbrücken.",
-    "heroDesc2": "Wir beraten nicht von der Seitenlinie – wir integrieren uns in Ihr Unternehmen und bauen die Infrastruktur gemeinsam mit Ihnen auf.",
-    "heroDesc3": "Unsere Expertise umfasst Neurolinguistisches Programmieren, Full-Stack-Entwicklung und Performance-Marketing und schafft eine einzigartige Fähigkeit, Systeme zu entwickeln, die messbares, verifizierbares Umsatzwachstum erzeugen.",
-    "teamPhotoAlt": "Marketing by Besic Team",
+    "heroTitle": "Gegründet von einem Umsatz-Architekten.",
+    "heroDesc1": "Marketing by Bešić wurde von Dino Bešić gegründet — Doktorand im Marketing, Universitätsprofessor und ehemaliger CMO, der Multi-Millionen-Euro-Kampagnen für LVMH, Tag Heuer und Iberostar geleitet hat. Mit über 50 abgeschlossenen Projekten und 9 dokumentierten Fallstudien überbrücken wir die Lücke zwischen Führungsstrategie und messbarem Umsatzwachstum.",
+    "heroDesc2": "Wir verkaufen keine Dienstleistungen. Wir architektieren Umsatzsysteme.",
+    "heroDesc3": "Unser Team kombiniert Neurolinguistisches Programmieren, Full-Stack-Entwicklung und Performance-Marketing, um integrierte Systeme zu schaffen, die überprüfbare Ergebnisse liefern. Wir integrieren uns in Ihr Unternehmen und bauen die Infrastruktur gemeinsam mit Ihnen auf.",
+    "teamPhotoAlt": "Dino Bešić, Gründer von Marketing by Bešić",
+    "founderTitle": "Dino Bešić",
+    "founderRole": "Gründer & Umsatz-Architekt",
+    "founderCredentials": "Doktorand im Marketing | Universitätsprofessor | Ehemaliger CMO bei LVMH, Tag Heuer, Iberostar",
+    "founderBio": "Mit Erfahrung aus über 50 Projekten in den Bereichen Luxus, Hotellerie, Pharma, Finanzen und Technologie bringt Dino einen forensischen Ansatz für Umsatzwachstum mit. Fließend in Englisch, Kroatisch, Italienisch und Deutsch.",
+    "statsProjects": "50+",
+    "statsProjectsLabel": "Umgesetzte Projekte",
+    "statsCaseStudies": "9",
+    "statsCaseStudiesLabel": "Dokumentierte Fallstudien",
+    "statsLanguages": "4",
+    "statsLanguagesLabel": "Gesprochene Sprachen",
     "philosophyTitle": "Daten validieren. Psychologie konvertiert.",
     "philosophyDesc": "Wir glauben, dass Zahlen auf einer Tabelle nichts bedeuten, wenn die Kreativität das menschliche Verhalten nicht bewegt. Unsere Philosophie verbindet fest kodierte technische Integrationen mit den tiefen, überzeugenden Prinzipien des Neurolinguistischen Programmierens.",
     "philosophy1Title": "Verhaltenspsychologische Grundlage",
@@ -112,7 +132,7 @@
   },
   "proof": {
     "heroTitle": "Verifizierbares Wachstum. Null Rätselraten.",
-    "heroDesc": "Unsere Infrastruktur wird von Branchenführern, Premium-Marken und High-Ticket-Dienstleistern vertraut.",
+    "heroDesc": "Echte Ergebnisse aus echten Partnerschaften. Jede Kennzahl unten repräsentiert verifizierten Netto-Neoumsatz.",
     "heroBody1": "Geleitet von Erfahrung auf Führungsebene bei Multi-Millionen-Euro-Kampagnen ersetzt unser Team Rätselraten durch harte Daten.",
     "heroBody2": "Von Luxus-Medizinästhetik bis hin zu Premium-Dienstleistern umfasst unser Portfolio Branchen, die durch einen gemeinsamen Nenner vereint sind: die Nachfrage nach messbarem, skalierbarem Wachstum.",
     "heroBody3": "Jede Fallstudie unten repräsentiert ein echtes Unternehmen, echten Umsatz und echte Transformation durch das NRA-Framework.",
@@ -120,7 +140,12 @@
     "caseStudiesDesc": "Echte Ergebnisse aus echten Partnerschaften. Jede Kennzahl unten repräsentiert verifizierten Netto-Neoumsatz.",
     "revenueLabel": "Netto-Neoumsatz in XX Tagen",
     "placeholderDesc": "Platzhalterbeschreibung.",
-    "ctaButton": "Kontakt aufnehmen"
+    "backToProof": "Zurück zum Nachweis",
+    "backToAllArticles": "Zurück zu allen Artikeln",
+    "byAuthor": "Von",
+    "ctaTitle": "Möchten Sie ähnliche Ergebnisse?",
+    "ctaDesc": "Bewerben Sie sich für eine kostenlose Umsatzdiagnose und entdecken Sie, was für Ihr Unternehmen möglich ist.",
+    "ctaButton": "Jetzt bewerben"
   },
   "contact": {
     "heroTitle": "Allgemeine Anfragen und Presse",
@@ -142,26 +167,19 @@
   },
   "blog": {
     "heroTitle": "Einblicke und Analysen",
-    "heroDesc": "Tiefe Einblicke in Patientenakquisition, Umsatzarchitektur und die Psychologie von Entscheidungen mit hohem Nettovermögen.",
+    "heroDesc": "Tiefe Einblicke in Kundenakquisition, Umsatzarchitektur und die Psychologie hochwertiger Entscheidungsprozesse.",
     "backToBlog": "Zurück zum Blog",
     "backToAllArticles": "Zurück zu allen Artikeln",
     "byAuthor": "Von",
     "newsletterTitle": "Bleiben Sie der Kurve voraus",
-    "newsletterDesc": "Erhalten Sie wöchentliche Einblicke in Patientenakquisition und Umsatzarchitektur direkt in Ihren Posteingang.",
+    "newsletterDesc": "Erhalten Sie wöchentliche Einblicke in Kundenakquisition und Umsatzarchitektur direkt in Ihren Posteingang.",
     "comingSoon": "Demnächst",
     "post1Title": "Der Tod des Marketing-Retainers",
-    "post1Desc": "Warum leistungsbasierte Modelle die Zukunft der MedSpa-Kundenakquisition sind.",
+    "post1Desc": "Warum leistungsbasierte Modelle die Zukunft der High-Ticket-Kundenakquisition sind.",
     "post2Title": "EMR-Integration: Das fehlende Glied",
     "post2Desc": "Wie die Verbindung Ihres EMR mit Ihrem Marketing-Stack versteckte Umsatzströme aufdeckt.",
     "post3Title": "NLP im ästhetischen Marketing",
-    "post3Desc": "Neurolinguistische Muster nutzen, um Anzeigen zu erstellen, die bei wohlhabenden Patienten Anklang finden."
-  },
-  "proof": {
-    "heroTitle": "Verifizierbares Wachstum. Null Rätselraten.",
-    "heroDesc": "Echte Ergebnisse aus echten Partnerschaften. Jede Kennzahl unten repräsentiert verifizierten Netto-Neoumsatz.",
-    "backToProof": "Zurück zum Nachweis",
-    "backToAllArticles": "Zurück zu allen Artikeln",
-    "byAuthor": "Von"
+    "post3Desc": "Neurolinguistische Muster nutzen, um Anzeigen zu erstellen, die bei anspruchsvollen Kunden Anklang finden."
   },
   "impressum": {
     "title": "Impressum",

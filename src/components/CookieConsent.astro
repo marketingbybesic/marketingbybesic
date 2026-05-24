@@ -1,10 +1,11 @@
 ---
 // Cookie Consent Banner Component with 30-Day Tracking
+// Uses i18n keys when available, falls back to English
 ---
 
 <div id="cookie-consent" class="fixed bottom-0 left-0 w-full z-[99999] bg-[#0A0A0A] border-t border-[#8224e3] p-4 hidden">
   <div class="container-custom flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-text-secondary text-sm text-center md:text-left">
+    <p class="text-text-secondary text-sm text-center md:text-left" id="cookie-message">
       We use cookies and conversion tracking to architect a better experience. By continuing, you agree to our <a href="/privacy-policy" class="text-brand hover:underline">Privacy Policy</a>.
     </p>
     <div class="flex items-center gap-4">
@@ -24,6 +25,32 @@
   const consentBanner = document.getElementById('cookie-consent') as HTMLElement;
   const acceptBtn = document.getElementById('cookie-accept');
   const declineBtn = document.getElementById('cookie-decline');
+
+  // Localize cookie banner text based on current URL lang
+  (function localizeBanner() {
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/(de|fr|es|it|hr)\//);
+    const lang = langMatch ? langMatch[1] : 'en';
+
+    const translations: Record<string, { message: string; accept: string; decline: string; privacyLabel: string }> = {
+      en: { message: 'We use cookies and conversion tracking to architect a better experience. By continuing, you agree to our', accept: 'Accept', decline: 'Decline', privacyLabel: 'Privacy Policy' },
+      de: { message: 'Wir verwenden Cookies und Conversion-Tracking, um ein besseres Erlebnis zu gestalten. Durch die Nutzung stimmen Sie unserer', accept: 'Akzeptieren', decline: 'Ablehnen', privacyLabel: 'Datenschutzrichtlinie' },
+      fr: { message: 'Nous utilisons des cookies et le suivi des conversions pour concevoir une meilleure experience. En continuant, vous acceptez notre', accept: 'Accepter', decline: 'Refuser', privacyLabel: 'Politique de confidentialite' },
+      es: { message: 'Utilizamos cookies y seguimiento de conversiones para disenar una mejor experiencia. Al continuar, acepta nuestra', accept: 'Aceptar', decline: 'Rechazar', privacyLabel: 'Politica de privacidad' },
+      it: { message: "Utilizziamo cookie e tracciamento delle conversioni per progettare un'esperienza migliore. Continuando, accetta la nostra", accept: 'Accetta', decline: 'Rifiuta', privacyLabel: 'Informativa sulla privacy' },
+      hr: { message: 'Koristimo kolacice i pracenje konverzija za bolje iskustvo. Nastavkom koristenja prihvacate nasu', accept: 'Prihvati', decline: 'Odbij', privacyLabel: 'Politika privatnosti' },
+    };
+
+    const t = translations[lang] || translations['en'];
+    const base = lang === 'en' ? '' : `/${lang}`;
+
+    const messageEl = document.getElementById('cookie-message');
+    if (messageEl) {
+      messageEl.innerHTML = `${t.message} <a href="${base}/privacy-policy" class="text-brand hover:underline">${t.privacyLabel}</a>.`;
+    }
+    if (acceptBtn) acceptBtn.textContent = t.accept;
+    if (declineBtn) declineBtn.textContent = t.decline;
+  })();
 
   const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
   const CONSENT_KEY = 'cookie_consent';
@@ -50,7 +77,7 @@
   // Accept function (shared by button and scroll auto-accept)
   function acceptConsent() {
     localStorage.setItem(CONSENT_KEY, Date.now().toString());
-    
+
     // Dynamically initialize GTM dataLayer push
     if (typeof (window as any).dataLayer !== 'undefined') {
       (window as any).dataLayer.push({
@@ -58,7 +85,7 @@
         gtm_start: new Date().getTime()
       });
     }
-    
+
     // Initialize Google Tag Manager
     (function(w: any, d: Document, s: string, l: string, i: string) {
       w[l] = w[l] || [];
@@ -88,7 +115,7 @@
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', undefined, undefined, undefined);
-    
+
     (window as any).fbq('init', '1978765049417651');
     (window as any).fbq('track', 'PageView');
 

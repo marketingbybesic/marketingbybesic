@@ -3,12 +3,10 @@ import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { getTranslations } from '../i18n/utils';
-import '@fontsource/playfair-display/400.css';
-import '@fontsource/playfair-display/500.css';
-import '@fontsource/playfair-display/600.css';
-import '@fontsource/playfair-display/700.css';
-import '@fontsource/playfair-display/800.css';
-import '@fontsource/playfair-display/900.css';
+import '@fontsource/cormorant-garamond/400.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/700.css';
 import '@fontsource/inter/300.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
@@ -21,7 +19,7 @@ interface Props {
   lang?: string;
 }
 
-const { title, description = 'Neurolinguistic Revenue Architecture for Europe\'s Elite Aesthetic Clinics', lang = 'en' } = Astro.props;
+const { title, description = 'Neurolinguistic Revenue Architecture for Europe\'s Premium Businesses', lang = 'en' } = Astro.props;
 const t = getTranslations(lang);
 
 // Build locale-aware nav links
@@ -97,7 +95,7 @@ const base = lang === 'en' ? '' : `/${lang}`;
             <a href={`${base}/about`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.about}</a>
             <a href={`${base}/architecture`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.architecture}</a>
             <a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.proof}</a>
-            <a href="/blog" class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.blog}</a>
+            <a href={`${base}/blog`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.blog}</a>
             <a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors">{t.nav.contact}</a>
           </nav>
 
@@ -149,7 +147,7 @@ const base = lang === 'en' ? '' : `/${lang}`;
           <div class="md:col-span-2">
             <img src="/logo-text.svg" alt="Marketing by Besic" class="h-8 mb-4" width="200" height="32" />
             <p class="body-md max-w-md">
-              Neurolinguistic Revenue Architecture for Europe's elite aesthetic clinics.
+              {t.footer.tagline || "Neurolinguistic Revenue Architecture for Europe's premium businesses."}
             </p>
             <!-- Live Status Indicator -->
             <div class="mt-4 flex items-center gap-2 text-text-secondary text-sm">
@@ -166,7 +164,7 @@ const base = lang === 'en' ? '' : `/${lang}`;
               <li><a href={`${base}/about`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.about}</a></li>
               <li><a href={`${base}/architecture`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.architecture}</a></li>
               <li><a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.proof}</a></li>
-              <li><a href="/blog" class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.blog}</a></li>
+              <li><a href={`${base}/blog`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.blog}</a></li>
               <li><a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.contact}</a></li>
             </ul>
           </div>

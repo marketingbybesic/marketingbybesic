@@ -14,12 +14,12 @@
     }
   },
   "socialProof": {
-    "label": "Trusted by elite aesthetic clinics across Europe",
+    "label": "Trusted by premium businesses across Europe",
     "stats": [
-      { "value": "€50M+", "label": "Net-New Revenue Generated" },
-      { "value": "200+", "label": "Clients Served" },
-      { "value": "12", "label": "Countries" },
-      { "value": "97%", "label": "Client Retention" }
+      { "value": "50+", "label": "Projects Delivered" },
+      { "value": "€660K", "label": "Capital Raised" },
+      { "value": "412%", "label": "Avg ROI" },
+      { "value": "6", "label": "Languages" }
     ]
   },
   "problem": {

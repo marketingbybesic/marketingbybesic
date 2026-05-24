@@ -18,24 +18,40 @@ const { lang } = Astro.params;
 const t = getTranslations(lang);
 ---
 
-<LayoutAuthority title="About | Marketing by Besic" lang={lang}>
-  <!-- Section 1: Our Identity -->
+<LayoutAuthority title={`${t.about.heroTitle} | Marketing by Bešić`} lang={lang}>
+  <!-- Section 1: Founder -->
   <section id="our-identity" class="py-20 md:py-32">
     <div class="container-custom">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <h1 class="heading-xl mb-8">{t.about.heroTitle}</h1>
           <p class="body-lg mb-6">{t.about.heroDesc1}</p>
-          <p class="body-md mb-6">{t.about.heroDesc2}</p>
+          <p class="body-lg mb-6 text-text-primary font-semibold">{t.about.heroDesc2}</p>
           <p class="body-md">{t.about.heroDesc3}</p>
         </div>
         <div class="rounded-xl overflow-hidden" style="height: 500px;">
           <img
-            src="/about-team-photo.webp"
+            src="/images/team/dino-besic.jpg"
             alt={t.about.teamPhotoAlt}
             class="w-full h-full object-cover"
             loading="lazy"
           />
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div class="text-center bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="text-brand text-4xl font-heading font-bold mb-2">{t.about.statsProjects}</div>
+          <p class="text-text-secondary text-sm">{t.about.statsProjectsLabel}</p>
+        </div>
+        <div class="text-center bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="text-brand text-4xl font-heading font-bold mb-2">{t.about.statsCaseStudies}</div>
+          <p class="text-text-secondary text-sm">{t.about.statsCaseStudiesLabel}</p>
+        </div>
+        <div class="text-center bg-bg-secondary border border-white/5 rounded-xl p-8">
+          <div class="text-brand text-4xl font-heading font-bold mb-2">{t.about.statsLanguages}</div>
+          <p class="text-text-secondary text-sm">{t.about.statsLanguagesLabel}</p>
         </div>
       </div>
     </div>
