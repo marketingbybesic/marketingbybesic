@@ -37,7 +37,37 @@ function formatDate(date: Date): string {
   title={`${post.data.title} | Marketing by Bešić`}
   description={post.data.metaDescription}
   lang={lang}
+  ogType="article"
+  ogImage={post.data.image ? `https://marketingbybesic.com${post.data.image}` : undefined}
+  articleDate={post.data.publishDate?.toISOString()}
+  articleAuthor={post.data.author}
 >
+  <!-- Article JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.data.title,
+    "description": post.data.metaDescription,
+    "author": {
+      "@type": "Person",
+      "name": post.data.author || "Dino Besic"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Marketing by Besic",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://marketingbybesic.com/logo-text.svg"
+      }
+    },
+    "datePublished": post.data.publishDate?.toISOString(),
+    "image": post.data.image ? `https://marketingbybesic.com${post.data.image}` : undefined,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://marketingbybesic.com/${lang}/blog/${post.id}`
+    }
+  })} />
+
   <article class="py-20 md:py-32">
     <div class="container-custom max-w-3xl">
 

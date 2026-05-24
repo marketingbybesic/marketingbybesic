@@ -17,13 +17,50 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  ogImage?: string;
+  ogType?: string;
+  articleDate?: string;
+  articleAuthor?: string;
 }
 
-const { title, description = 'Neurolinguistic Revenue Architecture for Europe\'s Premium Businesses', lang = 'en' } = Astro.props;
+const {
+  title,
+  description = 'Neurolinguistic Revenue Architecture for Europe\'s Premium Businesses',
+  lang = 'en',
+  ogImage = 'https://marketingbybesic.com/og-image.png',
+  ogType = 'website',
+  articleDate,
+  articleAuthor,
+} = Astro.props;
 const t = getTranslations(lang);
 
 // Build locale-aware nav links
 const base = lang === 'en' ? '' : `/${lang}`;
+
+// Canonical URL
+const canonicalURL = new URL(Astro.url.pathname, 'https://marketingbybesic.com');
+
+// Supported languages for hreflang
+const supportedLangs = ['en', 'de', 'fr', 'es', 'it', 'hr'];
+
+// Build hreflang URLs - map current path to each language variant
+function getHreflangUrl(targetLang: string): string {
+  const path = Astro.url.pathname;
+  // Strip existing lang prefix if present
+  const langPrefixMatch = path.match(/^\/(en|de|fr|es|it|hr)(\/.*)?$/);
+  const pathWithoutLang = langPrefixMatch ? (langPrefixMatch[2] || '/') : path;
+
+  if (targetLang === 'en') {
+    // English is the default, no prefix for root
+    return `https://marketingbybesic.com${pathWithoutLang}`;
+  }
+  return `https://marketingbybesic.com/${targetLang}${pathWithoutLang === '/' ? '/' : pathWithoutLang}`;
+}
+
+// Map lang code to og:locale format
+const localeMap: Record<string, string> = {
+  en: 'en_US', de: 'de_DE', fr: 'fr_FR', es: 'es_ES', it: 'it_IT', hr: 'hr_HR'
+};
 ---
 
 <html lang={lang}>
@@ -32,14 +69,61 @@ const base = lang === 'en' ? '' : `/${lang}`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Hreflang for multilingual SEO -->
+    {supportedLangs.map((l) => (
+      <link rel="alternate" hreflang={l} href={getHreflangUrl(l)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={getHreflangUrl('en')} />
+
     <!-- Open Graph -->
-    <meta property="og:image" content="/og-image.svg" />
-    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Marketing by Besic" />
+    <meta property="og:locale" content={localeMap[lang] || 'en_US'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@besicmarketing" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <title>{title}</title>
+
+    <!-- JSON-LD Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Marketing by Besic",
+      "url": "https://marketingbybesic.com",
+      "logo": "https://marketingbybesic.com/logo-text.svg",
+      "description": "Neurolinguistic Revenue Architecture for Europe's Premium Businesses",
+      "founder": {
+        "@type": "Person",
+        "name": "Dino Besic",
+        "jobTitle": "Founder & Revenue Architect"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "HR"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/marketing-by-besic/",
+        "https://www.instagram.com/marketingbybesic",
+        "https://x.com/besicmarketing",
+        "https://www.tiktok.com/@marketingbybesic",
+        "https://www.youtube.com/@marketingbybesic"
+      ]
+    })} />
 
     <!-- Umami Analytics (self-hosted, cookie-free, GDPR-compliant, no consent needed) -->
     <script defer src="https://analytics.marketingbybesic.com/script.js" data-website-id="03db5a91-c301-457a-9c98-3836612c58c2" is:inline></script>
