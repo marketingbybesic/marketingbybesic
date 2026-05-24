@@ -169,7 +169,7 @@ const localeMap: Record<string, string> = {
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/5" style="background-color: #000000;">
       <div class="container-custom">
-        <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center justify-between h-20 md:h-20">
           <!-- Logo Animation -->
           <a href={lang === 'en' ? '/' : `/${lang}/`} class="flex items-center gap-3">
             <video autoplay loop muted playsinline class="h-20 w-auto" aria-label="Marketing by Besic Logo Animation">
@@ -222,7 +222,7 @@ const localeMap: Record<string, string> = {
     </header>
 
     <!-- Main Content -->
-    <main class="pt-16 md:pt-20">
+    <main class="pt-20 md:pt-20">
       <slot />
     </main>
 
