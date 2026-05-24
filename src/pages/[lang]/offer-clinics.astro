@@ -1,0 +1,34 @@
+---
+import LayoutAuthority from '../../layouts/LayoutAuthority.astro';
+import OfferPage from '../../components/OfferPage.astro';
+import { getTranslations } from '../../i18n/utils';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'de' } },
+    { params: { lang: 'fr' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'it' } },
+    { params: { lang: 'hr' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const iconPath = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />';
+---
+
+<LayoutAuthority title={`${t.offerClinics.pageTitle} | Marketing by Besic`} lang={lang}>
+  <OfferPage
+    t={t.offerClinics}
+    lang={lang}
+    iconPath={iconPath}
+    heroImg="/offer-clinics-hero.webp"
+    problemImg="/offer-clinics-problem.webp"
+    solutionImg="/offer-clinics-solution.webp"
+  />
+</LayoutAuthority>

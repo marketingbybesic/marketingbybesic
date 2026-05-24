@@ -22,7 +22,12 @@ const supportedCodes = languages.map(l => l.code);
 const currentPath = Astro.url.pathname;
 
 // Pages that have [lang] equivalents — only these get locale-switched
-const localizedPages = ['/', '/about', '/architecture', '/proof', '/contact'];
+const localizedPages = [
+  '/', '/about', '/architecture', '/proof', '/contact',
+  '/apply', '/blog', '/impressum', '/privacy-policy', '/terms-of-service',
+  '/offer-clinics', '/offer-restaurant', '/offer-fitness',
+  '/offer-luxury', '/offer-medtech', '/offer-b2b',
+];
 
 // Extract locale from path: /en/about -> en, /de/ -> de, / -> en
 function detectLocale(path: string): string {

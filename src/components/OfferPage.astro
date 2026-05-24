@@ -1,0 +1,171 @@
+---
+/**
+ * Shared layout for all 6 offer/industry pages.
+ * Receives the i18n translation object for the specific offer vertical
+ * plus page-specific metadata (images, icon SVG path).
+ */
+
+interface Props {
+  t: {
+    pageTitle: string;
+    heroTitle: string;
+    heroDesc: string;
+    heroImgAlt: string;
+    problemTitle: string;
+    leak1Title: string;
+    leak1Desc: string;
+    leak2Title: string;
+    leak2Desc: string;
+    leak3Title: string;
+    leak3Desc: string;
+    problemImgAlt: string;
+    solutionTitle: string;
+    phase1Title: string;
+    phase1Desc: string;
+    phase2Title: string;
+    phase2Desc: string;
+    phase3Title: string;
+    phase3Desc: string;
+    solutionImgAlt: string;
+    executionTitle: string;
+    executionDesc: string;
+    executionProof: string;
+    ctaTitle: string;
+    ctaDesc: string;
+    ctaButton: string;
+  };
+  lang: string;
+  iconPath: string;
+  heroImg: string;
+  problemImg: string;
+  solutionImg: string;
+}
+
+const { t, lang, iconPath, heroImg, problemImg, solutionImg } = Astro.props;
+---
+
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center justify-center py-20">
+  <div class="container-custom max-w-4xl text-center">
+    <div class="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-8">
+      <svg class="w-10 h-10 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <Fragment set:html={iconPath} />
+      </svg>
+    </div>
+
+    <h1 class="heading-xl mb-6">
+      {t.heroTitle}
+    </h1>
+    <p class="body-lg mb-12">
+      {t.heroDesc}
+    </p>
+
+    <img src={heroImg} alt={t.heroImgAlt} class="w-full rounded-lg mb-12 object-cover max-h-[500px]" width="1200" height="500" loading="eager" />
+  </div>
+</section>
+
+<!-- Problem Section -->
+<section class="py-20">
+  <div class="container-custom max-w-3xl">
+    <h2 class="heading-lg mb-8 text-center">{t.problemTitle}</h2>
+
+    <div class="space-y-8">
+      <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 text-left">
+        <h3 class="font-heading text-xl font-bold mb-3 text-brand">{t.leak1Title}</h3>
+        <p class="body-md">{t.leak1Desc}</p>
+      </div>
+
+      <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 text-left">
+        <h3 class="font-heading text-xl font-bold mb-3 text-brand">{t.leak2Title}</h3>
+        <p class="body-md">{t.leak2Desc}</p>
+      </div>
+
+      <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 text-left">
+        <h3 class="font-heading text-xl font-bold mb-3 text-brand">{t.leak3Title}</h3>
+        <p class="body-md">{t.leak3Desc}</p>
+      </div>
+    </div>
+
+    <img src={problemImg} alt={t.problemImgAlt} class="w-full rounded-lg my-12 object-cover max-h-[300px]" width="1200" height="300" loading="lazy" />
+  </div>
+</section>
+
+<!-- Solution Section -->
+<section class="py-20">
+  <div class="container-custom max-w-3xl">
+    <h2 class="heading-lg mb-8 text-center">{t.solutionTitle}</h2>
+
+    <!-- Phase 1 -->
+    <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 mb-6 text-left">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-brand font-bold">1</span>
+        </div>
+        <div>
+          <h3 class="font-heading text-xl font-bold mb-2">{t.phase1Title}</h3>
+          <p class="body-md">{t.phase1Desc}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 mb-6 text-left">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-brand font-bold">2</span>
+        </div>
+        <div>
+          <h3 class="font-heading text-xl font-bold mb-2">{t.phase2Title}</h3>
+          <p class="body-md">{t.phase2Desc}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 text-left">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-brand font-bold">3</span>
+        </div>
+        <div>
+          <h3 class="font-heading text-xl font-bold mb-2">{t.phase3Title}</h3>
+          <p class="body-md">{t.phase3Desc}</p>
+        </div>
+      </div>
+    </div>
+
+    <img src={solutionImg} alt={t.solutionImgAlt} class="w-full rounded-lg my-12 object-cover max-h-[300px]" width="1200" height="300" loading="lazy" />
+  </div>
+</section>
+
+<!-- Execution Gap Section -->
+<section class="py-20 bg-[#111111] relative z-10">
+  <div class="container-custom max-w-3xl">
+    <h2 class="heading-lg mb-8 text-center">{t.executionTitle}</h2>
+    <p class="body-md mb-6 text-center">
+      {t.executionDesc}
+    </p>
+    <p class="body-md mb-6 text-center font-semibold text-brand">
+      {t.executionProof}
+    </p>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 pb-48">
+  <div class="container-custom max-w-3xl text-center">
+    <h2 class="heading-lg mb-6">{t.ctaTitle}</h2>
+    <p class="body-lg mb-12">
+      {t.ctaDesc}
+    </p>
+
+    <div class="mt-12 flex justify-center w-full">
+      <a
+        href={`/${lang}/apply`}
+        class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-[#8224e3] rounded-lg hover:bg-[#6a1ca6] hover:scale-105 shadow-[0_0_20px_rgba(130,36,227,0.4)]"
+      >
+        {t.ctaButton}
+      </a>
+    </div>
+  </div>
+</section>

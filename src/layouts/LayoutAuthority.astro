@@ -41,6 +41,9 @@ const base = lang === 'en' ? '' : `/${lang}`;
     
     <title>{title}</title>
 
+    <!-- Umami Analytics (self-hosted, cookie-free, GDPR-compliant, no consent needed) -->
+    <script defer src="https://analytics.marketingbybesic.com/script.js" data-website-id="c264281b-d32a-4dcb-856a-7737748cc2b8" is:inline></script>
+
     <!-- Self-hosted fonts via @fontsource -->
 
     <!-- GTM Head (conditional on GDPR) -->
@@ -142,7 +145,7 @@ const base = lang === 'en' ? '' : `/${lang}`;
     <!-- Footer -->
     <footer class="bg-bg-secondary border-t border-white/5 py-12 md:py-16">
       <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
           <!-- Brand -->
           <div class="md:col-span-2">
             <img src="/logo-text.svg" alt="Marketing by Besic" class="h-8 mb-4" width="200" height="32" />
@@ -166,6 +169,19 @@ const base = lang === 'en' ? '' : `/${lang}`;
               <li><a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.proof}</a></li>
               <li><a href={`${base}/blog`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.blog}</a></li>
               <li><a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.contact}</a></li>
+            </ul>
+          </div>
+
+          <!-- Industries -->
+          <div>
+            <h4 class="font-semibold text-text-primary mb-4">{(t as any).services?.title || "Industries"}</h4>
+            <ul class="space-y-2">
+              <li><a href={`/${lang}/offer-clinics`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.clinics || "Medical Clinics"}</a></li>
+              <li><a href={`/${lang}/offer-restaurant`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.restaurant || "Restaurant Chains"}</a></li>
+              <li><a href={`/${lang}/offer-fitness`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.fitness || "Fitness & Coaching"}</a></li>
+              <li><a href={`/${lang}/offer-luxury`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.luxury || "Luxury Hospitality"}</a></li>
+              <li><a href={`/${lang}/offer-medtech`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.medtech || "Medical Devices"}</a></li>
+              <li><a href={`/${lang}/offer-b2b`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.b2b || "B2B Technology"}</a></li>
             </ul>
           </div>
 
@@ -229,35 +245,44 @@ const base = lang === 'en' ? '' : `/${lang}`;
 
     <!-- Scripts -->
     <script>
-      // Auto-redirect based on browser language on first visit
+      // Auto-language detection + manual override tracking
       (function() {
-        const LOCALE_PREF_KEY = 'locale_pref_set';
-        
-        // Check if user has already set a preference
-        if (!localStorage.getItem(LOCALE_PREF_KEY)) {
+        const AUTO_KEY = 'mbb_lang_auto';
+        const MANUAL_KEY = 'mbb_lang_manual';
+        const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'hr'];
+        const currentPath = window.location.pathname;
+
+        // Detect current locale from URL
+        const pathSegments = currentPath.split('/').filter(Boolean);
+        const currentUrlLocale = (pathSegments[0] && supportedLocales.includes(pathSegments[0]))
+          ? pathSegments[0] : null;
+
+        // Track manual language switches:
+        // If user is on a localized route and arrived via a language switcher click
+        // (detected by comparing stored auto-detected locale vs current URL locale)
+        if (currentUrlLocale && localStorage.getItem(AUTO_KEY)) {
+          const autoLocale = localStorage.getItem(AUTO_KEY);
+          if (autoLocale !== currentUrlLocale) {
+            // User manually switched away from auto-detected locale
+            localStorage.setItem(MANUAL_KEY, 'true');
+          }
+        }
+
+        // Only auto-redirect on first visit (no auto flag set, no manual override)
+        if (!localStorage.getItem(AUTO_KEY) && !localStorage.getItem(MANUAL_KEY)) {
           const browserLang = navigator.language || (navigator as any).userLanguage;
-          const supportedLocales = ['en', 'de', 'fr', 'es', 'it', 'hr'];
-          
-          // Extract primary language code
           const primaryLang = browserLang.split('-')[0].toLowerCase();
-          
-          // Get current path
-          const currentPath = window.location.pathname;
-          
-          // Check if we're already on a localized route
-          const isOnLocalizedRoute = supportedLocales.some(locale =>
-            currentPath.startsWith('/' + locale + '/') || currentPath === '/' + locale
-          );
-          
-          // If browser language matches a supported locale and we're on the default route
-          if (supportedLocales.includes(primaryLang) && primaryLang !== 'en' && currentPath === '/') {
-            // Mark preference as set to avoid redirect loops
-            localStorage.setItem(LOCALE_PREF_KEY, 'true');
-            // Redirect to matching locale
-            window.location.href = '/' + primaryLang + '/';
-          } else if (!isOnLocalizedRoute) {
-            // Mark that we've checked preferences
-            localStorage.setItem(LOCALE_PREF_KEY, 'true');
+
+          // Map browser locale to supported locale
+          const targetLocale = supportedLocales.includes(primaryLang) ? primaryLang : 'en';
+
+          // Store auto-detected locale
+          localStorage.setItem(AUTO_KEY, targetLocale);
+
+          // Only redirect if on the root page and target is not EN
+          if (targetLocale !== 'en' && currentPath === '/') {
+            window.location.href = '/' + targetLocale + '/';
+            return;
           }
         }
       })();
