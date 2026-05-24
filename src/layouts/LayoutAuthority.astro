@@ -227,17 +227,16 @@ const localeMap: Record<string, string> = {
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bg-secondary border-t border-white/5 py-12 md:py-16">
+    <footer class="bg-bg-secondary border-t border-white/5 py-8 md:py-16">
       <div class="container-custom">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-12">
           <!-- Brand -->
-          <div class="md:col-span-2">
-            <img src="/logo-text.svg" alt="Marketing by Besic" class="h-8 mb-4" width="200" height="32" />
-            <p class="body-md max-w-md">
+          <div class="col-span-2">
+            <img src="/logo-text.svg" alt="Marketing by Besic" class="h-8 mb-3" width="200" height="32" />
+            <p class="body-md max-w-md text-sm">
               {t.footer.tagline || "Neurolinguistic Revenue Architecture for Europe's premium businesses."}
             </p>
-            <!-- Live Status Indicator -->
-            <div class="mt-4 flex items-center gap-2 text-text-secondary text-sm">
+            <div class="mt-3 flex items-center gap-2 text-text-secondary text-xs">
               <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               <span>{t.footer.liveFrom}</span>
               <span id="zagreb-time" class="font-mono"></span>
@@ -246,36 +245,36 @@ const localeMap: Record<string, string> = {
 
           <!-- Quick Links -->
           <div>
-            <h4 class="font-semibold text-text-primary mb-4">{t.footer.navigation}</h4>
-            <ul class="space-y-2">
-              <li><a href={`${base}/about`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.about}</a></li>
-              <li><a href={`${base}/architecture`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.architecture}</a></li>
-              <li><a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.proof}</a></li>
-              <li><a href={`${base}/blog`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.blog}</a></li>
-              <li><a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.nav.contact}</a></li>
+            <h4 class="font-semibold text-text-primary mb-3 text-sm">{t.footer.navigation}</h4>
+            <ul class="space-y-1.5">
+              <li><a href={`${base}/about`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.nav.about}</a></li>
+              <li><a href={`${base}/architecture`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.nav.architecture}</a></li>
+              <li><a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.nav.proof}</a></li>
+              <li><a href={`${base}/blog`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.nav.blog}</a></li>
+              <li><a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.nav.contact}</a></li>
             </ul>
           </div>
 
           <!-- Industries -->
           <div>
-            <h4 class="font-semibold text-text-primary mb-4">{(t as any).services?.title || "Industries"}</h4>
-            <ul class="space-y-2">
-              <li><a href={`/${lang}/offer-clinics`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.clinics || "Medical Clinics"}</a></li>
-              <li><a href={`/${lang}/offer-restaurant`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.restaurant || "Restaurant Chains"}</a></li>
-              <li><a href={`/${lang}/offer-fitness`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.fitness || "Fitness & Coaching"}</a></li>
-              <li><a href={`/${lang}/offer-luxury`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.luxury || "Luxury Hospitality"}</a></li>
-              <li><a href={`/${lang}/offer-medtech`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.medtech || "Medical Devices"}</a></li>
-              <li><a href={`/${lang}/offer-b2b`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{(t as any).services?.b2b || "B2B Technology"}</a></li>
+            <h4 class="font-semibold text-text-primary mb-3 text-sm">{(t as any).services?.title || "Industries"}</h4>
+            <ul class="space-y-1.5">
+              <li><a href={`/${lang}/offer-clinics`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.clinics || "Medical Clinics"}</a></li>
+              <li><a href={`/${lang}/offer-restaurant`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.restaurant || "Restaurant Chains"}</a></li>
+              <li><a href={`/${lang}/offer-fitness`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.fitness || "Fitness & Coaching"}</a></li>
+              <li><a href={`/${lang}/offer-luxury`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.luxury || "Luxury"}</a></li>
+              <li><a href={`/${lang}/offer-medtech`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.medtech || "Medical Devices"}</a></li>
+              <li><a href={`/${lang}/offer-b2b`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.b2b || "B2B Technology"}</a></li>
             </ul>
           </div>
 
           <!-- Legal -->
           <div>
-            <h4 class="font-semibold text-text-primary mb-4">{t.footer.legal}</h4>
-            <ul class="space-y-2">
-              <li><a href={`${base}/privacy-policy`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.privacyPolicy}</a></li>
-              <li><a href={`${base}/terms-of-service`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.termsOfService}</a></li>
-              <li><a href={`${base}/impressum`} class="text-text-secondary hover:text-text-primary transition-colors text-sm">{t.footer.impressum}</a></li>
+            <h4 class="font-semibold text-text-primary mb-3 text-sm">{t.footer.legal}</h4>
+            <ul class="space-y-1.5">
+              <li><a href={`${base}/privacy-policy`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.footer.privacyPolicy}</a></li>
+              <li><a href={`${base}/terms-of-service`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.footer.termsOfService}</a></li>
+              <li><a href={`${base}/impressum`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{t.footer.impressum}</a></li>
             </ul>
           </div>
         </div>
