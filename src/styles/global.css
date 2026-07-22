@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts are self-hosted via @fontsource in the layouts — see LayoutAuthority.astro.
+   Do NOT re-add a Google Fonts @import here: it downloaded the same families a
+   second time and, because @import inside CSS is render-blocking, it delayed
+   first paint by a full extra round-trip to fonts.googleapis.com. */
 
 @tailwind base;
 @tailwind components;

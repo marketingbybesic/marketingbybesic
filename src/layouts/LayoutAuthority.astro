@@ -3,11 +3,12 @@ import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { getTranslations } from '../i18n/utils';
-import '@fontsource/cormorant-garamond/400.css';
-import '@fontsource/cormorant-garamond/500.css';
+// Only the weights actually used in markup are loaded. Cormorant is used via
+// `font-heading`, which pairs only with font-semibold (600) and font-bold (700);
+// Inter carries body text at 400/500/600/700. Inter 300 and Cormorant 400/500
+// were downloaded on every visit and never rendered — ~70KB of dead weight.
 import '@fontsource/cormorant-garamond/600.css';
 import '@fontsource/cormorant-garamond/700.css';
-import '@fontsource/inter/300.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
