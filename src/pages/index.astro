@@ -5,7 +5,13 @@ import homeData from '../content/pages/home.json';
 const { hero, problem, nlp, pillars, compounding, ctaSection } = homeData;
 ---
 
-<LayoutAuthority title="Marketing by Bešić | Neurolinguistic Revenue Architecture">
+<!-- Title is what Google and LinkedIn show first. "Neurolinguistic" reads as
+     esoteric to a cold technical buyer, so the term stays in the footer
+     tagline and on the About page where it has room to be explained. -->
+<LayoutAuthority
+  title="Marketing by Bešić — Revenue Measurement and Growth"
+  description="Server-side conversion tracking for companies spending €20k+ a month on ads. Meta CAPI, GTM server-side, Consent Mode v2. Recover revenue your platforms miss."
+>
   <!-- Section 1: Hero -->
   <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden" data-tina-field="hero">
     <!-- Background Glow -->

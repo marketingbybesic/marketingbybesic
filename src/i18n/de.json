@@ -15,7 +15,7 @@
     "impressum": "Impressum",
     "liveFrom": "Live aus Zagreb, Kroatien",
     "allRightsReserved": "Alle Rechte vorbehalten.",
-    "tagline": "Neurolinguistische Umsatzarchitektur für Europas Premium-Unternehmen."
+    "tagline": "Umsatzmessung und Wachstum für Unternehmen, die ernsthaft in Werbung investieren."
   },
   "cookie": {
     "message": "Wir verwenden Cookies und Conversion-Tracking, um ein besseres Erlebnis zu gestalten. Durch die Nutzung stimmen Sie unserer",
@@ -33,7 +33,7 @@
   "home": {
     "eyebrow": "PERFORMANCE UMSATZWACHSTUM DURCH BEWIESENE ERGEBNISSE",
     "heroTitle": "Die Architektur skalierbaren Gewinns.",
-    "heroDesc": "Hören Sie auf, generische Klicks und Leads zu kaufen. Wir kombinieren fortschrittliches Neurolinguistisches Programmieren mit Full-Stack-Conversion-Tracking, um Systeme zu entwickeln, die kalten Traffic in verifizierten, hochpreisigen Umsatz verwandeln.",
+    "heroDesc": "Die meisten Unternehmen, die monatlich 20.000 Euro für Werbung ausgeben, können nicht belegen, woher ein Viertel ihres Umsatzes kam. Wir reparieren die Messung und handeln dann nach dem, was sie zeigt.",
     "heroCtaPrimary": "Kontakt aufnehmen",
     "heroCtaSecondary": "So funktioniert es",
     "executionGapTitle": "Die Ausführungslücke.",
@@ -44,18 +44,18 @@
     "fragmentedSystemsDesc": "Anzeigen, Landingpages und CRMs arbeiten in Silos. Ohne Integration verlieren Sie den Überblick darüber, was tatsächlich Gewinn treibt.",
     "genericCreativeTitle": "Generische Kreativität",
     "genericCreativeDesc": "Standardwerbung spricht Demografien an, nicht Psychologie. Ihre hochpreisigen Angebote verdienen Botschaften, die Autorität ausstrahlen.",
-    "nlpTitle": "Der Neurolinguistische Vorteil.",
-    "nlpDesc1": "Moderne Verbraucher sind blind für traditionelle Werbung. Unser proprietäres Framework nutzt fortschrittliche Verhaltenspsychologie und NLP-Sprachmuster, um Skepsis zu überwinden, sofortiges unbewusstes Vertrauen aufzubauen und Ihre Marke als unbestrittene Autorität zu positionieren.",
-    "nlpDesc2": "Wir erstellen nicht nur Anzeigen – wir entwickeln überzeugende Multimedia-Erlebnisse, die direkt auf die Entscheidungsmuster hochwertiger Käufer eingehen.",
+    "nlpTitle": "Wo das Geld verloren geht.",
+    "nlpDesc1": "Seit iOS 14 verlieren Browser-Pixel 20 bis 40 Prozent der Conversions. Consent-Banner und Adblocker nehmen weitere. Ihre Werbeplattformen optimieren auf das, was übrig bleibt, und geben Ihr Budget seit Jahren auf Basis unvollständiger Daten aus.",
+    "nlpDesc2": "Das ist die technische Hälfte. Die andere ist zu wissen, worauf Menschen tatsächlich reagieren. Ein Hintergrund in Verhaltenspsychologie und Neurolinguistik hilft hier, aber nur wenn sich messen lässt, ob es funktioniert hat. Wir bauen zuerst die Messung. Dann ist die Psychologie etwas, das Sie prüfen können, statt etwas, das Sie glauben müssen.",
     "nlpVisualLabel": "NLP-Framework-Visualisierung",
     "pillarsTitle": "Wie wir Gewinn entwickeln.",
     "pillarsDesc": "Drei integrierte Säulen arbeiten zusammen, um Ihr Marketing von einem Kostenfaktor in eine Umsatzmaschine zu verwandeln.",
-    "pillar1Title": "Authentisches NLP-Multimedia",
-    "pillar1Desc": "Vertrauen. Überzeugende, psychologiegetriebene Kreativität, die Ihre Marke als Premium-Wahl positioniert.",
-    "pillar2Title": "Reibungslose Hubs",
-    "pillar2Desc": "Absicht. Hochgeschwindigkeits-Conversion-Infrastruktur, die Abbrüche eliminiert und Käuferverpflichtungen erfasst.",
-    "pillar3Title": "Geschlossenes Tracking",
-    "pillar3Desc": "ROI. Server-seitiges API-Tracking, das jede digitale Interaktion direkt mit verifiziertem Umsatz verknüpft.",
+    "pillar1Title": "Botschaft und Kreation",
+    "pillar1Desc": "Sprache, die darauf aufbaut, wie Entscheidungen wirklich getroffen werden, und danach gemessen wird, damit Sie wissen, welche Version den Umsatz gebracht hat.",
+    "pillar2Title": "Reibungslose Conversion",
+    "pillar2Desc": "Infrastruktur, die den Absprung zwischen Interesse und Abschluss beseitigt. Schnelle Seiten, saubere Formulare, nichts im Weg.",
+    "pillar3Title": "Messung im geschlossenen Kreislauf",
+    "pillar3Desc": "Server-seitiges Tracking, das jeden Euro Werbeausgabe mit belegtem Umsatz verbindet. Meta CAPI, GTM server-side, Consent Mode v2, saubere Deduplizierung.",
     "ctaTitle": "Bereit, Ihr Wachstum zu gestalten?",
     "ctaDesc": "Kontaktieren Sie unser Team noch heute, um Ihr Diagnose-Audit zu beginnen.",
     "ctaButton": "Kontakt aufnehmen",
@@ -107,9 +107,9 @@
     "frameworkTitle": "Das NRA-Framework.",
     "frameworkDesc": "Drei integrierte Säulen, die zusammenarbeiten, um vorhersehbares, skalierbares Umsatzwachstum zu entwickeln.",
     "pillar1Title": "NLP-optimierte Medien",
-    "pillar1Desc1": "Sprachmuster, die Autorität ausstrahlen. Wir nutzen NLP-Prinzipien, um Multimedia-Assets zu erstellen, die Skepsis überwinden und sofortiges Vertrauen aufbauen.",
-    "pillar1Desc2": "Jede Anzeige, jedes Video, jede Landingpage wird mit Verhaltenspsychologie-Mustern entwickelt, die Handlungen von hochwertigen Entscheidungsträgern auslösen.",
-    "pillar1Visual": "Neurolinguistische Mustererkennung",
+    "pillar1Desc1": "Sprachmuster, die daran ausgerichtet sind, wie Entscheidungen wirklich fallen, und anschließend A/B-getestet werden, damit die Gewinnervariante eine Messung ist und keine Meinung.",
+    "pillar1Desc2": "Jede Anzeige, jedes Video und jede Landingpage gilt als Hypothese. Die Tracking-Ebene zeigt, welche den Umsatz gebracht hat.",
+    "pillar1Visual": "Botschaftstests",
     "pillar2Title": "Reibungslose Conversion-Hubs",
     "pillar2Desc1": "Hochgeschwindigkeits-Vorqualifizierungs-Funnels, die jeden möglichen Abbruchpunkt zwischen erstem Interesse und gebuchtem Termin eliminieren.",
     "pillar2Desc2": "Von geschwindigkeitsoptimierten Landingpages bis hin zu Ein-Klick-Buchungsintegrationen entwickeln wir die gesamte Käuferreise für maximale Conversion.",
@@ -480,5 +480,9 @@
     "luxury": "Luxus",
     "medtech": "Medizinprodukte",
     "b2b": "B2B-Technologie"
+  },
+  "seo": {
+    "title": "Marketing by Bešić — Umsatzmessung und Wachstum",
+    "description": "Server-seitiges Conversion-Tracking für Unternehmen mit mehr als 20.000 Euro Werbebudget im Monat. Meta CAPI, GTM server-side, Consent Mode v2."
   }
 }

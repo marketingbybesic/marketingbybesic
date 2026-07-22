@@ -15,7 +15,7 @@
     "impressum": "Impresum",
     "liveFrom": "Uzivo iz Zagreba, Hrvatska",
     "allRightsReserved": "Sva prava pridrzana.",
-    "tagline": "Neurolingvistička arhitektura prihoda za premium europska poduzeća."
+    "tagline": "Mjerenje prihoda i rast za tvrtke koje na oglase troše ozbiljan novac."
   },
   "cookie": {
     "message": "Koristimo kolačiće i praćenje konverzija za bolje iskustvo. Nastavkom korištenja prihvaćate našu",
@@ -33,7 +33,7 @@
   "home": {
     "eyebrow": "RAST PRIHODA DOKAZAN REZULTATIMA",
     "heroTitle": "Arhitektura Skalabilnog Profita.",
-    "heroDesc": "Prestanite kupovati generičke klikove i leadove. Kombiniramo napredni NLP s full-stack praćenjem konverzija kako bismo izgradili sustave koji pretvaraju hladni promet u verificirani, visokoprofitni prihod.",
+    "heroDesc": "Većina tvrtki koje na oglase troše 20.000 eura mjesečno ne može dokazati odakle im je došla četvrtina prihoda. Popravljamo mjerenje, zatim djelujemo na temelju onoga što pokaže.",
     "heroCtaPrimary": "Kontaktirajte nas",
     "heroCtaSecondary": "Pogledajte kako funkcionira",
     "executionGapTitle": "Jaz u Izvrsenju.",
@@ -44,18 +44,18 @@
     "fragmentedSystemsDesc": "Oglasi, odredisne stranice i CRM-ovi rade u silosima. Bez integracije gubite pregled nad onim što stvarno pokrece profit.",
     "genericCreativeTitle": "Genericka Kreativnost",
     "genericCreativeDesc": "Standardno oglasavanje govori demografiji, ne psihologiji. Vase visokoprofitne ponude zasluzuju poruke koje prenose autoritet.",
-    "nlpTitle": "Neurolingvistička Prednost.",
-    "nlpDesc1": "Moderni potrošači su slijepi na tradicionalno oglasavanje. Naš proprietarni okvir koristi naprednu bihevioralnu psihologiju i NLP jezicne obrasce kako bi zaobisao skepticizam, izgradio trenutno podsvjesno povjerenje i pozicionirao vas brend kao neupitni autoritet.",
-    "nlpDesc2": "Ne stvaramo samo oglase, projektiramo uvjerljiva multimedijalna iskustva koja govore izravno obrascima donošenja odluka kupaca visoke vrijednosti.",
+    "nlpTitle": "Gdje novac curi.",
+    "nlpDesc1": "Od iOS-a 14 preglednički pikseli gube 20 do 40 posto konverzija. Consent baneri i blokatori oglasa uzimaju još. Vaše oglasne platforme optimiziraju na ono što preostane, što znači da godinama troše vaš budžet na nepotpune podatke.",
+    "nlpDesc2": "To je tehnička polovica. Druga je znati na što ljudi zapravo reagiraju. Podloga u bihevioralnoj psihologiji i neurolingvistici tu je korisna, ali samo ako možete izmjeriti je li djelovala. Prvo gradimo mjerenje. Onda je psihologija nešto što provjeravate, a ne nešto u što morate vjerovati.",
     "nlpVisualLabel": "Vizualizacija NLP Okvira",
     "pillarsTitle": "Kako Projektiramo Profit.",
     "pillarsDesc": "Tri integrirana stupa rade zajedno kako bi transformirali vas marketing iz centra troskova u motor prihoda.",
-    "pillar1Title": "Autenticni NLP Multimedij",
-    "pillar1Desc": "Povjerenje. Uvjerljiva, psihologijom vodena kreativnost koja pozicionira vas brend kao premium izbor.",
-    "pillar2Title": "Hubovi Bez Trenja",
-    "pillar2Desc": "Namjera. Infrastruktura konverzije visoke brzine koja eliminira napuštanje i hvata predanost kupca.",
-    "pillar3Title": "Pracenje Zatvorene Petlje",
-    "pillar3Desc": "ROI. API praćenje na strani poslužitelja koje svaku digitalnu interakciju izravno povezuje s verificiranim prihodom.",
+    "pillar1Title": "Poruka i kreativa",
+    "pillar1Desc": "Jezik građen na tome kako se odluke stvarno donose, pa izmjeren, da znate koja je verzija zaradila novac.",
+    "pillar2Title": "Konverzija bez trenja",
+    "pillar2Desc": "Infrastruktura koja uklanja odustajanje između interesa i obveze. Brze stranice, čiste forme, ništa na putu.",
+    "pillar3Title": "Mjerenje u zatvorenoj petlji",
+    "pillar3Desc": "Server-side praćenje koje svaki euro potrošnje veže uz provjeren prihod. Meta CAPI, GTM server-side, Consent Mode v2, ispravna deduplikacija.",
     "ctaTitle": "Spremni za Arhitekturu Vaseg Rasta?",
     "ctaDesc": "Kontaktirajte nas tim danas kako biste započeli dijagnostički audit.",
     "ctaButton": "Kontaktirajte nas",
@@ -107,9 +107,9 @@
     "frameworkTitle": "NRA Okvir.",
     "frameworkDesc": "Tri integrirana stupa koja rade zajedno kako bi projektirala predvidljiv, skalabilan rast prihoda.",
     "pillar1Title": "NLP-Optimizirani Mediji",
-    "pillar1Desc1": "Jezicni obrasci koji prenose autoritet. Koristimo NLP principe za stvaranje multimedijalnih asseta koji zaobilaze skepticizam i grade trenutno povjerenje.",
-    "pillar1Desc2": "Svaki oglas, svaki video, svaka odredisna stranica projektirana je koristeci obrasce bihevioralne psihologije koji pokrecu akciju donositelja odluka visoke vrijednosti.",
-    "pillar1Visual": "Prepoznavanje Neurolingvističkih Obrazaca",
+    "pillar1Desc1": "Jezični obrasci odabrani prema tome kako se odluke stvarno donose, zatim A/B testirani da pobjednička verzija bude mjerenje, a ne mišljenje.",
+    "pillar1Desc2": "Svaki oglas, video i landing stranica tretira se kao hipoteza. Sloj praćenja govori koja je donijela prihod.",
+    "pillar1Visual": "Testiranje poruke",
     "pillar2Title": "Hubovi Konverzije Bez Trenja",
     "pillar2Desc1": "Funneli pred-kvalifikacije visoke brzine koji eliminiraju svaku mogucu tocku napuštanja između pocetnog interesa i zakazanog termina.",
     "pillar2Desc2": "Od odredisnih stranica optimiziranih za brzinu do integracija rezervacije jednim klikom, projektiramo cijelo putovanje kupca za maksimalnu konverziju.",
@@ -480,5 +480,9 @@
     "luxury": "Luksuz",
     "medtech": "Medicinski uredaji",
     "b2b": "B2B tehnologija"
+  },
+  "seo": {
+    "title": "Marketing by Bešić — Mjerenje prihoda i rast",
+    "description": "Server-side praćenje konverzija za tvrtke koje na oglase troše više od 20.000 eura mjesečno. Meta CAPI, GTM server-side, Consent Mode v2."
   }
 }

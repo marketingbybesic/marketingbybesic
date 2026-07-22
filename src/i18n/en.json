@@ -15,7 +15,7 @@
     "impressum": "Impressum",
     "liveFrom": "Live from Zagreb, Croatia",
     "allRightsReserved": "All rights reserved.",
-    "tagline": "Neurolinguistic Revenue Architecture for Europe's premium businesses."
+    "tagline": "Revenue measurement and growth for companies spending real money on ads."
   },
   "cookie": {
     "message": "We use cookies and conversion tracking to architect a better experience. By continuing, you agree to our",
@@ -33,7 +33,7 @@
   "home": {
     "eyebrow": "PERFORMANCE REVENUE GROWTH PROVEN BY RESULTS",
     "heroTitle": "The Architecture of Scalable Profit.",
-    "heroDesc": "Stop buying generic \"clicks\" and \"leads.\" We combine advanced Neurolinguistic Programming with full-stack conversion tracking to engineer systems that turn cold traffic into verified, high-ticket revenue.",
+    "heroDesc": "Most companies spending €20k+ a month on ads cannot prove where a quarter of their revenue came from. We fix the measurement, then act on what it shows.",
     "heroCtaPrimary": "Get in Touch",
     "heroCtaSecondary": "See How It Works",
     "executionGapTitle": "The Execution Gap.",
@@ -44,18 +44,18 @@
     "fragmentedSystemsDesc": "Ads, landing pages, and CRMs operate in silos. Without integration, you lose visibility into what actually drives profit.",
     "genericCreativeTitle": "Generic Creative",
     "genericCreativeDesc": "Standard advertising speaks to demographics, not psychology. Your high-ticket offers deserve messaging that commands authority.",
-    "nlpTitle": "The Neurolinguistic Advantage.",
-    "nlpDesc1": "Modern consumers are blind to traditional advertising. Our proprietary framework uses advanced behavioral psychology and NLP language patterns to bypass skepticism, build immediate subconscious trust, and position your brand as the undisputed authority.",
-    "nlpDesc2": "We don't just create ads—we engineer persuasive multimedia experiences that speak directly to the decision-making patterns of high-value buyers.",
+    "nlpTitle": "Where the money leaks.",
+    "nlpDesc1": "Since iOS 14, browser pixels lose 20 to 40 percent of conversions. Consent banners and ad blockers take more. Your ad platforms optimise on whatever survives, which means they have been spending your budget on partial data for years.",
+    "nlpDesc2": "That is the technical half. The other half is knowing what people actually respond to. A background in behavioural psychology and neurolinguistics is useful here, but only if you can measure whether it worked. We build the measurement first. Then the psychology is something you can check instead of something you have to believe.",
     "nlpVisualLabel": "NLP Framework Visual",
     "pillarsTitle": "How We Engineer Profit.",
     "pillarsDesc": "Three integrated pillars work in unison to transform your marketing from a cost center into a revenue engine.",
-    "pillar1Title": "Authentic NLP Multimedia",
-    "pillar1Desc": "Trust. Persuasive, psychology-driven creative that positions your brand as the premium choice.",
-    "pillar2Title": "Frictionless Hubs",
-    "pillar2Desc": "Intent. High-speed conversion infrastructure that eliminates drop-off and captures buyer commitment.",
-    "pillar3Title": "Closed-Loop Tracking",
-    "pillar3Desc": "ROI. Server-side API tracking that links every digital interaction directly to verified revenue.",
+    "pillar1Title": "Message and Creative",
+    "pillar1Desc": "Language built on how decisions actually get made, then measured, so you know which version earned the money.",
+    "pillar2Title": "Frictionless Conversion",
+    "pillar2Desc": "Infrastructure that removes the drop-off between interest and commitment. Fast pages, clean forms, nothing in the way.",
+    "pillar3Title": "Closed-Loop Measurement",
+    "pillar3Desc": "Server-side tracking that ties every euro of spend to verified revenue. Meta CAPI, GTM server-side, Consent Mode v2, deduplication done properly.",
     "ctaTitle": "Ready to Architect Your Growth?",
     "ctaDesc": "Contact our team today to begin your diagnostic audit.",
     "ctaButton": "Get in Touch",
@@ -107,9 +107,9 @@
     "frameworkTitle": "The NRA Framework.",
     "frameworkDesc": "Three integrated pillars that work in unison to engineer predictable, scalable revenue growth.",
     "pillar1Title": "NLP-Optimized Media",
-    "pillar1Desc1": "Scripting language patterns that command authority. We use Neurolinguistic Programming principles to craft multimedia assets that bypass skepticism and build immediate trust.",
-    "pillar1Desc2": "Every ad, every video, every landing page is engineered using behavioral psychology patterns that drive action from high-value decision-makers.",
-    "pillar1Visual": "Neurolinguistic Pattern Recognition",
+    "pillar1Desc1": "Language patterns chosen for how decisions actually get made, then A/B tested so the winning version is a measurement rather than an opinion.",
+    "pillar1Desc2": "Every ad, video and landing page is treated as a hypothesis. The tracking layer tells us which one earned the revenue.",
+    "pillar1Visual": "Message Testing",
     "pillar2Title": "Frictionless Conversion Hubs",
     "pillar2Desc1": "High-speed, pre-qualifying funnels that eliminate every possible point of drop-off between initial interest and booked appointment.",
     "pillar2Desc2": "From speed-optimized landing pages to one-click booking integrations, we engineer the entire buyer journey for maximum conversion.",
@@ -480,5 +480,9 @@
     "luxury": "Luxury",
     "medtech": "Medical Devices",
     "b2b": "B2B Technology"
+  },
+  "seo": {
+    "title": "Marketing by Bešić — Revenue Measurement and Growth",
+    "description": "Server-side conversion tracking for companies spending €20k+ a month on ads. Meta CAPI, GTM server-side, Consent Mode v2. Recover revenue your platforms miss."
   }
 }

@@ -15,7 +15,7 @@
     "impressum": "Impressum",
     "liveFrom": "In diretta da Zagabria, Croazia",
     "allRightsReserved": "Tutti i diritti riservati.",
-    "tagline": "Architettura dei Ricavi Neurolinguistica per le aziende premium in Europa."
+    "tagline": "Misurazione dei ricavi e crescita per aziende che investono seriamente in pubblicità."
   },
   "cookie": {
     "message": "Utilizziamo cookie e tracciamento delle conversioni per progettare un'esperienza migliore. Continuando, accetta la nostra",
@@ -33,7 +33,7 @@
   "home": {
     "eyebrow": "CRESCITA DEI RICAVI DIMOSTRATA DAI RISULTATI",
     "heroTitle": "L'Architettura del Profitto Scalabile.",
-    "heroDesc": "Smetta di acquistare clic e lead generici. Combiniamo la Programmazione Neuro-Linguistica avanzata con il tracciamento delle conversioni full-stack per progettare sistemi che trasformano il traffico freddo in entrate verificate e di alto valore.",
+    "heroDesc": "La maggior parte delle aziende che spendono oltre 20.000 euro al mese in pubblicità non riesce a dimostrare da dove sia arrivato un quarto dei ricavi. Sistemiamo la misurazione, poi agiamo su ciò che rivela.",
     "heroCtaPrimary": "Contattaci",
     "heroCtaSecondary": "Scopra come funziona",
     "executionGapTitle": "Il Divario di Esecuzione.",
@@ -44,18 +44,18 @@
     "fragmentedSystemsDesc": "Annunci, pagine di destinazione e CRM operano in silos. Senza integrazione, perde visibilita su cio che guida davvero il profitto.",
     "genericCreativeTitle": "Creativita Generica",
     "genericCreativeDesc": "La pubblicita standard parla alla demografia, non alla psicologia. Le Sue offerte di alto valore meritano messaggi che trasmettono autorita.",
-    "nlpTitle": "Il Vantaggio Neuro-Linguistico.",
-    "nlpDesc1": "I consumatori moderni sono ciechi alla pubblicita tradizionale. Il nostro framework proprietario utilizza psicologia comportamentale avanzata e schemi linguistici PNL per superare lo scetticismo, costruire fiducia subconscia immediata e posizionare il Suo marchio come l'autorita indiscussa.",
-    "nlpDesc2": "Non creiamo solo annunci, progettiamo esperienze multimediali persuasive che parlano direttamente agli schemi decisionali degli acquirenti di alto valore.",
+    "nlpTitle": "Dove si perde il denaro.",
+    "nlpDesc1": "Da iOS 14 i pixel del browser perdono dal 20 al 40 percento delle conversioni. I banner di consenso e gli ad blocker ne tolgono altre. Le piattaforme pubblicitarie ottimizzano su ciò che resta, spendendo il Suo budget su dati parziali da anni.",
+    "nlpDesc2": "Questa è la metà tecnica. L'altra è sapere a cosa le persone rispondono davvero. Una formazione in psicologia comportamentale e neurolinguistica serve qui, ma solo se è possibile misurare se ha funzionato. Prima costruiamo la misurazione. Poi la psicologia diventa qualcosa da verificare invece che da credere.",
     "nlpVisualLabel": "Visualizzazione del Framework NLP",
     "pillarsTitle": "Come Progettiamo il Profitto.",
     "pillarsDesc": "Tre pilastri integrati lavorano all'unisono per trasformare il Suo marketing da centro di costi a motore di entrate.",
-    "pillar1Title": "Multimedia NLP Autentico",
-    "pillar1Desc": "Fiducia. Creativita persuasiva guidata dalla psicologia che posiziona il Suo marchio come la scelta premium.",
-    "pillar2Title": "Hub Senza Attrito",
-    "pillar2Desc": "Intenzione. Infrastruttura di conversione ad alta velocita che elimina l'abbandono e cattura l'impegno dell'acquirente.",
-    "pillar3Title": "Tracciamento a Ciclo Chiuso",
-    "pillar3Desc": "ROI. Tracciamento API lato server che collega ogni interazione digitale direttamente alle entrate verificate.",
+    "pillar1Title": "Messaggio e creatività",
+    "pillar1Desc": "Linguaggio costruito su come le decisioni vengono prese davvero, poi misurato, così sa quale versione ha portato i ricavi.",
+    "pillar2Title": "Conversione senza attriti",
+    "pillar2Desc": "Infrastruttura che elimina l'abbandono tra interesse e impegno. Pagine veloci, moduli puliti, nessun ostacolo.",
+    "pillar3Title": "Misurazione a ciclo chiuso",
+    "pillar3Desc": "Tracciamento server-side che lega ogni euro di spesa a ricavi verificati. Meta CAPI, GTM server-side, Consent Mode v2, deduplicazione fatta bene.",
     "ctaTitle": "Pronto ad Architettare la Sua Crescita?",
     "ctaDesc": "Contatti il nostro team oggi per iniziare il Suo audit diagnostico.",
     "ctaButton": "Contattaci",
@@ -107,9 +107,9 @@
     "frameworkTitle": "Il Framework NRA.",
     "frameworkDesc": "Tre pilastri integrati che lavorano all'unisono per progettare una crescita delle entrate prevedibile e scalabile.",
     "pillar1Title": "Media Ottimizzati NLP",
-    "pillar1Desc1": "Schemi linguistici che trasmettono autorita. Usiamo i principi PNL per creare asset multimediali che superano lo scetticismo e costruiscono fiducia immediata.",
-    "pillar1Desc2": "Ogni annuncio, ogni video, ogni pagina di destinazione e progettato utilizzando schemi di psicologia comportamentale che guidano l'azione dei decisori di alto valore.",
-    "pillar1Visual": "Riconoscimento di Schemi Neuro-Linguistici",
+    "pillar1Desc1": "Schemi linguistici scelti in base a come le decisioni vengono prese davvero, poi testati in A/B perché la versione vincente sia una misurazione e non un'opinione.",
+    "pillar1Desc2": "Ogni annuncio, video e landing page è trattato come un'ipotesi. Il livello di tracciamento indica quale ha generato i ricavi.",
+    "pillar1Visual": "Test del messaggio",
     "pillar2Title": "Hub di Conversione Senza Attrito",
     "pillar2Desc1": "Funnel di pre-qualificazione ad alta velocita che eliminano ogni possibile punto di abbandono tra l'interesse iniziale e l'appuntamento prenotato.",
     "pillar2Desc2": "Dalle pagine di destinazione ottimizzate per la velocita alle integrazioni di prenotazione con un clic, progettiamo l'intero percorso dell'acquirente per la massima conversione.",
@@ -480,5 +480,9 @@
     "luxury": "Lusso",
     "medtech": "Dispositivi medici",
     "b2b": "Tecnologia B2B"
+  },
+  "seo": {
+    "title": "Marketing by Bešić — Misurazione dei ricavi e crescita",
+    "description": "Tracciamento delle conversioni lato server per aziende che spendono oltre 20.000 euro al mese in pubblicità. Meta CAPI, GTM server-side, Consent Mode v2."
   }
 }

@@ -15,7 +15,7 @@
     "impressum": "Impressum",
     "liveFrom": "En direct de Zagreb, Croatie",
     "allRightsReserved": "Tous droits reserves.",
-    "tagline": "Architecture de Revenus Neurolinguistique pour les entreprises premium en Europe."
+    "tagline": "Mesure des revenus et croissance pour les entreprises qui investissent sérieusement en publicité."
   },
   "cookie": {
     "message": "Nous utilisons des cookies et le suivi des conversions pour concevoir une meilleure experience. En continuant, vous acceptez notre",
@@ -33,7 +33,7 @@
   "home": {
     "eyebrow": "CROISSANCE DES REVENUS PROUVEE PAR LES RESULTATS",
     "heroTitle": "L'Architecture du Profit Evolutif.",
-    "heroDesc": "Arretez d'acheter des clics et des leads generiques. Nous combinons la PNL avancee avec un suivi de conversion full-stack pour concevoir des systemes qui transforment le trafic froid en revenus verifies et haut de gamme.",
+    "heroDesc": "La plupart des entreprises qui dépensent plus de 20 000 euros par mois en publicité ne peuvent pas prouver d'où vient un quart de leur chiffre d'affaires. Nous réparons la mesure, puis agissons sur ce qu'elle révèle.",
     "heroCtaPrimary": "Nous contacter",
     "heroCtaSecondary": "Voir comment ca marche",
     "executionGapTitle": "L'Ecart d'Execution.",
@@ -44,18 +44,18 @@
     "fragmentedSystemsDesc": "Les publicites, les pages de destination et les CRM fonctionnent en silos. Sans integration, vous perdez la visibilite sur ce qui genere reellement du profit.",
     "genericCreativeTitle": "Creativite Generique",
     "genericCreativeDesc": "La publicite standard s'adresse aux donnees demographiques, pas a la psychologie. Vos offres haut de gamme meritent des messages qui commandent l'autorite.",
-    "nlpTitle": "L'Avantage Neuro-Linguistique.",
-    "nlpDesc1": "Les consommateurs modernes sont aveugles a la publicite traditionnelle. Notre cadre proprietaire utilise la psychologie comportementale avancee et les modeles de langage PNL pour contourner le scepticisme et positionner votre marque comme l'autorite incontestee.",
-    "nlpDesc2": "Nous ne creons pas seulement des publicites — nous concevons des experiences multimedias persuasives qui parlent directement aux schemas de prise de decision des acheteurs a haute valeur.",
+    "nlpTitle": "Où l'argent se perd.",
+    "nlpDesc1": "Depuis iOS 14, les pixels navigateur perdent 20 à 40 pour cent des conversions. Les bannières de consentement et les bloqueurs en prennent davantage. Vos plateformes optimisent sur ce qui reste, dépensant votre budget sur des données partielles depuis des années.",
+    "nlpDesc2": "Voilà pour la moitié technique. L'autre consiste à savoir ce à quoi les gens réagissent vraiment. Une formation en psychologie comportementale et en neurolinguistique aide ici, mais seulement si l'on peut mesurer si cela a fonctionné. Nous construisons d'abord la mesure. Ensuite la psychologie devient quelque chose que l'on vérifie plutôt que quelque chose qu'il faut croire.",
     "nlpVisualLabel": "Visualisation du Cadre NLP",
     "pillarsTitle": "Comment Nous Concevons le Profit.",
     "pillarsDesc": "Trois piliers integres travaillent a l'unisson pour transformer votre marketing d'un centre de couts en moteur de revenus.",
-    "pillar1Title": "Multimedia NLP Authentique",
-    "pillar1Desc": "Confiance. Creativite persuasive et axee sur la psychologie qui positionne votre marque comme le choix premium.",
-    "pillar2Title": "Hubs Sans Friction",
-    "pillar2Desc": "Intention. Infrastructure de conversion haute vitesse qui elimine les abandons et capture l'engagement des acheteurs.",
-    "pillar3Title": "Suivi en Boucle Fermee",
-    "pillar3Desc": "ROI. Suivi API cote serveur qui relie chaque interaction numerique directement aux revenus verifies.",
+    "pillar1Title": "Message et création",
+    "pillar1Desc": "Un langage fondé sur la façon dont les décisions se prennent réellement, puis mesuré, pour savoir quelle version a généré le chiffre d'affaires.",
+    "pillar2Title": "Conversion sans friction",
+    "pillar2Desc": "Une infrastructure qui supprime l'abandon entre l'intérêt et l'engagement. Pages rapides, formulaires clairs, rien qui gêne.",
+    "pillar3Title": "Mesure en boucle fermée",
+    "pillar3Desc": "Suivi côté serveur qui relie chaque euro dépensé à un chiffre d'affaires vérifié. Meta CAPI, GTM server-side, Consent Mode v2, déduplication correcte.",
     "ctaTitle": "Pret a Architecturer Votre Croissance ?",
     "ctaDesc": "Contactez notre equipe aujourd'hui pour commencer votre audit de diagnostic.",
     "ctaButton": "Nous contacter",
@@ -107,9 +107,9 @@
     "frameworkTitle": "Le Cadre NRA.",
     "frameworkDesc": "Trois piliers integres qui travaillent a l'unisson pour concevoir une croissance des revenus previsible et evolutive.",
     "pillar1Title": "Medias Optimises NLP",
-    "pillar1Desc1": "Des modeles de langage qui commandent l'autorite. Nous utilisons les principes NLP pour creer des actifs multimedias qui contournent le scepticisme et etablissent une confiance immediate.",
-    "pillar1Desc2": "Chaque publicite, chaque video, chaque page de destination est concue en utilisant des modeles de psychologie comportementale qui declenchent des actions de la part des decideurs a haute valeur.",
-    "pillar1Visual": "Reconnaissance de Modeles Neuro-Linguistiques",
+    "pillar1Desc1": "Des formulations choisies selon la façon dont les décisions se prennent réellement, puis testées en A/B pour que la version gagnante soit une mesure et non un avis.",
+    "pillar1Desc2": "Chaque annonce, vidéo et page de destination est traitée comme une hypothèse. La couche de suivi indique laquelle a généré le chiffre d'affaires.",
+    "pillar1Visual": "Test du message",
     "pillar2Title": "Hubs de Conversion Sans Friction",
     "pillar2Desc1": "Des entonnoirs de pre-qualification haute vitesse qui eliminent chaque point d'abandon possible entre l'interet initial et le rendez-vous reserve.",
     "pillar2Desc2": "Des pages de destination optimisees pour la vitesse aux integrations de reservation en un clic, nous concevons l'ensemble du parcours acheteur pour une conversion maximale.",
@@ -480,5 +480,9 @@
     "luxury": "Luxe",
     "medtech": "Dispositifs medicaux",
     "b2b": "Technologie B2B"
+  },
+  "seo": {
+    "title": "Marketing by Bešić — Mesure des revenus et croissance",
+    "description": "Suivi des conversions côté serveur pour les entreprises dépensant plus de 20 000 euros par mois en publicité. Meta CAPI, GTM server-side, Consent Mode v2."
   }
 }

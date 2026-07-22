@@ -18,12 +18,19 @@ const { lang } = Astro.params;
 const t = getTranslations(lang);
 ---
 
-<LayoutAuthority title="Marketing by Besic | Neurolinguistic Revenue Architecture" lang={lang}>
+<!-- Title and description now come from the locale file. Every language was
+     previously inheriting the same English metadata, so six versions of the
+     page competed with identical titles in search results. -->
+<LayoutAuthority
+  title={t.seo?.title ?? 'Marketing by Bešić — Revenue Measurement and Growth'}
+  description={t.seo?.description}
+  lang={lang}
+>
   <!-- Section 1: Hero -->
   <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-brand/5 via-transparent to-transparent"></div>
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
-    <div class="container-custom relative z-10 text-center py-20">
+    <div class="container-custom relative z-10 text-center py-8 md:py-12">
       <p class="text-brand text-sm md:text-base font-semibold tracking-widest uppercase mb-6">
         {t.home.eyebrow}
       </p>

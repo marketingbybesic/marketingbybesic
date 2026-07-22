@@ -1,9 +1,9 @@
 {
-  "title": "Home",
+  "title": "Marketing by Bešić — Revenue Measurement and Growth",
   "hero": {
     "eyebrow": "PERFORMANCE REVENUE GROWTH PROVEN BY RESULTS",
     "heroTitle": "The Architecture of Scalable Profit.",
-    "description": "Stop buying generic \"clicks\" and \"leads.\" We combine advanced Neurolinguistic Programming with full-stack conversion tracking to engineer systems that turn cold traffic into verified, high-ticket revenue.",
+    "description": "Most companies spending €20k+ a month on ads cannot prove where a quarter of their revenue came from. We fix the measurement, then act on what it shows.",
     "ctaPrimary": {
       "label": "Get in Touch",
       "url": "/en/contact"
@@ -16,15 +16,27 @@
   "socialProof": {
     "label": "Trusted by premium businesses across Europe",
     "stats": [
-      { "value": "50+", "label": "Projects Delivered" },
-      { "value": "€660K", "label": "Capital Raised" },
-      { "value": "412%", "label": "Avg ROI" },
-      { "value": "6", "label": "Languages" }
+      {
+        "value": "50+",
+        "label": "Projects Delivered"
+      },
+      {
+        "value": "€660K",
+        "label": "Capital Raised"
+      },
+      {
+        "value": "412%",
+        "label": "Avg ROI"
+      },
+      {
+        "value": "6",
+        "label": "Languages"
+      }
     ]
   },
   "problem": {
     "heading": "The Execution Gap.",
-    "subheading": "Marketing agencies sell you vanity metrics while your bottom line stays flat. You don't need another generic ad campaign; you need an integrated conversion ecosystem that actually connects to your cash register.",
+    "subheading": "Agencies report on clicks. Your bank account reports on revenue. Those two numbers stopped matching in 2021, and most companies never noticed.",
     "cards": [
       {
         "number": "01",
@@ -44,9 +56,9 @@
     ]
   },
   "nlp": {
-    "heading": "The Neurolinguistic Advantage.",
-    "body1": "Modern consumers are blind to traditional advertising. Our proprietary framework uses advanced behavioral psychology and NLP language patterns to bypass skepticism, build immediate subconscious trust, and position your brand as the undisputed authority.",
-    "body2": "We don't just create ads—we engineer persuasive multimedia experiences that speak directly to the decision-making patterns of high-value buyers."
+    "heading": "Where the money leaks.",
+    "body1": "Since iOS 14, browser pixels lose 20 to 40 percent of conversions. Consent banners and ad blockers take more. Your ad platforms optimise on whatever survives, which means they have been spending your budget on partial data for years.",
+    "body2": "That is the technical half. The other half is knowing what people actually respond to. A background in behavioural psychology and neurolinguistics is useful here, but only if you can measure whether it worked. We build the measurement first. Then the psychology is something you can check instead of something you have to believe."
   },
   "pillars": {
     "heading": "How We Engineer Profit.",
@@ -54,18 +66,18 @@
     "items": [
       {
         "numeral": "I",
-        "title": "Authentic NLP Multimedia",
-        "description": "Trust. Persuasive, psychology-driven creative that positions your brand as the premium choice."
+        "title": "Message and Creative",
+        "description": "Language built on how decisions actually get made, then measured, so you know which version earned the money."
       },
       {
         "numeral": "II",
-        "title": "Frictionless Hubs",
-        "description": "Intent. High-speed conversion infrastructure that eliminates drop-off and captures buyer commitment."
+        "title": "Frictionless Conversion",
+        "description": "Infrastructure that removes the drop-off between interest and commitment. Fast pages, clean forms, nothing in the way."
       },
       {
         "numeral": "III",
-        "title": "Closed-Loop Tracking",
-        "description": "ROI. Server-side API tracking that links every digital interaction directly to verified revenue."
+        "title": "Closed-Loop Measurement",
+        "description": "Server-side tracking that ties every euro of spend to verified revenue. Meta CAPI, GTM server-side, Consent Mode v2, deduplication done properly."
       }
     ]
   },
@@ -73,9 +85,18 @@
     "heading": "Higher Profit. Lower Ad Spend.",
     "subheading": "By feeding precise revenue data back into advertising algorithms, our systems get smarter every single day. We don't just optimize for leads; we train the AI to find buyers, driving your acquisition costs down over time.",
     "steps": [
-      { "number": "1", "label": "Track Revenue" },
-      { "number": "2", "label": "Train Algorithm" },
-      { "number": "3", "label": "Lower CPA" }
+      {
+        "number": "1",
+        "label": "Track Revenue"
+      },
+      {
+        "number": "2",
+        "label": "Train Algorithm"
+      },
+      {
+        "number": "3",
+        "label": "Lower CPA"
+      }
     ]
   },
   "ctaSection": {
