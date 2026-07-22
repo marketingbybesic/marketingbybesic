@@ -190,7 +190,9 @@ const { title, description = 'Apply for a Diagnostic Audit - Neurolinguistic Rev
 
             function onScroll() { if (window.scrollY > 600) { showModal(); } }
 
-            if (!checkExpiration()) { window.addEventListener('scroll', onScroll); }
+            // Auto-popup disabled, same reasoning as LayoutAuthority.
+            const AUTO_MODAL = false;
+            if (AUTO_MODAL && !checkExpiration()) { window.addEventListener('scroll', onScroll); }
             closeBtn?.addEventListener('click', () => { localStorage.setItem(CLOSED_KEY, Date.now().toString()); hideModal(); });
             modal?.addEventListener('click', (e) => { if (e.target === modal) { localStorage.setItem(CLOSED_KEY, Date.now().toString()); hideModal(); } });
 

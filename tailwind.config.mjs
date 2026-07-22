@@ -10,7 +10,12 @@ export default {
         },
         text: {
           primary: '#FAFAFA',
-          secondary: '#A3A3A3',
+          // Raised from #A3A3A3. Body copy on a near-black background was
+          // hard to read on lower-quality displays, and this is the colour
+          // every card description and paragraph uses. #C9C9D1 is the value
+          // from the brand palette and lifts contrast to roughly 11:1.
+          secondary: '#C9C9D1',
+          muted: '#8A8A94',
         },
         brand: {
           DEFAULT: '#8224e3',

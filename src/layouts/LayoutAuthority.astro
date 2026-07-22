@@ -533,7 +533,15 @@ const localeMap: Record<string, string> = {
               if (window.scrollY > 600) { showModal(); }
             }
 
-            if (!checkExpiration()) {
+            // Auto-popup disabled. It fired at 600px, which is just past the
+            // hero, and dimmed the page over the first real content section.
+            // For a buyer evaluating a €3-8k engagement that reads as a lead
+            // magnet, not a consultancy. The modal markup and the subscribe
+            // endpoint stay in place; nothing opens them automatically now.
+            // To re-enable a gentler version, gate showModal() on exit intent
+            // rather than scroll depth.
+            const AUTO_MODAL = false;
+            if (AUTO_MODAL && !checkExpiration()) {
               window.addEventListener('scroll', onScroll);
             }
 

@@ -12,7 +12,11 @@ const { hero, problem, nlp, pillars, compounding, ctaSection } = homeData;
     <div class="absolute inset-0 bg-gradient-to-b from-brand/5 via-transparent to-transparent"></div>
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
 
-    <div class="container-custom relative z-10 text-center py-20">
+    <!-- py-20 on top of a centred min-h-screen flex left roughly 250px of dead
+         space above the eyebrow on a 1440x900 viewport, so the hero floated
+         instead of filling the fold. Vertical padding trimmed; the flex
+         centring already handles spacing. -->
+    <div class="container-custom relative z-10 text-center py-8 md:py-12">
       <p class="text-brand text-sm md:text-base font-semibold tracking-widest uppercase mb-6" data-tina-field="hero.eyebrow">
         {hero.eyebrow}
       </p>
