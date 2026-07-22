@@ -69,6 +69,20 @@ const localeMap: Record<string, string> = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {/* Fonts are self-hosted and referenced from inside the CSS, so the browser
+        only discovers them after the stylesheet parses. Preloading the two
+        weights used above the fold removes that second round-trip. */}
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="/_astro/inter-latin-400-normal.C38fXH4l.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="/_astro/cormorant-garamond-latin-700-normal.DajfzrDU.woff2" />
+
+    {/* Warm the connection to the tag host before consent is granted, so the
+        handshake is not on the critical path once the visitor accepts. */}
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://analytics.marketingbybesic.com" crossorigin />
+
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
