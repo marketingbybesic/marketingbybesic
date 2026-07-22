@@ -21,6 +21,7 @@
 
 <script>
   const { gsap } = await import('gsap');
+  const { GTAG_IDS, GTAG_SRC } = await import('@/lib/tracking');
 
   const consentBanner = document.getElementById('cookie-consent') as HTMLElement;
   const acceptBtn = document.getElementById('cookie-accept');
@@ -81,22 +82,23 @@
     localStorage.setItem(CONSENT_KEY, 'accepted');
     localStorage.setItem(CONSENT_TS_KEY, Date.now().toString());
 
-    // Google Ads (gtag.js) — conversion tracking for AW-18343086148.
+    // gtag.js (Google Ads + GA4) — IDs live in src/lib/tracking.ts.
     // Loaded here rather than in <head> so it only ever fires after consent.
     (function () {
       const w = window as any;
-      if (w.__awLoaded) return;                 // never inject twice
-      w.__awLoaded = true;
+      if (!GTAG_IDS.length) return;
+      if (w.__gtagLoaded) return;               // never inject twice
+      w.__gtagLoaded = true;
 
       const s = document.createElement('script');
       s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18343086148';
+      s.src = GTAG_SRC;
       document.head.appendChild(s);
 
       w.dataLayer = w.dataLayer || [];
       w.gtag = function () { w.dataLayer.push(arguments); };
       w.gtag('js', new Date());
-      w.gtag('config', 'AW-18343086148');
+      GTAG_IDS.forEach((id: string) => w.gtag('config', id));
     })();
 
     // Dynamically initialize GTM dataLayer push

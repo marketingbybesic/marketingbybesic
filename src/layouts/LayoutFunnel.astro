@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
+import { GTAG_IDS, GTAG_SRC } from '@/lib/tracking';
 import '@fontsource/cormorant-garamond/400.css';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/600.css';
@@ -40,20 +41,23 @@ const { title, description = 'Apply for a Diagnostic Audit - Neurolinguistic Rev
 
     <!-- Self-hosted fonts via @fontsource -->
 
-    <!-- Google Ads gtag.js (conditional on GDPR) — AW-18343086148 -->
-    <script is:inline>
+    <!-- gtag.js: Google Ads + GA4 (conditional on GDPR). IDs in src/lib/tracking.ts -->
+    <script is:inline define:vars={{ gtagIds: GTAG_IDS, gtagSrc: GTAG_SRC }}>
       (function() {
+        if (!gtagIds.length) return;
         if (localStorage.getItem('gdpr_consent') !== 'accepted') return;
-        if (window.__awLoaded) return;
-        window.__awLoaded = true;
+        if (window.__gtagLoaded) return;
+        window.__gtagLoaded = true;
+
         var s = document.createElement('script');
         s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18343086148';
+        s.src = gtagSrc;
         document.head.appendChild(s);
+
         window.dataLayer = window.dataLayer || [];
         window.gtag = function(){ window.dataLayer.push(arguments); };
         window.gtag('js', new Date());
-        window.gtag('config', 'AW-18343086148');
+        gtagIds.forEach(function(id){ window.gtag('config', id); });
       })();
     </script>
 

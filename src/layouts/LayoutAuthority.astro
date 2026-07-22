@@ -3,6 +3,7 @@ import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { getTranslations } from '../i18n/utils';
+import { GTAG_IDS, GTAG_SRC } from '@/lib/tracking';
 // Only the weights actually used in markup are loaded. Cormorant is used via
 // `font-heading`, which pairs only with font-semibold (600) and font-bold (700);
 // Inter carries body text at 400/500/600/700. Inter 300 and Cormorant 400/500
@@ -131,20 +132,24 @@ const localeMap: Record<string, string> = {
 
     <!-- Self-hosted fonts via @fontsource -->
 
-    <!-- Google Ads gtag.js (conditional on GDPR) — AW-18343086148 -->
-    <script is:inline>
+    <!-- gtag.js: Google Ads + GA4 (conditional on GDPR). IDs in src/lib/tracking.ts -->
+    <script is:inline define:vars={{ gtagIds: GTAG_IDS, gtagSrc: GTAG_SRC }}>
       (function() {
+        if (!gtagIds.length) return;
         if (localStorage.getItem('gdpr_consent') !== 'accepted') return;
-        if (window.__awLoaded) return;
-        window.__awLoaded = true;
+        if (window.__gtagLoaded) return;
+        window.__gtagLoaded = true;
+
         var s = document.createElement('script');
         s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18343086148';
+        s.src = gtagSrc;
         document.head.appendChild(s);
+
         window.dataLayer = window.dataLayer || [];
         window.gtag = function(){ window.dataLayer.push(arguments); };
         window.gtag('js', new Date());
-        window.gtag('config', 'AW-18343086148');
+        // One library, one request — each ID is just another config call.
+        gtagIds.forEach(function(id){ window.gtag('config', id); });
       })();
     </script>
 
