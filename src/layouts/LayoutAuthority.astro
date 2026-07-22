@@ -3,7 +3,7 @@ import '../styles/global.css';
 import CookieConsent from '../components/CookieConsent.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { getTranslations } from '../i18n/utils';
-import { GTAG_IDS, GTAG_SRC } from '@/lib/tracking';
+import { GTAG_IDS, GTAG_SRC, META_PIXEL_ID } from '@/lib/tracking';
 // Only the weights actually used in markup are loaded. Cormorant is used via
 // `font-heading`, which pairs only with font-semibold (600) and font-bold (700);
 // Inter carries body text at 400/500/600/700. Inter 300 and Cormorant 400/500
@@ -181,19 +181,26 @@ const localeMap: Record<string, string> = {
       })();
     </script>
 
-    <!-- Meta Pixel Head (conditional on GDPR) -->
-    <script is:inline>
+    <!-- Meta Pixel (conditional on GDPR). ID in src/lib/tracking.ts -->
+    <script is:inline define:vars={{ metaPixelId: META_PIXEL_ID }}>
       (function() {
-        var consent = localStorage.getItem('gdpr_consent');
-        if (consent === 'accepted') {
-          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-          document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1978765049417651');
-          fbq('track', 'PageView');
-        }
+        if (!metaPixelId) return;
+        if (localStorage.getItem('gdpr_consent') !== 'accepted') return;
+
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        // A shared event_id lets Meta deduplicate this browser event against
+        // the same event sent server-side via the Conversions API. Without it
+        // a CAPI setup double-counts every conversion.
+        var eid = 'pv_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
+        window.__fbEventId = eid;
+
+        fbq('init', metaPixelId);
+        fbq('track', 'PageView', {}, { eventID: eid });
       })();
     </script>
   </head>

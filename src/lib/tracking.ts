@@ -16,6 +16,14 @@ export const GOOGLE_ADS_ID = 'AW-18343086148';
 /** GA4 — behavioural analytics. Empty string disables it. */
 export const GA4_ID = 'G-SDYEV6JHQW';
 
+/**
+ * Meta Pixel. Owned by the Marketing by Besic business portfolio
+ * (business 1533437281596913), so we control its data and can pair it with
+ * the Conversions API. The previous ID on this site belonged to a business
+ * we do not administer, which made its events unusable.
+ */
+export const META_PIXEL_ID = '27770430139291199';
+
 /** Every non-empty ID, in load order. Ads first: conversions matter more. */
 export const GTAG_IDS = [GOOGLE_ADS_ID, GA4_ID].filter(Boolean);
 

@@ -21,7 +21,7 @@
 
 <script>
   const { gsap } = await import('gsap');
-  const { GTAG_IDS, GTAG_SRC } = await import('@/lib/tracking');
+  const { GTAG_IDS, GTAG_SRC, META_PIXEL_ID } = await import('@/lib/tracking');
 
   const consentBanner = document.getElementById('cookie-consent') as HTMLElement;
   const acceptBtn = document.getElementById('cookie-accept');
@@ -139,8 +139,12 @@
       s.parentNode.insertBefore(t, s);
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', undefined, undefined, undefined);
 
-    (window as any).fbq('init', '1978765049417651');
-    (window as any).fbq('track', 'PageView');
+    // Shared event_id so a server-side CAPI event with the same id is
+    // deduplicated rather than counted twice.
+    const eid = 'pv_' + Date.now() + '_' + Math.random().toString(36).slice(2, 11);
+    (window as any).__fbEventId = eid;
+    (window as any).fbq('init', META_PIXEL_ID);
+    (window as any).fbq('track', 'PageView', {}, { eventID: eid });
 
     // Smooth fade out animation
     if (consentBanner) {
