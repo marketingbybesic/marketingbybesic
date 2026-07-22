@@ -2,6 +2,7 @@
 import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
 import { getTranslations } from '@/i18n/utils';
 import nodemailer from 'nodemailer';
+import { headerSafe, emailSafe, bodySafe } from '@/lib/mail-safe';
 
 export const prerender = false;
 
@@ -19,10 +20,11 @@ if (Astro.request.method === "POST") {
   console.log("[CONTACT FORM] POST request received.");
   try {
     const data = await Astro.request.formData();
-    const name = data.get("name")?.toString() || "Unknown";
-    const email = data.get("email")?.toString() || "No Email";
-    const subject = data.get("subject")?.toString() || "General Inquiry";
-    const message = data.get("message")?.toString() || "";
+    // Sanitise before anything reaches a mail header — see src/lib/mail-safe.ts
+    const name = headerSafe(data.get("name")?.toString() || "") || "Unknown";
+    const email = emailSafe(data.get("email")?.toString() || "");
+    const subject = headerSafe(data.get("subject")?.toString() || "") || "General Inquiry";
+    const message = bodySafe(data.get("message")?.toString() || "");
 
     console.log(`[CONTACT FORM] Processing payload from: ${email}`);
 
@@ -46,10 +48,12 @@ if (Astro.request.method === "POST") {
 
     const info = await transporter.sendMail({
       from: `"Marketing by Besic" <${import.meta.env.SMTP_EMAIL}>`,
-      replyTo: email,
+      // Only set replyTo when the address validated; an invalid one is dropped
+      // rather than passed through to the header.
+      ...(email ? { replyTo: email } : {}),
       to: import.meta.env.RECEIVER_EMAIL,
       subject: `New Lead: ${subject} - from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email ?? "(invalid address supplied)"}\nSubject: ${subject}\n\nMessage:\n${message}`,
     });
 
     console.log("[CONTACT FORM] Email sent successfully. Message ID:", info.messageId);

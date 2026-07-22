@@ -2,6 +2,7 @@
 import LayoutAuthority from '@/layouts/LayoutAuthority.astro';
 import { getTranslations } from '@/i18n/utils';
 import nodemailer from 'nodemailer';
+import { headerSafe, emailSafe, bodySafe } from '@/lib/mail-safe';
 
 export const prerender = false;
 
@@ -18,17 +19,19 @@ let errorMessage = "";
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-    const name = data.get("name")?.toString() || "Unknown";
-    const email = data.get("email")?.toString() || "No Email";
-    const company = data.get("company")?.toString() || "";
-    const website = data.get("website")?.toString() || "";
-    const revenue = data.get("revenue")?.toString() || "";
-    const challenge = data.get("challenge")?.toString() || "";
-    const tried = data.get("tried")?.toString() || "";
-    const budget = data.get("budget")?.toString() || "";
-    const timeline = data.get("timeline")?.toString() || "";
-    const source = data.get("source")?.toString() || "";
-    const formLang = data.get("lang")?.toString() || lang || "en";
+    // Sanitise before anything reaches a mail header — see src/lib/mail-safe.ts
+    const g = (k: string) => data.get(k)?.toString() || "";
+    const name = headerSafe(g("name")) || "Unknown";
+    const email = emailSafe(g("email"));
+    const company = headerSafe(g("company"));
+    const website = headerSafe(g("website"));
+    const revenue = headerSafe(g("revenue"), 80);
+    const challenge = bodySafe(g("challenge"));
+    const tried = bodySafe(g("tried"));
+    const budget = headerSafe(g("budget"), 80);
+    const timeline = headerSafe(g("timeline"), 80);
+    const source = headerSafe(g("source"), 120);
+    const formLang = headerSafe(g("lang"), 8) || lang || "en";
 
     if (!import.meta.env.SMTP_EMAIL || !import.meta.env.RECEIVER_EMAIL) {
       throw new Error("Server configuration error.");
@@ -46,10 +49,10 @@ if (Astro.request.method === "POST") {
 
     await transporter.sendMail({
       from: `"MBB Revenue Diagnosis" <${import.meta.env.SMTP_EMAIL}>`,
-      replyTo: email,
+      ...(email ? { replyTo: email } : {}),
       to: import.meta.env.RECEIVER_EMAIL,
       subject: `[APPLY] Revenue Diagnosis: ${company} - ${name}`,
-      text: `=== REVENUE DIAGNOSIS APPLICATION ===\n\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nWebsite: ${website}\nAnnual Revenue: ${revenue}\nMonthly Budget: ${budget}\nTimeline: ${timeline}\nSource: ${source}\nBrowsing Language: ${formLang}\n\n--- CHALLENGE ---\n${challenge}\n\n--- ALREADY TRIED ---\n${tried}`,
+      text: `=== REVENUE DIAGNOSIS APPLICATION ===\n\nName: ${name}\nEmail: ${email ?? "(invalid address supplied)"}\nCompany: ${company}\nWebsite: ${website}\nAnnual Revenue: ${revenue}\nMonthly Budget: ${budget}\nTimeline: ${timeline}\nSource: ${source}\nBrowsing Language: ${formLang}\n\n--- CHALLENGE ---\n${challenge}\n\n--- ALREADY TRIED ---\n${tried}`,
     });
 
     successMessage = lang === 'hr'
