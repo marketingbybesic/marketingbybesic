@@ -53,30 +53,51 @@
   })();
 
   const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
-  const CONSENT_KEY = 'cookie_consent';
+  // The layouts gate GTM / Meta Pixel / Google Ads on `gdpr_consent === 'accepted'`,
+  // so this component must write that exact key — writing a different one meant
+  // tags never loaded on a return visit even after the visitor accepted.
+  const CONSENT_KEY = 'gdpr_consent';
+  const CONSENT_TS_KEY = 'gdpr_consent_at';
   let hasAutoAccepted = false;
 
   // Check 30-day expiration
   function checkConsent() {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (stored) {
-      const timestamp = parseInt(stored, 10);
-      const now = Date.now();
-      if (now - timestamp > THIRTY_DAYS) {
-        // Expired, clear it and show banner
+    const choice = localStorage.getItem(CONSENT_KEY);          // 'accepted' | 'declined'
+    const at = parseInt(localStorage.getItem(CONSENT_TS_KEY) || '0', 10);
+    if (choice && at) {
+      if (Date.now() - at > THIRTY_DAYS) {
+        // Expired — ask again rather than assuming the old answer still holds.
         localStorage.removeItem(CONSENT_KEY);
+        localStorage.removeItem(CONSENT_TS_KEY);
         return false;
       }
-      // Still valid, do not show banner
-      return true;
+      return true;   // a decision exists and is still valid
     }
-    // No consent found, show banner
-    return false;
+    return false;    // no decision yet, show banner
   }
 
   // Accept function (shared by button and scroll auto-accept)
   function acceptConsent() {
-    localStorage.setItem(CONSENT_KEY, Date.now().toString());
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    localStorage.setItem(CONSENT_TS_KEY, Date.now().toString());
+
+    // Google Ads (gtag.js) — conversion tracking for AW-18343086148.
+    // Loaded here rather than in <head> so it only ever fires after consent.
+    (function () {
+      const w = window as any;
+      if (w.__awLoaded) return;                 // never inject twice
+      w.__awLoaded = true;
+
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18343086148';
+      document.head.appendChild(s);
+
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function () { w.dataLayer.push(arguments); };
+      w.gtag('js', new Date());
+      w.gtag('config', 'AW-18343086148');
+    })();
 
     // Dynamically initialize GTM dataLayer push
     if (typeof (window as any).dataLayer !== 'undefined') {
@@ -144,7 +165,10 @@
 
   // Decline button
   declineBtn?.addEventListener('click', () => {
-    localStorage.setItem(CONSENT_KEY, Date.now().toString());
+    // Record the refusal explicitly. Previously this stored the same value as
+    // Accept, so a declined visitor was indistinguishable from one who agreed.
+    localStorage.setItem(CONSENT_KEY, 'declined');
+    localStorage.setItem(CONSENT_TS_KEY, Date.now().toString());
     if (consentBanner) {
       gsap.to(consentBanner, {
         opacity: 0,
