@@ -14,7 +14,7 @@
 export const GOOGLE_ADS_ID = 'AW-18343086148';
 
 /** GA4 — behavioural analytics. Empty string disables it. */
-export const GA4_ID = '';
+export const GA4_ID = 'G-SDYEV6JHQW';
 
 /** Every non-empty ID, in load order. Ads first: conversions matter more. */
 export const GTAG_IDS = [GOOGLE_ADS_ID, GA4_ID].filter(Boolean);
