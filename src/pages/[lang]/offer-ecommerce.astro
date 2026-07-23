@@ -18,7 +18,7 @@ const t = getTranslations(lang);
 // single client has come through this page would be guessing at which market
 // responds; the locale fallback keeps the pages live in the meantime.
 const en = getTranslations('en');
-const c = (t as any).offerLuxury ?? (en as any).offerLuxury;
+const c = (t as any).offerEcommerce ?? (en as any).offerEcommerce;
 ---
 
 <LayoutAuthority title={c.seoTitle} description={c.seoDescription} lang={lang}>

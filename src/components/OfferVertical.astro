@@ -1,0 +1,132 @@
+---
+/**
+ * Shared layout for the industry offer pages.
+ *
+ * The previous six offer pages each carried their own markup, so a change to
+ * the structure meant six edits. This takes a copy object and renders it, so
+ * adding a vertical is a data change rather than a new page template.
+ */
+interface OfferCopy {
+  heroKicker: string;
+  heroTitle: string;
+  heroDesc: string;
+  problemTitle: string;
+  problemIntro: string;
+  problem1Title: string; problem1Desc: string;
+  problem2Title: string; problem2Desc: string;
+  problem3Title: string; problem3Desc: string;
+  solutionTitle: string;
+  solutionIntro: string;
+  solution1Title: string; solution1Desc: string;
+  solution2Title: string; solution2Desc: string;
+  solution3Title: string; solution3Desc: string;
+  proofTitle: string;
+  proofBody: string;
+  notForTitle: string;
+  notForBody: string;
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaButton: string;
+}
+
+interface Props {
+  copy: OfferCopy;
+  applyHref: string;
+}
+
+const { copy: c, applyHref } = Astro.props;
+
+const problems = [
+  { t: c.problem1Title, d: c.problem1Desc },
+  { t: c.problem2Title, d: c.problem2Desc },
+  { t: c.problem3Title, d: c.problem3Desc },
+];
+const solutions = [
+  { t: c.solution1Title, d: c.solution1Desc },
+  { t: c.solution2Title, d: c.solution2Desc },
+  { t: c.solution3Title, d: c.solution3Desc },
+];
+---
+
+<!-- Hero -->
+<section class="min-h-[75vh] flex items-center justify-center relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-brand/5 via-transparent to-transparent"></div>
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+
+  <div class="container-custom relative z-10 text-center py-16">
+    <p class="text-brand text-sm md:text-base font-semibold tracking-widest uppercase mb-6">
+      {c.heroKicker}
+    </p>
+    <h1 class="heading-xl max-w-4xl mx-auto mb-8">{c.heroTitle}</h1>
+    <p class="body-lg max-w-2xl mx-auto mb-12">{c.heroDesc}</p>
+    <a href={applyHref} class="btn-primary text-lg px-10 py-5">{c.ctaButton}</a>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="py-20 md:py-32" style="background-color: #111111;">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="heading-lg max-w-3xl mx-auto mb-6">{c.problemTitle}</h2>
+      <p class="body-lg max-w-2xl mx-auto">{c.problemIntro}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {problems.map((p, i) => (
+        <div class="bg-bg-primary border border-white/5 rounded-xl p-8">
+          <div class="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand text-xl font-bold">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 class="font-heading text-lg font-bold mb-3">{p.t}</h3>
+          <p class="body-md">{p.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="py-20 md:py-32">
+  <div class="container-custom">
+    <div class="text-center mb-16">
+      <h2 class="heading-lg max-w-3xl mx-auto mb-6">{c.solutionTitle}</h2>
+      <p class="body-lg max-w-2xl mx-auto">{c.solutionIntro}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {solutions.map((s, i) => (
+        <div class="bg-bg-secondary border border-white/5 rounded-xl p-8 text-center">
+          <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <span class="text-brand text-2xl font-bold">{['I', 'II', 'III'][i]}</span>
+          </div>
+          <h3 class="font-heading text-xl font-bold mb-3">{s.t}</h3>
+          <p class="body-md">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Proof -->
+<section class="py-20 md:py-32 bg-bg-secondary">
+  <div class="container-custom max-w-3xl text-center">
+    <h2 class="heading-lg mb-8">{c.proofTitle}</h2>
+    <p class="body-lg">{c.proofBody}</p>
+  </div>
+</section>
+
+<!-- Who this is not for. Turning work away is the clearest signal that the
+     engagement has a floor, and it filters the enquiries worth taking. -->
+<section class="py-20 md:py-32">
+  <div class="container-custom max-w-3xl">
+    <h2 class="heading-lg mb-6">{c.notForTitle}</h2>
+    <p class="body-lg text-text-muted">{c.notForBody}</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-20 md:pb-32">
+  <div class="container-custom text-center">
+    <h2 class="heading-lg max-w-3xl mx-auto mb-6">{c.ctaTitle}</h2>
+    <p class="body-lg max-w-2xl mx-auto mb-10">{c.ctaDesc}</p>
+    <a href={applyHref} class="btn-primary text-lg px-10 py-5">{c.ctaButton}</a>
+  </div>
+</section>

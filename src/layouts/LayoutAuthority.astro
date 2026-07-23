@@ -122,11 +122,11 @@ const localeMap: Record<string, string> = {
       "name": "Marketing by Besic",
       "url": "https://marketingbybesic.com",
       "logo": "https://marketingbybesic.com/logo-text.svg",
-      "description": "Neurolinguistic Revenue Architecture for Europe's Premium Businesses",
+      "description": "Server-side conversion tracking and revenue measurement for companies spending €20k+ per month on ads.",
       "founder": {
         "@type": "Person",
-        "name": "Dino Besic",
-        "jobTitle": "Founder & Revenue Architect"
+        "name": "Dino Bešić",
+        "jobTitle": "Founder"
       },
       "address": {
         "@type": "PostalAddress",
@@ -259,7 +259,7 @@ const localeMap: Record<string, string> = {
             <a href={`${base}/proof`} class="text-text-secondary hover:text-text-primary transition-colors py-2">{t.nav.proof}</a>
             <a href="/blog" class="text-text-secondary hover:text-text-primary transition-colors py-2">{t.nav.blog}</a>
             <a href={`${base}/contact`} class="text-text-secondary hover:text-text-primary transition-colors py-2">{t.nav.contact}</a>
-            <a href={`${base}/contact`} class="btn-primary text-center mt-2">{t.nav.getInTouch}</a>
+            <a href={`${base}/apply`} class="btn-primary text-center mt-2">{t.nav.getInTouch}</a>
           </nav>
         </div>
       </div>
@@ -299,16 +299,19 @@ const localeMap: Record<string, string> = {
             </ul>
           </div>
 
-          <!-- Industries -->
+          <!-- Industries.
+               The old list ran to six and included restaurants, gyms and
+               coaching, which rarely spend €20k+ a month on ads. Listing them
+               contradicted the €20k qualifier on the homepage and pulled in
+               enquiries below the floor. Three verticals now, all of which
+               genuinely buy at this level. The retired pages still resolve at
+               their URLs so they can be linked directly in outreach. -->
           <div>
-            <h4 class="font-semibold text-text-primary mb-3 text-sm">{(t as any).services?.title || "Industries"}</h4>
+            <h4 class="font-semibold text-text-primary mb-3 text-sm">{(t as any).services?.title || "Who we work with"}</h4>
             <ul class="space-y-1.5">
-              <li><a href={`/${lang}/offer-clinics`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.clinics || "Medical Clinics"}</a></li>
-              <li><a href={`/${lang}/offer-restaurant`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.restaurant || "Restaurant Chains"}</a></li>
-              <li><a href={`/${lang}/offer-fitness`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.fitness || "Fitness & Coaching"}</a></li>
-              <li><a href={`/${lang}/offer-luxury`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.luxury || "Luxury"}</a></li>
-              <li><a href={`/${lang}/offer-medtech`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.medtech || "Medical Devices"}</a></li>
-              <li><a href={`/${lang}/offer-b2b`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.b2b || "B2B Technology"}</a></li>
+              <li><a href={`/${lang}/offer-ecommerce`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.ecommerce || "High-AOV E-commerce"}</a></li>
+              <li><a href={`/${lang}/offer-saas`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.saas || "SaaS & Funded Tech"}</a></li>
+              <li><a href={`/${lang}/offer-luxury`} class="text-text-secondary hover:text-text-primary transition-colors text-xs">{(t as any).services?.luxury || "Luxury & High-Ticket Services"}</a></li>
             </ul>
           </div>
 
