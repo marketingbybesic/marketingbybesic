@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Projekata",
     "metricsCapital": "660.000 EUR prikupljenog kapitala",
     "metricsROI": "412% Prosjecni ROI",
-    "metricsLanguages": "6 Jezika"
+    "metricsLanguages": "6 Jezika",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI na restrukturiranju korporativnih obveznica",
+    "proof2Label": "prikupljeno u manje od 30 dana"
   },
   "about": {
     "heroTitle": "Osnovano od strane Arhitekta Prihoda.",

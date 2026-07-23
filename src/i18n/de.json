@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Projekte",
     "metricsCapital": "660.000 EUR Kapital beschafft",
     "metricsROI": "412% Durchschn. ROI",
-    "metricsLanguages": "6 Sprachen"
+    "metricsLanguages": "6 Sprachen",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI bei einer Unternehmensanleihen-Restrukturierung",
+    "proof2Label": "in weniger als 30 Tagen eingeworben"
   },
   "about": {
     "heroTitle": "Gegründet von einem Umsatz-Architekten.",

@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Projects",
     "metricsCapital": "EUR 660K Capital Raised",
     "metricsROI": "412% Avg ROI",
-    "metricsLanguages": "6 Languages"
+    "metricsLanguages": "6 Languages",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI on a corporate bond restructure",
+    "proof2Label": "raised in under 30 days"
   },
   "about": {
     "heroTitle": "Founded by a Revenue Architect.",

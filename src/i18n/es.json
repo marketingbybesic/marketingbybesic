@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Proyectos",
     "metricsCapital": "660.000 EUR de capital recaudado",
     "metricsROI": "412% ROI promedio",
-    "metricsLanguages": "6 Idiomas"
+    "metricsLanguages": "6 Idiomas",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI en una reestructuración de bonos corporativos",
+    "proof2Label": "captados en menos de 30 días"
   },
   "about": {
     "heroTitle": "Fundado por un Arquitecto de Ingresos.",

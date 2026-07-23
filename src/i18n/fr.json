@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Projets",
     "metricsCapital": "660 000 EUR de capital leve",
     "metricsROI": "412% ROI moyen",
-    "metricsLanguages": "6 Langues"
+    "metricsLanguages": "6 Langues",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI sur une restructuration d'obligations d'entreprise",
+    "proof2Label": "levés en moins de 30 jours"
   },
   "about": {
     "heroTitle": "Fonde par un Architecte du Revenu.",

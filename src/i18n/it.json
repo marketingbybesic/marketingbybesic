@@ -67,7 +67,11 @@
     "metricsProjects": "50+ Progetti",
     "metricsCapital": "660.000 EUR di capitale raccolto",
     "metricsROI": "412% ROI medio",
-    "metricsLanguages": "6 Lingue"
+    "metricsLanguages": "6 Lingue",
+    "proof1Value": "412%",
+    "proof2Value": "€660k",
+    "proof1Label": "ROI su una ristrutturazione di obbligazioni societarie",
+    "proof2Label": "raccolti in meno di 30 giorni"
   },
   "about": {
     "heroTitle": "Fondato da un Architetto dei Ricavi.",
